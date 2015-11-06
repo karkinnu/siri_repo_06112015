@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/
  */
 
-// test comment
+// test comment kkn
 
 @Configuration
 @EnableTransactionManagement
