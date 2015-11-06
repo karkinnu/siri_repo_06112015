@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 /**
- * Entity JPA toteututs.
+ * Entity JPA toteututs.      GIT testi 2015111033
  * Managed Bean tarjotaan JSF:lle. VOidaan käyttää JSF:n kontrollerista
  */
 
