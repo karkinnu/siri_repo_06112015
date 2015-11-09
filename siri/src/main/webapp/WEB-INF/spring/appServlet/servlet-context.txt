@@ -24,5 +24,4 @@
 	<context:component-scan base-package="fi.javaee.siri" />
 	
 	
-	
 </beans:beans>

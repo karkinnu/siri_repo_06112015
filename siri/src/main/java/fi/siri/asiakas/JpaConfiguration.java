@@ -1,4 +1,4 @@
-package fi.javaee.siri;
+package fi.siri.asiakas;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/
  */
 
-
 @Configuration
 @EnableTransactionManagement
 public class JpaConfiguration {
@@ -45,7 +44,7 @@ public class JpaConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(this.getDataSource());
 		// haetaan luokkia ao. paketin alta
-		em.setPackagesToScan(new String[] { "fi.javaee.siri" });
+		em.setPackagesToScan(new String[] { "fi.siri.asiakas" });
 
 		// JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		// em.setJpaVendorAdapter(vendorAdapter);
@@ -96,7 +95,7 @@ public class JpaConfiguration {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/jee");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/siridb");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root66");
 
