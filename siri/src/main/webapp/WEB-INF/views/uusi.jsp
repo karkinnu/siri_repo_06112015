@@ -15,7 +15,7 @@
 
 
 	<p>
-		<a href="<c:url value='/' />">Listaa koneet</a>
+		<a href="<c:url value='/1' />">Listaa koneet</a>
 	</p>
 </body>
 </html>

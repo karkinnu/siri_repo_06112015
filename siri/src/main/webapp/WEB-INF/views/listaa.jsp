@@ -15,6 +15,6 @@
 	</c:forEach>
 
 	<p>
-		<a href="lomake">Syötä uusi</a>
+		<a href="1/lomake">Syötä uusi</a>
 </body>
 </html>

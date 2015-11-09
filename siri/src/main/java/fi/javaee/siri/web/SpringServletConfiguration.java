@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "fi.javaee.siri")
+@ComponentScan(basePackages = "fi.javaee.siri,fi.javaee.siri.controller")
 public class SpringServletConfiguration {
     @Bean
     public ViewResolver viewResolver() {
@@ -19,8 +19,7 @@ public class SpringServletConfiguration {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
-        
- 
+
         return viewResolver;
     }
  

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
   /tietokoneet/kone/nimi
 */
 @Controller
-@RequestMapping(value = "/")
+@RequestMapping(value = "/1")
 public class TietokoneController {
 
 	// Injektoidaan standardi JPA:ta käyttävä TietokoneDAO komponentti
