@@ -35,8 +35,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/
  */
 
-// test comment 3 kkn
-
 @Configuration
 @EnableTransactionManagement
 public class JpaConfiguration {
@@ -46,7 +44,7 @@ public class JpaConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(this.getDataSource());
 		// haetaan luokkia ao. paketin alta
-		em.setPackagesToScan(new String[] { "fi.javaee.siri"});
+		em.setPackagesToScan(new String[] { "fi.javaee.siri" });
 
 		// JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		// em.setJpaVendorAdapter(vendorAdapter);
@@ -97,7 +95,7 @@ public class JpaConfiguration {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/siridb");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/jee");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root66");
 
