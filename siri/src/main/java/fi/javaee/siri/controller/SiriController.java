@@ -11,7 +11,6 @@ public class SiriController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcomePage(Model model) {
-		System.out.println("*** WELCOME ***");
 		return "welcome";
 	}
 
