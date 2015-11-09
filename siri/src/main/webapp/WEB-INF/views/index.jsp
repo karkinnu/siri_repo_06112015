@@ -9,12 +9,6 @@
 
 </head>
 <body>
-	<h1>Tietokoneet listattuna JPA-tietokannasta</h1>
-	<c:forEach var="tietokone" items="${tietokoneet}">
-		<p>${tietokone.merkki} ja ${tietokone.malli}</p>
-	</c:forEach>
-
-	<p>
-		<a href="1/lomake">Syötä uusi</a>
+<a href="asiakkaat/listaa">Asiakkaat</a>
 </body>
 </html>
