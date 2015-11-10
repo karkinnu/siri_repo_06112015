@@ -15,7 +15,7 @@
 
 
 	<p>
-		<a href="<c:url value='/asiakkaat' />">Listaa asiakkaat</a>
+		<a href="<c:url value='/customers/list' />">Listaa asiakkaat</a>
 	</p>
 </body>
 </html>

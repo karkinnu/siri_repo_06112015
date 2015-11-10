@@ -41,6 +41,6 @@
 	</form:form>
 	<br />
 	<br />
-	<a href="<c:url value='/asiakkaat/listaa' />">Listaa asiakkaat</a>
+	<a href="<c:url value='/customers/list' />">Listaa asiakkaat</a>
 </body>
 </html>

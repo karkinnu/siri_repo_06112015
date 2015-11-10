@@ -11,8 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @Configuration
 @EnableWebMvc
-//@ComponentScan(basePackages = "fi.javaee.siri,fi.javaee.siri.controller")
-@ComponentScan(basePackages = "fi.javaee.siri.controller")
+@ComponentScan(basePackages = "fi.javaee.siri.controller, fi.siri.asiakas, fi.javaee.siri.config")
 public class SpringServletConfiguration {
     @Bean
     public ViewResolver viewResolver() {
