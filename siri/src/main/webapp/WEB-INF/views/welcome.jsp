@@ -17,12 +17,20 @@
 </head>
 
 <body>
-
-	<h2>Hieno kuva</h2>
-
-	<br />
-	<br />
+	<!-- <img src="file:///home/oppi2/Projekti_workspace/siri_repo_06112015/siri/siri.jpeg"/> -->
+	<!-- img src="<c:url value="${siri/src/main/resources/images/siri.jpeg}"/> "/-->
+	<h2>SIRI - Customer Management System</h2>
+	<br/>
+	<br/>
 	<a href="<c:url value='/login' />">Login</a>
+	<br/>
+	<br/>
+	<br/>
+	Temporary links:
+	<br/>
+	<a href="<c:url value='/main' />">Customer management</a>
+	<br/>
+	<a href="<c:url value='/admin' />">Administrator</a>
 	<br/>
 </body>
 </html>

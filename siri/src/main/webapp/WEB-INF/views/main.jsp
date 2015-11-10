@@ -20,8 +20,8 @@
 
 	<h2>CUSTOMER MANAGEMENT PAGE</h2>
 
-	<br />
-	<br />
+	<br/>
+	<br/>
 	<a href="<c:url value='/customers' />">Customers</a>
 	<br/>
 	<a href="<c:url value='/companies' />">Company of Heroes</a>
