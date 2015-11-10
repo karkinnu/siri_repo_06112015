@@ -1,4 +1,4 @@
-package fi.siri.asiakas;
+package fi.javaee.siri.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class JpaConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(this.getDataSource());
 		// haetaan luokkia ao. paketin alta
-		em.setPackagesToScan(new String[] { "fi.siri.asiakas" });
+		em.setPackagesToScan(new String[] { "fi.javaee.siri.controller", "fi.siri.asiakas" });
 
 		// JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		// em.setJpaVendorAdapter(vendorAdapter);

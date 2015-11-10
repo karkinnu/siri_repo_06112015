@@ -11,16 +11,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import fi.siri.asiakas.Asiakas;
-import fi.siri.asiakas.AsiakasDAO;
-
 /* Kutsutaan suhteessa alkupolkuun, esim. 
   /Asiakaset/koneet/listaa
   /Asiakaset/kone/uusi
   /Asiakaset/kone/nimi
 */
 @Controller
-@RequestMapping(value = "/asiakkaat")
+//@RequestMapping(value = "/asiakkaat")
+@RequestMapping(value = "/customers")
 public class AsiakasController {
 
 	// Injektoidaan standardi JPA:ta käyttävä AsiakasDAO komponentti
@@ -30,29 +28,30 @@ public class AsiakasController {
 	private AsiakasDAO ap;
 
 
+	
 	// Lomakkeen luominen
-
 	@RequestMapping(value = "/lomake", method = RequestMethod.GET)
 	public String newForm(Model model) {
+		System.out.println("*****Uusi asiakas *****");
 		Asiakas tk = new Asiakas();
 		model.addAttribute("asiakas", tk);
-		return "lomakeAsiakas";
+		return "formCustomer";
 	}
 
 	// Lomakkeen tietojen ottaminen vastaan
 
-	@RequestMapping(value = "/uusi", method = RequestMethod.POST)
+	@RequestMapping(value = "/lomake", method = RequestMethod.POST)
 	public String addNew(@Valid Asiakas ak, ModelMap model) {
-
+		System.out.println("*****Uusi asiakas kantaan *****");
 
 		// tallennetaan lomakkeelta luettu kone
 		Asiakas asiakas = ap.save(ak);
 		model.addAttribute("asiakas", asiakas);
-		return "uusiAsiakas";
+		return "newCustomer";
 	}
 
 	// Kaikki Asiakkaat listattuna
-	@RequestMapping(value = "/listaa",method = RequestMethod.GET)
+	@RequestMapping(value = "/list",method = RequestMethod.GET)
 	public String getAll(Model model) {
 		System.out.println("*****Listaa asiakkaat *****");
 		List<Asiakas> asiakkaat = ap.findAll();
@@ -63,7 +62,7 @@ public class AsiakasController {
 		ap.save(as);
 		model.addAttribute("asiakkaat", asiakkaat);
 		System.out.println("*****Asiakas sivulle*****");
-		return "listaaAsiakkaat";
+		return "customers";
 	}
 	
 }

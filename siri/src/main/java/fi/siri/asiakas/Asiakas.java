@@ -21,10 +21,10 @@ public class Asiakas implements Serializable {
 	private Long asiakasId;
 	private String nimi;
 	private	String puhelin;
-//	private String sahkoposti;
+	private String sahkoposti;
 //	private	Image valokuva;
-//	private	String maa;
-//	private String osoite;
+	private	String maa;
+	private String osoite;
 	
 	public Asiakas (){
 		
@@ -65,14 +65,14 @@ public class Asiakas implements Serializable {
 	public void setPuhelin(String puhelin) {
 		this.puhelin = puhelin;
 	}
-//
-//	public String getSahkoposti() {
-//		return sahkoposti;
-//	}
-//
-//	public void setSahkoposti(String sahkoposti) {
-//		this.sahkoposti = sahkoposti;
-//	}
+
+	public String getSahkoposti() {
+		return sahkoposti;
+	}
+
+	public void setSahkoposti(String sahkoposti) {
+		this.sahkoposti = sahkoposti;
+	}
 //
 //	public Image getValokuva() {
 //		return valokuva;
@@ -86,24 +86,24 @@ public class Asiakas implements Serializable {
 //		return maa;
 //	}
 //
-//	public void setMaa(String maa) {
-//		this.maa = maa;
-//	}
-//
-//	public String getOsoite() {
-//		return osoite;
-//	}
-//
-//	public void setOsoite(String osoite) {
-//		this.osoite = osoite;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Asiakas [henkiloId=" + asiakasId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", sahkoposti="
-//				+ sahkoposti + ", valokuva=" + valokuva + ", maa=" + maa + ", osoite=" + osoite + "]";
-//	}
-//
+	public void setMaa(String maa) {
+		this.maa = maa;
+	}
+
+	public String getOsoite() {
+		return osoite;
+	}
+
+	public void setOsoite(String osoite) {
+		this.osoite = osoite;
+	}
+
+	@Override
+	public String toString() {
+		return "Asiakas [henkiloId=" + asiakasId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", sahkoposti="
+				+ sahkoposti + ",  maa=" + maa + ", osoite=" + osoite + "]";
+	}
+
 //	
 
 }
