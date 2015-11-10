@@ -1,4 +1,4 @@
-package fi.siri.asiakas;
+package fi.javaee.siri.yritys;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,9 +22,9 @@ import org.springframework.transaction.annotation.Propagation;
  * Hyvä tutorial: http://www.baeldung.com/spring-dao-jpa
  */
 
-@Repository("asiakasDao")
+@Repository("yritysDao")
 @Transactional(propagation = Propagation.REQUIRED)
-public class AsiakasDAO implements Serializable {
+public class YritysDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,34 +40,34 @@ public class AsiakasDAO implements Serializable {
 		this.em = em;
 	}
 
-	public AsiakasDAO() {
+	public YritysDAO() {
 		super();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Asiakas> findAll() {
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t").getResultList();
+	public List<Yritys> findAll() {
+		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Asiakas t").getResultList();
 		return asiakkaat;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Asiakas> findByName(String nimi) {
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.nimi=:nimi")
+	public List<Yritys> findByName(String nimi) {
+		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Asiakas t where t.nimi=:nimi")
 				.setParameter("nimi", nimi).getResultList();
 		return asiakkaat;
 	}
 
-	public Asiakas save(Asiakas asiakas) {
+	public Yritys save(Yritys asiakas) {
 		em.persist(asiakas);
 		return asiakas;
 	}
 	
-	public Asiakas update(Asiakas asiakas) {
+	public Yritys update(Yritys asiakas) {
 		em.merge(asiakas);
 		return asiakas;
 	}
 
-	public void delete(Asiakas asiakas) {
+	public void delete(Yritys asiakas) {
 		em.remove(asiakas);
 	}
 

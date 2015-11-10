@@ -1,4 +1,4 @@
-package fi.siri.asiakas;
+package fi.javaee.siri.asiakas;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package fi.siri.asiakas;
+package fi.javaee.siri.asiakas;
 
 import java.util.List;
 
