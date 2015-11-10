@@ -5,16 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Asiakkaiden tiedot</title>
+<title>Customers</title>
 
 </head>
 <body>
-	<h1>Asiakkaat listattuna JPA-tietokannasta</h1>
+	<h1>All customers</h1>
 	<c:forEach var="asiakas" items="${asiakkaat}">
-		<p>${asiakas.nimi} ${asiakas.puhelin}</p>
+		<p>${asiakas.nimi} ${asiakas.puhelin} ${asiakas.sahkoposti}</p>
 	</c:forEach>
 
 	<p>
-		<a href="lomake">Syötä uusi</a>
+		<a href="lomake">Add new customer</a>
 </body>
 </html>

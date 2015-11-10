@@ -5,17 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lisätyn asiakkaan tiedot</title>
+<title>New customer added</title>
 
 </head>
 <body>
-	<h1>Uusi asiakas syötetty</h1>
+	<h1>New customer added</h1>
 
-	<p>${asiakas.nimi} ja ${asiakas.puhelin}</p>
-
-
+	<p>${asiakas.nimi} ${asiakas.puhelin}</p>
 	<p>
-		<a href="<c:url value='/customers/list' />">Listaa asiakkaat</a>
+		<a href="<c:url value='/customers/list' />">All customers</a>
 	</p>
 </body>
 </html>

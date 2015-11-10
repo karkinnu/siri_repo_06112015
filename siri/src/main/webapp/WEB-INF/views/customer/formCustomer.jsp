@@ -6,41 +6,36 @@
 <html>
 
 <head>
-<title>Uusi kone</title>
+<title>New customer</title>
 
 <style>
 .error {
 	color: #ff0000;
 }
 </style>
-
 </head>
-
 <body>
-
-	<h2>Uusi asiakas</h2>
-
+	<h2>New customer</h2>
 	<form:form method="POST" modelAttribute="asiakas">
-
 		<table>
 			<tr>
-				<td><label for="nimi">Nimi: </label></td>
+				<td><label for="nimi">Name: </label></td>
 				<td><form:input path="nimi" id="nimi" /></td>
 				<td><form:errors path="nimi" cssClass="nimi" /></td>
 			</tr>
 			<tr>
-				<td><label for="puhelin">Puhelin: </label></td>
+				<td><label for="puhelin">Phone: </label></td>
 				<td><form:input path="puhelin" id="puhelin" /></td>
 				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="uusi"  /></td>
+				<td><input type="submit" value="new"  /></td>
 			</tr>
 
 		</table>
 	</form:form>
 	<br />
 	<br />
-	<a href="<c:url value='/customers/list' />">Listaa asiakkaat</a>
+	<a href="<c:url value='/customers/list' />">All customers</a>
 </body>
 </html>

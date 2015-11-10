@@ -35,7 +35,7 @@ public class AsiakasController {
 		System.out.println("*****Uusi asiakas *****");
 		Asiakas tk = new Asiakas();
 		model.addAttribute("asiakas", tk);
-		return "formCustomer";
+		return "/customer/formCustomer";
 	}
 
 	// Lomakkeen tietojen ottaminen vastaan
@@ -47,7 +47,7 @@ public class AsiakasController {
 		// tallennetaan lomakkeelta luettu kone
 		Asiakas asiakas = ap.save(ak);
 		model.addAttribute("asiakas", asiakas);
-		return "newCustomer";
+		return "/customer/newCustomer";
 	}
 
 	// Kaikki Asiakkaat listattuna
@@ -62,7 +62,7 @@ public class AsiakasController {
 		ap.save(as);
 		model.addAttribute("asiakkaat", asiakkaat);
 		System.out.println("*****Asiakas sivulle*****");
-		return "customers";
+		return "/customer/customers";
 	}
 	
 }
