@@ -1,4 +1,4 @@
-package fi.siri.asiakas;
+package fi.javaee.siri.asiakas;
 
 import java.awt.Image;
 import java.io.Serializable;
