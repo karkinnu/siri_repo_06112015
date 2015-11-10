@@ -34,13 +34,13 @@
 				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="new"  /></td>
+				<td><input type="submit" value="save"  /></td>
 			</tr>
 
 		</table>
 	</form:form>
 	<br />
 	<br />
-	<a href="<c:url value='/customers/list' />">List of companies</a>
+	<a href="<c:url value='/companies/' />">List of companies</a>
 </body>
 </html>

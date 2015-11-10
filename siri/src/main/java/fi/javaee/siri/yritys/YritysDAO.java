@@ -46,13 +46,13 @@ public class YritysDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public List<Yritys> findAll() {
-		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Asiakas t").getResultList();
+		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Yritys t").getResultList();
 		return asiakkaat;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Yritys> findByName(String nimi) {
-		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Asiakas t where t.nimi=:nimi")
+		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Yritys t where t.nimi=:nimi")
 				.setParameter("nimi", nimi).getResultList();
 		return asiakkaat;
 	}

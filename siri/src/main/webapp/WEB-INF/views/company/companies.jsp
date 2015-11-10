@@ -15,6 +15,6 @@
 	</c:forEach>
 
 	<p>
-		<a href="form">Syötä uusi</a>
+		<a href="form">New company</a>
 </body>
 </html>

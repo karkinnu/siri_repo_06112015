@@ -30,7 +30,7 @@
 	<br/>
 	<a href="<c:url value='/main' />">Customer management</a>
 	<br/>
-	<a href="<c:url value='/admin' />">Administrator</a>
+	<a href="<c:url value='/admin' />">Administrator Tools</a>
 	<br/>
 </body>
 </html>
