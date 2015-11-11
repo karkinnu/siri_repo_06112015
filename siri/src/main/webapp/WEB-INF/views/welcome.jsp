@@ -8,17 +8,13 @@
 <head>
 <title>Welcome</title>
 
-<style>
-.error {
-	color: #ff0000;
-}
-</style>
+<link rel="stylesheet" href="resources/styles/common.css" type="text/css" />
+<link rel="stylesheet" href="resources/styles/form.css" type="text/css" />
 
 </head>
 
 <body>
-	<!-- <img src="file:///home/oppi2/Projekti_workspace/siri_repo_06112015/siri/siri.jpeg"/> -->
-	<!-- img src="<c:url value="${siri/src/main/resources/images/siri.jpeg}"/> "/-->
+	<img id=logo src="resources/images/siri.jpeg"/>
 	<h2>SIRI - Customer Management System</h2>
 	<br/>
 	<br/>

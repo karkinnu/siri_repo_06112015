@@ -22,6 +22,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 /* Spring 4 versiossa kaikki konfiguraatiot voidaan JPA:lle tehdä Javalla - koodilla ja
  * annotaatioilla ilman yhtään riviä XML:ää. Tässä esimerkissä on strategiaksi valittu
@@ -102,5 +103,5 @@ public class JpaConfiguration {
 
 		return dataSource;
 	}
-
+	
 }

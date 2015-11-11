@@ -1,0 +1,27 @@
+body {
+	font-family: sans-serif;
+	font-weight: lighter;
+}
+
+#logo{
+	color: #4A72B0;	
+	padding-left: 20em;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+h1 {
+	color: #555555;
+	font-weight: normal;
+	letter-spacing:2px;
+}
+h3 {
+	font-weight: normal;
+	letter-spacing:1px;
+}
+
+a {
+	color: #4A72B0;
+}
