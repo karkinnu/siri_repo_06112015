@@ -44,7 +44,8 @@ public class JpaConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(this.getDataSource());
 		// haetaan luokkia ao. paketin alta
-		em.setPackagesToScan(new String[] { "fi.javaee.siri.controller", "fi.javaee.siri.asiakas", "fi.javaee.siri.yritys" });
+		//em.setPackagesToScan(new String[] { "fi.javaee.siri.controller", "fi.javaee.siri.asiakas", "fi.javaee.siri.yritys" });
+		em.setPackagesToScan(new String[] { "fi.javaee.siri" });
 
 		// JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		// em.setJpaVendorAdapter(vendorAdapter);
