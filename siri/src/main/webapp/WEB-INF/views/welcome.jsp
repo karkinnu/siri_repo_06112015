@@ -15,10 +15,10 @@
 
 <body>
 	<img id=logo src="resources/images/siri.jpeg"/>
-	<P class="blocktext">SIRI - Customer Management System</P>
+	<P class="blocktext">Customer Management System</P>
 	<br/>
 	<br/>
-	<a href="<c:url value='/login' />">Login</a>
+	<a class=loginButton href="<c:url value='/login' />">Login</a>
 	<br/>
 	<br/>
 	<br/>

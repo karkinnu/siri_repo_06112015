@@ -9,10 +9,26 @@ body {
     margin-right: auto
 }
 
+a.loginButton {
+	width: 4em;
+	height: 2em; 
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: #8ae234;
+	box-shadow: 10px 10px 5px #888888;
+	padding: 10px 10px 10px 10px;
+	border-radius:15px;
+	text-align: center;
+	text-decoration: none;
+
+}
+
 P.blocktext {
     margin-left: auto;
     margin-right: auto;
-    width: 6em
+    width: 6em;
+    font-weight: bold;
 }
 
 h2 {
