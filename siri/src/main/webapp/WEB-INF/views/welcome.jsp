@@ -15,7 +15,7 @@
 
 <body>
 	<img id=logo src="resources/images/siri.jpeg"/>
-	<h2>SIRI - Customer Management System</h2>
+	<P class="blocktext">SIRI - Customer Management System</P>
 	<br/>
 	<br/>
 	<a href="<c:url value='/login' />">Login</a>
