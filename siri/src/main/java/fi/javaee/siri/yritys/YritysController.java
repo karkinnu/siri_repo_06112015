@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fi.javaee.siri.asiakas.Asiakas;
 
 @Controller
-@RequestMapping(value = "/companies")
+@RequestMapping(value = "/companies/list")
 public class YritysController {
 
 	// Injektoidaan standardi JPA:ta käyttävä AsiakasDAO komponentti
@@ -23,27 +23,35 @@ public class YritysController {
 	// @Autowired
 	private YritysDAO yp;
 
+    @RequestMapping(value="delete", method=RequestMethod.GET)
+    public String delete(Model model, Long id) {
+        System.out.println("Delete:" + id);
+    	yp.delete(id);
 
-	
+		List<Yritys> yritykset = yp.findAll();
+		model.addAttribute("companies", yritykset);
+		return "company_list";
+    }
+
 	// Lomakkeen luominen
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
 	public String newForm(Model model) {
-		System.out.println("GET");
+		System.out.println("Get:" + model.toString());
 		Yritys yritys = new Yritys();
 		model.addAttribute("company", yritys);
-		return "/company/formCompany";
+		return "company_form";
 	}
 
 	// Lomakkeen tietojen ottaminen vastaan
 	@RequestMapping(value = "/form", method = RequestMethod.POST)
 	public String addNew(@Valid Yritys yr, ModelMap model) {
-		System.out.println("POST");
+		System.out.println("Post:" + yr.getNimi());
 		// tallennetaan lomakkeelta luettu kone
 		Yritys yritys = yp.save(yr);
 
 		List<Yritys> yritykset = yp.findAll();
 		model.addAttribute("companies", yritykset);
-		return "/company/companies";
+		return "company_list";
 	}
 
 	// Kaikki Asiakkaat listattuna
@@ -61,7 +69,7 @@ public class YritysController {
 //		yritykset.add(yritys2);	
 //		yp.save(yritys2);
 		model.addAttribute("companies", yritykset);
-		return "/company/companies";
+		return "company_list";
 	}
 	
 }

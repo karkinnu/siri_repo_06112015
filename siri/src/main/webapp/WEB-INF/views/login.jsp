@@ -32,8 +32,11 @@
 
 		</table>
 	</form:form>
-	<br />
-	<br />
+	<br/>
+	<br/>
 	<a href="<c:url value='/customers/list' />">All customers</a>
+	<br/>
+	<br/>
+	<a href="<c:url value='/companies/list/' />">List of Companies</a>
 </body>
 </html>	
