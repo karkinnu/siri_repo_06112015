@@ -6,13 +6,11 @@
 <html>
 <head>
 <title>Login</title>
-<style>
-.error {
-	color: #ff0000;
-}
-</style>
+ <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
+
 <body>
+<div class=login>
 	<h1>Login</h1>
 	<form:form method="POST" modelAttribute="user">
 		<table>
@@ -41,6 +39,6 @@
 		<br/>
 	<br/>
 	<a href="<c:url value='/users/logout' />">Logout</a>
-	
+</div>
 </body>
 </html>	

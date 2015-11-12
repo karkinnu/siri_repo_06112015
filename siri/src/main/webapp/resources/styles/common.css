@@ -1,7 +1,7 @@
-body {
-	font-family: sans-serif;
-	font-weight: lighter;
-}
+/* body { */
+/* 	font-family: sans-serif; */
+/* 	font-weight: lighter; */
+/* } */
 
 #logo{
     display: block;
@@ -30,6 +30,25 @@ P.logoText {
     width: 10em;
     font-weight: bold;
     text-align: center;
+}
+div.login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+		padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #FCFCFC;
+	border-color: #555555;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
 }
 
 h2 {

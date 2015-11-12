@@ -26,7 +26,6 @@ public class SpringServletConfiguration extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
     
-    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/styles/**").addResourceLocations("/styles/").setCachePeriod(31556926);
         registry.addResourceHandler("/images/**").addResourceLocations("/images/").setCachePeriod(31556926);
@@ -34,7 +33,6 @@ public class SpringServletConfiguration extends WebMvcConfigurerAdapter {
     }
 
     // equivalent for <mvc:default-servlet-handler/> tag
-    @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
