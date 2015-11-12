@@ -19,7 +19,6 @@
 <body>
 
 	<h2>ADMIN PAGE</h2>
-
 	<br />
 	<br />
 	<a href="<c:url value='/users/add'/>">Add new user</a>
