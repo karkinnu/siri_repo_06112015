@@ -14,18 +14,27 @@
 }
 </style>
 
+<script>
+	function autoFill() {
+	    document.getElementById("nimi").value = "Company";
+	    document.getElementById("puhelin").value = "0401234567";
+	    document.getElementById("osoite").value = "Tikanmaja";
+	    document.getElementById("nettisivu").value = "www.apple.com";
+	    document.getElementById("ytunnus").value = "Y-12345";
+	}
+</script>
 </head>
 
 <body>
 
-	<h2>NEW COMPANY</h2>
+	<h2>ADD NEW COMPANY</h2>
 
 	<form:form method="POST" modelAttribute="company">
 
 		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
-				<td><form:input path="nimi" id="nimi" /></td>
+				<td><form:input type="text" path="nimi" id="nimi" /></td>
 				<td><form:errors path="nimi" cssClass="nimi" /></td>
 			</tr>
 			<tr>
@@ -48,15 +57,12 @@
 				<td><form:input path="ytunnus" id="ytunnus" /></td>
 				<td><form:errors path="ytunnus" cssClass="ytunnus" /></td>
 			</tr>
-			<tr>
-				<td><input type="submit" value="save" /></td>
-				<td><input type="button" value="auto fill" /></td>
-			</tr>
-
 		</table>
+		<br/>
+		<input type="submit" value="save" />
+		<input type="button" value="auto fill" onclick="autoFill()"/>
+		<a class="button" href="<c:url value='/companies/list/' />">Back</a>
+		<input type="button" value="back" onclick="/companies/list/"></>
 	</form:form>
-	<br />
-	<br />
-	<a href="<c:url value='/companies/list/' />">List of companies</a>
 </body>
 </html>
