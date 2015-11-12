@@ -17,6 +17,8 @@ import fi.javaee.siri.asiakas.Asiakas;
 @RequestMapping(value = "/companies/list")
 public class YritysController {
 
+	private Yritys origYritys = null;
+
 	// Injektoidaan standardi JPA:ta käyttävä AsiakasDAO komponentti
 
 	@Inject
@@ -29,6 +31,27 @@ public class YritysController {
     	yp.delete(id);
 
 		List<Yritys> yritykset = yp.findAll();
+		model.addAttribute("companies", yritykset);
+		return "company_list";
+    }
+
+    @RequestMapping(value="edit", method=RequestMethod.GET)
+    public String editGet(Model model, Long id) {
+        System.out.println("Edit get:" + id);
+    	Yritys yritys = yp.edit(id);
+    	origYritys = yritys;
+        System.out.println("orig:" + origYritys);
+		model.addAttribute("company", yritys);
+		return "company_edit";
+    }
+
+   @RequestMapping(value="edit", method=RequestMethod.POST)
+    public String edit(@Valid Yritys yr, ModelMap model) {
+		System.out.println("Edit post:" + yr.getNimi());
+		yr.setYritysId(origYritys.getYritysId());
+   		yp.update(origYritys, yr);
+
+    	List<Yritys> yritykset = yp.findAll();
 		model.addAttribute("companies", yritykset);
 		return "company_list";
     }

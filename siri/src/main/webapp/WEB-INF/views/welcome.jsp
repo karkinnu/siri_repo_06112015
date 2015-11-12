@@ -8,8 +8,8 @@
 <head>
 <title>Welcome</title>
 
-<link rel="stylesheet" href="resources/styles/common.css" type="text/css" />
-<link rel="stylesheet" href="resources/styles/form.css" type="text/css" />
+ <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
+
 
 </head>
 

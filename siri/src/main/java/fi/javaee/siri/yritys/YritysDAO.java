@@ -62,7 +62,11 @@ public class YritysDAO implements Serializable {
 		return yritys;
 	}
 	
-	public Yritys update(Yritys yritys) {
+	public Yritys update(Yritys original, Yritys yritys) {
+		System.out.println("Update: " + yritys);
+		if (em.contains(original)) {
+			System.out.println("yritys loytyi: " + yritys);
+		}
 		em.merge(yritys);
 		return yritys;
 	}
@@ -82,4 +86,17 @@ public class YritysDAO implements Serializable {
 		}
 	}
 
+	public Yritys edit(Long id) {
+		Yritys yritys = null;
+		System.out.println("Try edit...");
+		@SuppressWarnings("unchecked")
+		List<Yritys> yritykset = (List<Yritys>) em.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
+		for (Yritys y : yritykset) {
+			System.out.println("Edit: " + y.getNimi());
+			yritys = y;
+			break;
+		}
+		
+		return yritys;
+	}
 }
