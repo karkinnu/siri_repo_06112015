@@ -24,11 +24,12 @@ a.loginButton {
 
 }
 
-P.blocktext {
+P.logoText {
     margin-left: auto;
     margin-right: auto;
-    width: 6em;
+    width: 10em;
     font-weight: bold;
+    text-align: center;
 }
 
 h2 {

@@ -15,18 +15,18 @@
 
 <body>
 	<img id=logo src="resources/images/siri.jpeg"/>
-	<P class="blocktext">Customer Management System</P>
+	<P class="logoText">Customer Management System</P>
 	<br/>
 	<br/>
 	<a class=loginButton href="<c:url value='/users/login' />">Login</a>
 	<br/>
 	<br/>
 	<br/>
-	Temporary links:
-	<br/>
-	<a href="<c:url value='/main' />">Customer management</a>
-	<br/>
-	<a href="<c:url value='/admin' />">Administrator Tools</a>
-	<br/>
+<!-- 	Temporary links: -->
+<!-- 	<br/> -->
+<%-- 	<a href="<c:url value='/main' />">Customer management</a> --%>
+<!-- 	<br/> -->
+<%-- 	<a href="<c:url value='/admin' />">Administrator Tools</a> --%>
+<!-- 	<br/> -->
 </body>
 </html>
