@@ -17,7 +17,14 @@ public class UserController {
 	// @Autowired
 	private UserDAO up;
 	
-	// Lomakkeen luominen
+	
+		// Login lomakkeen luominen
+		@RequestMapping( method = RequestMethod.GET)
+		public String users(Model model) {
+			return "admin";
+		}
+	
+		// Login lomakkeen luominen
 		@RequestMapping(value = "/login", method = RequestMethod.GET)
 		public String loginForm(Model model) {
 			up.deleteUser("Dummy");
@@ -29,13 +36,11 @@ public class UserController {
 			return "login";
 		}
 
-		// Lomakkeen tietojen ottaminen vastaan
+		// Käyttäjän tunnistus
 
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		
 		public String checkUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-		
-		//public String checkUser(@Valid User user, ModelMap model) {
 			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
 			String nextPage = "main";
 			User user2 = up.findByUserName(user.getUsername());
@@ -55,9 +60,40 @@ public class UserController {
 			return nextPage;
 		}
 		
+		// Logout
 		@RequestMapping(value = "/logout", method = RequestMethod.GET)
 		public String logoutForm(Model model) {
 			System.out.println("*****logout *****");
 			return "welcome";
+		}
+		
+		// Käyttäjän lisäys
+		@RequestMapping(value = "/add", method = RequestMethod.GET)
+				public String addUserForm( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
+			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
+			return "userAdd";
+		}
+		
+		// Käyttäjän lisäys
+		@RequestMapping(value = "/add", method = RequestMethod.POST)
+				public String addUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
+			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
+			up.saveUser(user);
+			return "admin";
+		}
+
+		// Käyttäjän poisto
+		@RequestMapping(value = "/remove", method = RequestMethod.GET)
+		public String removeUserForm( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
+			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
+			return "userRemove";
+		}
+		
+		// Käyttäjän poisto
+		@RequestMapping(value = "/remove", method = RequestMethod.POST)
+		public String removeUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
+			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());	
+			up.deleteUser(user.getPassword());
+			return "admin";
 		}
 }
