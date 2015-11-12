@@ -34,20 +34,26 @@ public class UserDAO implements Serializable {
 	
 	@SuppressWarnings("unchecked")
 	public User findByUserName(String username) {
-
-		System.out.println("UserDao:findByUserName");
-		List<User> users = new ArrayList<User>();
-		System.out.println("UserDao:findByUserName:Database query");
-		users = em.createQuery("select t from User where t where t.username=:username")
+		
+		List<User> users = new ArrayList<User>();	
+		users = em.createQuery("select t from User t where t.username LIKE :username")
 				.setParameter("username", username).getResultList();
 		
-		System.out.println("UserDao:findByUserName: number of users"+users.size());
 		if (users.size() > 0) {
 			
 			return users.get(0);
 		} else {
 			return null;
 		}
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void deleteUser(String username) {
+		
+	System.out.println("UserDAO:deleteUser");
+		int deletedItems = em.createQuery("delete from User t where t.username LIKE :username")
+				.setParameter("username", username).executeUpdate();
 
 	}
 	

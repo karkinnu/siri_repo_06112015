@@ -20,6 +20,7 @@ public class UserController {
 	// Lomakkeen luominen
 		@RequestMapping(value = "/login", method = RequestMethod.GET)
 		public String loginForm(Model model) {
+			up.deleteUser("Dummy");
 			User x = new User("Dummy", "Dummy", true);
 			up.saveUser(x);
 			System.out.println("*****login *****");
@@ -36,7 +37,7 @@ public class UserController {
 		
 		//public String checkUser(@Valid User user, ModelMap model) {
 			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
-			String nextPage = "/user/main";
+			String nextPage = "main";
 			User user2 = up.findByUserName(user.getUsername());
 			if (user2!=null){
 				if (user2.getPassword().equals(user.getPassword())){
