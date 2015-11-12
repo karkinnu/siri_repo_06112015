@@ -17,7 +17,7 @@
 <body>
 	<h2>New customer</h2>
 	<form:form method="POST" modelAttribute="asiakas">
-		<table>
+<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input path="nimi" id="nimi" /></td>
@@ -29,7 +29,24 @@
 				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="new"  /></td>
+				<td><label for="sahkoposti">E-mail: </label></td>
+				<td><form:input path="sahkoposti" id="sahkoposti" /></td>
+				<td><form:errors path="sahkoposti" cssClass="sahkoposti" /></td>
+			</tr>
+			<tr>
+				<td><label for="maa">E-mail: </label></td>
+				<td><form:input path="maa" id="maa" /></td>
+				<td><form:errors path="maa" cssClass="maa" /></td>
+			</tr>
+			<tr>
+				<td><label for="osoite">Address: </label></td>
+				<td><form:input path="osoite" id="osoite" /></td>
+				<td><form:errors path="osoite" cssClass="osoite" /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="save" /></td>
+				<td><input type="button" value="auto fill" /></td>
 			</tr>
 
 		</table>

@@ -9,6 +9,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import fi.javaee.siri.yritys.Yritys;
+
 import org.springframework.transaction.annotation.Propagation;
 
 
@@ -67,8 +70,14 @@ public class AsiakasDAO implements Serializable {
 		return asiakas;
 	}
 
-	public void delete(Asiakas asiakas) {
-		em.remove(asiakas);
+	public void delete(Long id) {
+		System.out.println("Try remove...");
+		@SuppressWarnings("unchecked")
+		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		for (Asiakas asiakas : asiakkaat) {
+			System.out.println("Remove: " + asiakas.getNimi());
+			em.remove(asiakas);
+			break;
+		}
 	}
-
 }

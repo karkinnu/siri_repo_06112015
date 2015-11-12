@@ -11,6 +11,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fi.javaee.siri.yritys.Yritys;
+
 /* Kutsutaan suhteessa alkupolkuun, esim. 
   /Asiakaset/koneet/listaa
   /Asiakaset/kone/uusi
@@ -27,7 +29,15 @@ public class AsiakasController {
 	// @Autowired
 	private AsiakasDAO ap;
 
+    @RequestMapping(value="delete", method=RequestMethod.GET)
+    public String delete(Model model, Long id) {
+        System.out.println("Delete:" + id);
+    	ap.delete(id);
 
+		List<Asiakas> asiakkaat = ap.findAll();
+		model.addAttribute("companies", asiakkaat);
+		return "customer_list";
+    }
 	
 	// Lomakkeen luominen
 	@RequestMapping(value = "/lomake", method = RequestMethod.GET)
@@ -35,7 +45,7 @@ public class AsiakasController {
 		System.out.println("*****Uusi asiakas *****");
 		Asiakas tk = new Asiakas();
 		model.addAttribute("asiakas", tk);
-		return "/customer/formCustomer";
+		return "/customer_form";
 	}
 
 	// Lomakkeen tietojen ottaminen vastaan
@@ -47,7 +57,7 @@ public class AsiakasController {
 		// tallennetaan lomakkeelta luettu kone
 		Asiakas asiakas = ap.save(ak);
 		model.addAttribute("asiakas", asiakas);
-		return "/customer/newCustomer";
+		return "/customer_added";
 	}
 
 	// Kaikki Asiakkaat listattuna
@@ -62,7 +72,7 @@ public class AsiakasController {
 		ap.save(as);
 		model.addAttribute("asiakkaat", asiakkaat);
 		System.out.println("*****Asiakas sivulle*****");
-		return "/customer/customers";
+		return "/customer_list";
 	}
 	
 }
