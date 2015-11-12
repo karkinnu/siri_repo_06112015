@@ -13,6 +13,16 @@
 	color: #ff0000;
 }
 </style>
+
+<script>
+	function autoFill() {
+	    document.getElementById("nimi").value = "Company";
+	    document.getElementById("puhelin").value = "0401234567";
+	    document.getElementById("sahkoposti").value = "etunimi.sukumi@sahkoposti.fi";
+	    document.getElementById("maa").value = "Maa";
+	    document.getElementById("osoite").value = "Tikanmaja";
+	}
+</script>
 </head>
 <body>
 	<h2>New customer</h2>
@@ -29,12 +39,12 @@
 				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
 			</tr>
 			<tr>
-				<td><label for="sahkoposti">E-mail: </label></td>
+				<td><label for="sahkoposti">Country: </label></td>
 				<td><form:input path="sahkoposti" id="sahkoposti" /></td>
 				<td><form:errors path="sahkoposti" cssClass="sahkoposti" /></td>
 			</tr>
 			<tr>
-				<td><label for="maa">E-mail: </label></td>
+				<td><label for="maa">Maa: </label></td>
 				<td><form:input path="maa" id="maa" /></td>
 				<td><form:errors path="maa" cssClass="maa" /></td>
 			</tr>
@@ -46,7 +56,7 @@
 
 			<tr>
 				<td><input type="submit" value="save" /></td>
-				<td><input type="button" value="auto fill" /></td>
+				<td><input type="button" value="auto fill" onclick="autoFill()" /></td>
 			</tr>
 
 		</table>
