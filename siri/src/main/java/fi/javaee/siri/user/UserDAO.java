@@ -1,6 +1,7 @@
 package fi.javaee.siri.user;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,8 +10,6 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import fi.javaee.siri.asiakas.Asiakas;
 
 @Repository("userDao")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -32,13 +31,19 @@ public class UserDAO implements Serializable {
 	public UserDAO() {
 		super();
 	}
+	
 	@SuppressWarnings("unchecked")
 	public User findByUserName(String username) {
 
-			List<User> users = (List<User>) em.createQuery("select from User where t where t.username=:username")
+		System.out.println("UserDao:findByUserName");
+		List<User> users = new ArrayList<User>();
+		System.out.println("UserDao:findByUserName:Database query");
+		users = em.createQuery("select t from User where t where t.username=:username")
 				.setParameter("username", username).getResultList();
 		
+		System.out.println("UserDao:findByUserName: number of users"+users.size());
 		if (users.size() > 0) {
+			
 			return users.get(0);
 		} else {
 			return null;
@@ -46,4 +51,11 @@ public class UserDAO implements Serializable {
 
 	}
 	
+	@SuppressWarnings("unchecked")
+	public User saveUser(User user) {
+
+		em.persist(user);
+		return user;
+
+	}
 }
