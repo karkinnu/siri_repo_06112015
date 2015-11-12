@@ -21,7 +21,7 @@
 	</div>
 	<br/>
 
-	<form method="get" action="order.jsp">
+	<form method="get">
     <table width="100%">
 		<tr>
 		<th style="text-align: left">Name</th>
