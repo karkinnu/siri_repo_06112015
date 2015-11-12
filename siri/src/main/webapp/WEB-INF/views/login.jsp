@@ -26,7 +26,7 @@
 				<td><form:input type="password" path="password" id="password" /></td>  
 				<td><form:errors path="password" cssClass="assword" /></td>  
 			</tr>
-			<tr>
+			<tr> 
 				<td><input type="submit" value="login"  /></td>
 			</tr>
 
