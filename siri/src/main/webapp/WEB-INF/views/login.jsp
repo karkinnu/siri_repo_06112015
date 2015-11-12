@@ -20,12 +20,12 @@
 				<td><form:errors path="username" cssClass="username" /></td>
 			</tr>
 			<tr>
-				<td><label for="password">PASSWORD: </label></td>
-				<td><form:input path="password" id="password" /></td>
-				<td><form:errors path="password" cssClass="assword" /></td>
+			    <td><label for="password">PASSWORD: </label></td>             
+				<td><form:input type="password" path="password" id="password" /></td>  
+				<td><form:errors path="password" cssClass="assword" /></td>  
 			</tr>
-			<tr>
-				<td><input type="submit" value="submit"  /></td>
+			<tr> 
+				<td><input type="submit" value="login"  /></td>
 			</tr>
 
 		</table>
@@ -38,7 +38,7 @@
 	<a href="<c:url value='/companies/list/' />">List of Companies</a>
 		<br/>
 	<br/>
-	<a href="<c:url value='/users/logout' />">Logout</a>
-</div>
+	<a href="<c:url value='/' />">Logout</a>
+
 </body>
 </html>	
