@@ -49,5 +49,10 @@ public class UserController {
 			}
 			return nextPage;
 		}
-
+		
+		@RequestMapping(value = "/logout", method = RequestMethod.GET)
+		public String logoutForm(Model model) {
+			System.out.println("*****logout *****");
+			return "welcome";
+		}
 }

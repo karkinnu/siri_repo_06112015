@@ -38,5 +38,9 @@
 	<br/>
 	<br/>
 	<a href="<c:url value='/companies/list/' />">List of Companies</a>
+		<br/>
+	<br/>
+	<a href="<c:url value='/users/logout' />">Logout</a>
+	
 </body>
 </html>	
