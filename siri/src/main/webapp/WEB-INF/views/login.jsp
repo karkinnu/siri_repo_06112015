@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Sisäänkirjautuminen</title>
+<title>Login</title>
 <style>
 .error {
 	color: #ff0000;
@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-	<h1>KIRJAUDU SISÄÄN</h1>
+	<h1>Login</h1>
 	<form:form method="POST" modelAttribute="user">
 		<table>
 			<tr>
