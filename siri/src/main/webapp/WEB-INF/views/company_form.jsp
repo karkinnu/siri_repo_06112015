@@ -23,10 +23,10 @@
 	    document.getElementById("ytunnus").value = "Y-12345";
 	}
 </script>
+
 </head>
 
 <body>
-
 	<h2>ADD NEW COMPANY</h2>
 
 	<form:form method="POST" modelAttribute="company">
@@ -61,8 +61,9 @@
 		<br/>
 		<input type="submit" value="save" />
 		<input type="button" value="auto fill" onclick="autoFill()"/>
+		<br/>
+		<br/>
 		<a class="button" href="<c:url value='/companies/list/' />">Back</a>
-		<input type="button" value="back" onclick="/companies/list/"></>
 	</form:form>
 </body>
 </html>
