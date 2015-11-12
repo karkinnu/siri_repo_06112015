@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "fi.javaee.siri.controller, fi.javaee.siri.asiakas, fi.javaee.siri.yritys, fi.javaee.siri.config")
+@ComponentScan(basePackages = "fi.javaee.siri.user, fi.javaee.siri.controller, fi.javaee.siri.asiakas, fi.javaee.siri.yritys, fi.javaee.siri.config")
 public class SpringServletConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {

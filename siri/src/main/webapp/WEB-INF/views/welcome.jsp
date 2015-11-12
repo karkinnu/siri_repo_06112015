@@ -18,7 +18,7 @@
 	<P class="blocktext">Customer Management System</P>
 	<br/>
 	<br/>
-	<a class=loginButton href="<c:url value='/login' />">Login</a>
+	<a class=loginButton href="<c:url value='/users/login' />">Login</a>
 	<br/>
 	<br/>
 	<br/>

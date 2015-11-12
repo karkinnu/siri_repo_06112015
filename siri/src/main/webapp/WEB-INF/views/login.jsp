@@ -1,47 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
-<%@ page session="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 <title>Sisäänkirjautuminen</title>
-<link rel="stylesheet" href="resources/styles/common.css" type="text/css" />
-<link rel="stylesheet" href="resources/styles/form.css" type="text/css" />
+<style>
+.error {
+	color: #ff0000;
+}
+</style>
 </head>
 <body>
-	<div id="sisalto">
 	<h1>KIRJAUDU SISÄÄN</h1>
-
-	<c:if test="${not empty loginerror}">
-		<p class="Error">Sisäänkirjautuminen epäonnistui. Käyttäjätunnus tai salasana on syötetty väärin.</p>
-	</c:if>
-
-	<c:if test="${not empty loggedout}">
-		<p class="Info">Uloskirjautuminen onnistui</p>
-	</c:if>
-	
-	<form action="j_spring_security_check" method="post">
-	<fieldset>
+	<form:form method="POST" modelAttribute="user">
 		<table>
-		<tr><td>USERNAME:</td><td><input type='text' name='j_username' value=''></td></tr>
-		<tr><td>PASSWORD:</td><td><input type='password' name='j_password' /></td></tr>
-		<tr><td>&nbsp;</td><td><button type="submit">Kirjaudu</button></td></tr>
+			<tr>
+				<td><label for="username">USERNAME: </label></td>
+				<td><form:input path="username" id="username" /></td>
+				<td><form:errors path="username" cssClass="username" /></td>
+			</tr>
+			<tr>
+				<td><label for="password">PASSWORD: </label></td>
+				<td><form:input path="password" id="password" /></td>
+				<td><form:errors path="password" cssClass="assword" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="submit"  /></td>
+			</tr>
+
 		</table>
-	</fieldset>
-	</form>
-	</div>
-	
-	
-		<h2>LOGIN PAGE vanhasta jha</h2>
-		<br />
+	</form:form>
 	<br />
-	<a href="<c:url value='/main' />">Customer management</a>
-	<br/>
-	<a href="<c:url value='/admin' />">Administrator</a>
-	<br/>
-	<br/>
-	<a href="<c:url value='/'/>">Back</a>
-	<br/>
+	<br />
+	<a href="<c:url value='/customers/list' />">All customers</a>
 </body>
-</html>
+</html>	
