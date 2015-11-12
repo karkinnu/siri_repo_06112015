@@ -28,6 +28,9 @@
 	<a href="<c:url value='/companies/list/' />">List of Companies</a>
 	<br/>
 	<br/>
+	<a href="<c:url value='/users' />">Admin</a>
+	<br/>
+	<br/>
 	<a href="<c:url value='/'/>">Back</a>
 	<br/>
 </body>

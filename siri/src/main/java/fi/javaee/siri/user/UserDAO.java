@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
+ 
 @Repository("userDao") 
 @Transactional(propagation = Propagation.REQUIRED)
 public class UserDAO implements Serializable {
@@ -51,7 +51,7 @@ public class UserDAO implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void deleteUser(String username) {
 		
-	System.out.println("UserDAO:deleteUser");
+		System.out.println("UserDAO:deleteUser");
 		int deletedItems = em.createQuery("delete from User t where t.username LIKE :username")
 				.setParameter("username", username).executeUpdate();
 
@@ -61,6 +61,15 @@ public class UserDAO implements Serializable {
 	public User saveUser(User user) {
 
 		em.persist(user);
+		return user;
+
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public User removeUser(User user) {
+
+		em.remove(user);
 		return user;
 
 	}

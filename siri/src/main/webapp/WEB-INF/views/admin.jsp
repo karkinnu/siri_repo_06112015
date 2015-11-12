@@ -19,10 +19,10 @@
 <body>
 
 	<h2>ADMIN PAGE</h2>
-
 	<br />
 	<br />
-	<a href="<c:url value='/what' />">Toiminnoja...</a>
+	<a href="<c:url value='/users/add'/>">Add new user</a>
+	<a href="<c:url value='/users/remove'/>">Remove user</a>
 	<br/>
 	<br/>
 	<br/>

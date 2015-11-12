@@ -71,5 +71,5 @@ public class YritysController {
 		model.addAttribute("companies", yritykset);
 		return "company_list";
 	}
-	
+
 }
