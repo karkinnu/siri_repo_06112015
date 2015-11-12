@@ -10,6 +10,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
  
 @Repository("userDao") 
 @Transactional(propagation = Propagation.REQUIRED)
@@ -60,6 +62,10 @@ public class UserDAO implements Serializable {
 	@SuppressWarnings("unchecked")
 	public User saveUser(User user) {
 
+		StandardPasswordEncoder spe = new StandardPasswordEncoder();
+		String salasana = user.getPassword();
+		String kryptattuna = spe.encode(salasana);
+		user.setPassword(kryptattuna);
 		em.persist(user);
 		return user;
 

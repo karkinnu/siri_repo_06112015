@@ -3,12 +3,14 @@ package fi.javaee.siri.user;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
  
 @Controller
 @RequestMapping(value = "/users")  
@@ -44,8 +46,11 @@ public class UserController {
 			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
 			String nextPage = "main";
 			User user2 = up.findByUserName(user.getUsername());
+			
+			StandardPasswordEncoder encoder = new StandardPasswordEncoder();				
+			
 			if (user2!=null){
-				if (user2.getPassword().equals(user.getPassword())){
+				if ( encoder.matches(user.getPassword(), user2.getPassword() ) ){  // kirjoitettu ss, taulusta kryptattu ss
 					
 				}
 				else{		
