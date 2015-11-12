@@ -20,8 +20,6 @@
 		<a href="<c:url value='/users/login'/>">Back</a>
 	</div>
 	<br/>
-	<br/>
-
 
 	<form method="get" action="order.jsp">
     <table width="100%">

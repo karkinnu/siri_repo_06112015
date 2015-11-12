@@ -11,7 +11,7 @@
 <body>
 	<h1>New customer added</h1>
 
-	<p>${asiakas.nimi} ${asiakas.puhelin}</p>
+	<p>${asiakas.nimi} ${asiakas.puhelin} ${asiakas.sahkoposti} ${asiakas.osoite} ${asiakas.maa}</p>
 	<p>
 		<a href="<c:url value='/customers/list' />">All customers</a>
 	</p>

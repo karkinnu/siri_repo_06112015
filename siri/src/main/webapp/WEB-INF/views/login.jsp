@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Sisäänkirjautuminen</title>
+<title>Login</title>
 <style>
 .error {
 	color: #ff0000;
@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-	<h1>KIRJAUDU SISÄÄN</h1>
+	<h1>Login</h1>
 	<form:form method="POST" modelAttribute="user">
 		<table>
 			<tr>
@@ -38,5 +38,9 @@
 	<br/>
 	<br/>
 	<a href="<c:url value='/companies/list/' />">List of Companies</a>
+		<br/>
+	<br/>
+	<a href="<c:url value='/users/logout' />">Logout</a>
+	
 </body>
 </html>	

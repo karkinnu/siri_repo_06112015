@@ -30,23 +30,23 @@ public class Asiakas implements Serializable {
 		
 	}
 
-	public Asiakas(String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
+	public Asiakas( Long asiakasId, String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
 			String osoite) {
 		super();
-
+		this.asiakasId = asiakasId;
 		this.nimi = nimi;
 		this.puhelin = puhelin;
-//		this.sahkoposti = sahkoposti;
+		this.sahkoposti = sahkoposti;
 //		this.valokuva = valokuva;
-//		this.maa = maa;
-//		this.osoite = osoite;
+		this.maa = maa;
+		this.osoite = osoite;
 	}
 
-	public Long getHenkiloId() {
+	public Long getasiakasId() {
 		return asiakasId;
 	}
 
-	public void setHenkiloId(Long asiakasId) {
+	public void setasiakasId(Long asiakasId) {
 		this.asiakasId = asiakasId;
 	}
 
@@ -82,10 +82,10 @@ public class Asiakas implements Serializable {
 //		this.valokuva = valokuva;
 //	}
 //
-//	public String getMaa() {
-//		return maa;
-//	}
-//
+	public String getMaa() {
+		return maa;
+	}
+
 	public void setMaa(String maa) {
 		this.maa = maa;
 	}
