@@ -18,20 +18,18 @@
 
 <body>
 
-	<h2>CUSTOMER MANAGEMENT PAGE</h2>
-
+	<h2>Tools</h2>
+	<br/>
+	<a href="<c:url value='/customers/list/' />">Customer Management</a>
 	<br/>
 	<br/>
-	<a href="<c:url value='/customers/list/' />">List of Customers</a>
+	<a href="<c:url value='/companies/list/' />">Company Management</a>
 	<br/>
 	<br/>
-	<a href="<c:url value='/companies/list/' />">List of Companies</a>
+	<a href="<c:url value='/admin' />">Administrator Tools</a>
 	<br/>
 	<br/>
-	<a href="<c:url value='/users' />">Admin</a>
 	<br/>
-	<br/>
-	<a href="<c:url value='/'/>">Back</a>
-	<br/>
+	<a href="<c:url value='/'/>">Logout</a>
 </body>
 </html>

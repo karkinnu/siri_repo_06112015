@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Customers</title>
+<title>Customer</title>
 
 </head>
 <body>
-	<h1>List of Customers</h1>
+	<h1>Customer Management</h1>
 
    	<div>
 		<a href="form">Add new customer</a>

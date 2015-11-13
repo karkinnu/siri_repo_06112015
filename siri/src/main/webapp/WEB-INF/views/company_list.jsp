@@ -8,10 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Companies</title>
+<title>Company</title>
 </head>
 <body>
-	<h1>List of Companies</h1>
+	<h1>Company Management</h1>
 
    	<div>
 		<a href="form">Add new company</a>

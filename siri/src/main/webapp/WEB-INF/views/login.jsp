@@ -31,14 +31,10 @@
 		</table>
 	</form:form>
 	<br/>
+	<a href="<c:url value='/main' />">Main Page</a>
 	<br/>
-	<a href="<c:url value='/customers/list/' />">List of Customers</a>
 	<br/>
-	<br/>
-	<a href="<c:url value='/companies/list/' />">List of Companies</a>
-		<br/>
-	<br/>
-	<a href="<c:url value='/' />">Logout</a>
-
+	<a href="<c:url value='/' />">Back</a>
+</div>
 </body>
 </html>	

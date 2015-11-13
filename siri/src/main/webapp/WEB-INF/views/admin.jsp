@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<title>Admin</title>
+<title>Administrator</title>
 
 <style>
 .error {
@@ -18,18 +18,24 @@
 
 <body>
 
-	<h2>ADMIN PAGE</h2>
+	<h2>Administrator Tools</h2>
+	<br />
+	<a href="<c:url value='/admin' />">User Management</a>
 	<br />
 	<br />
+	<a href="<c:url value='/admin' />">Role Management</a>
+	<br />
+	<br />
+	Temporary links, will be removed
+	<br/>
 	<a href="<c:url value='/users/add'/>">Add new user</a>
+	<br/>
 	<a href="<c:url value='/users/remove'/>">Remove user</a>
 	<br/>
 	<br/>
+	<a href="<c:url value='/main' />">Back</a>
+	<br/>
 	<br/>
 	<a href="<c:url value='/'/>">Logout</a>
-	<br/>
-		<br/>
-	<a href="<c:url value='//main' />">Back</a>
-	<br/>
 </body>
 </html>
