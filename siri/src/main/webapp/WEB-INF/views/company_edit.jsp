@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<title>New Company</title>
+<title>Company</title>
 
 <style>
 .error {
@@ -15,21 +15,15 @@
 </style>
 
 <script>
-function autoFill() {
-    document.getElementById("nimi").value = "Company";
-    document.getElementById("puhelin").value = "0401234567";
-    document.getElementById("osoite").value = "Tikanmaja";
-    document.getElementById("nettisivu").value = "www.apple.com";
-    document.getElementById("ytunnus").value = "Y-12345";
-}
 </script>
 
 </head>
 
 <body>
-	<h2>Add New Company</h2>
+	<h2>EDIT COMPANY</h2>
 
 	<form:form method="POST" modelAttribute="company">
+
 		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
@@ -59,7 +53,6 @@ function autoFill() {
 		</table>
 		<br/>
 		<input type="submit" value="save" />
-		<input type="button" value="auto fill" onclick="autoFill()"/>
 		<br/>
 		<br/>
 		<a class="button" href="<c:url value='/companies/list/' />">Back</a>

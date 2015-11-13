@@ -57,7 +57,7 @@ public class YritysController {
     }
 
 	// Lomakkeen luominen
-	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	@RequestMapping(value = "form", method = RequestMethod.GET)
 	public String newForm(Model model) {
 		System.out.println("Get:" + model.toString());
 		Yritys yritys = new Yritys();
@@ -66,7 +66,7 @@ public class YritysController {
 	}
 
 	// Lomakkeen tietojen ottaminen vastaan
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
+	@RequestMapping(value = "form", method = RequestMethod.POST)
 	public String addNew(@Valid Yritys yr, ModelMap model) {
 		System.out.println("Post:" + yr.getNimi());
 		// tallennetaan lomakkeelta luettu kone

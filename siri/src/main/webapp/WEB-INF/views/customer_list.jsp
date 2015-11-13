@@ -9,17 +9,16 @@
 
 </head>
 <body>
-	<h1>All customers</h1>
-	
-	<div>
-		<a href="<c:url value='/users/login'/>">Back</a>
+	<h1>List of Customers</h1>
+
+   	<div>
+		<a href="form">Add new customer</a>
+		<br/>
+		<a href="<c:url value='/main'/>">Back</a>
 	</div>
 	<br/>
 
-		<a href="lomake">Add new customer</a>
-		
-		
-		<form method="get" action="order.jsp">
+	<form method="get">
     <table width="100%">
 		<tr>
 		<th style="text-align: left">Name</th>
@@ -47,8 +46,5 @@
 		</c:forEach>
 	</table>
 	</form>
-		
-		
-		
 </body>
 </html>

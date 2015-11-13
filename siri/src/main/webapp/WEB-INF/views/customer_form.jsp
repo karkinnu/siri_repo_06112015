@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<title>New customer</title>
+<title>New Customer</title>
 
 <style>
 .error {
@@ -16,18 +16,21 @@
 
 <script>
 	function autoFill() {
-	    document.getElementById("nimi").value = "Company";
+	    document.getElementById("nimi").value = "Jasmina JavaScript";
 	    document.getElementById("puhelin").value = "0401234567";
 	    document.getElementById("sahkoposti").value = "etunimi.sukumi@sahkoposti.fi";
 	    document.getElementById("maa").value = "Maa";
 	    document.getElementById("osoite").value = "Tikanmaja";
 	}
 </script>
+
 </head>
+
 <body>
-	<h2>New customer</h2>
+	<h2>Add new customer</h2>
+
 	<form:form method="POST" modelAttribute="asiakas">
-<table>
+		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input path="nimi" id="nimi" /></td>
@@ -53,16 +56,13 @@
 				<td><form:input path="osoite" id="osoite" /></td>
 				<td><form:errors path="osoite" cssClass="osoite" /></td>
 			</tr>
-
-			<tr>
-				<td><input type="submit" value="save" /></td>
-				<td><input type="button" value="auto fill" onclick="autoFill()" /></td>
-			</tr>
-
 		</table>
+		<br/>
+		<input type="submit" value="save" />
+		<input type="button" value="auto fill" onclick="autoFill()"/>
+		<br/>
+		<br/>
+		<a class="button" href="<c:url value='/customers/list/' />">Back</a>
 	</form:form>
-	<br />
-	<br />
-	<a href="<c:url value='/customers/list' />">All customers</a>
 </body>
 </html>

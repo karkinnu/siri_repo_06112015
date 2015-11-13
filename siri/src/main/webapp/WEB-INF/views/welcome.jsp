@@ -19,14 +19,5 @@
 	<br/>
 	<br/>
 	<a class=loginButton href="<c:url value='/users/login' />">Login</a>
-	<br/>
-	<br/>
-	<br/>
-<!-- 	Temporary links: -->
-<!-- 	<br/> -->
-<%-- 	<a href="<c:url value='/main' />">Customer management</a> --%>
-<!-- 	<br/> -->
-<%-- 	<a href="<c:url value='/admin' />">Administrator Tools</a> --%>
-<!-- 	<br/> -->
 </body>
 </html>

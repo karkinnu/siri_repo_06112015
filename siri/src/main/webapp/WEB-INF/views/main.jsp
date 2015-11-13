@@ -22,7 +22,7 @@
 
 	<br/>
 	<br/>
-	<a href="<c:url value='/customers/list' />">Customers</a>
+	<a href="<c:url value='/customers/list/' />">List of Customers</a>
 	<br/>
 	<br/>
 	<a href="<c:url value='/companies/list/' />">List of Companies</a>

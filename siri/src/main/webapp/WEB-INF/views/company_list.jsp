@@ -11,13 +11,12 @@
 <title>Companies</title>
 </head>
 <body>
-
 	<h1>List of Companies</h1>
 
    	<div>
 		<a href="form">Add new company</a>
 		<br/>
-		<a href="<c:url value='/users/login'/>">Back</a>
+		<a href="<c:url value='/main'/>">Back</a>
 	</div>
 	<br/>
 
