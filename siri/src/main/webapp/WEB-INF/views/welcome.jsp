@@ -8,13 +8,10 @@
 <head>
 <title>Welcome</title>
 
- <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
-
-
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
-
 <body>
-	<img id=logo src="resources/images/siri.jpeg"/>
+	<img id=logo src="<c:url value="/resources/images/siri.jpeg" />"/>
 	<P class="logoText">Customer Management System</P>
 	<br/>
 	<br/>
