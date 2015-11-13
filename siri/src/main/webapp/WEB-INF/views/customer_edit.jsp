@@ -26,9 +26,7 @@
 
 		<table>
 			<tr>
-				<td><label for="asiakasId">Id: </label></td>
-				<td><form:input type="text" path="asiakasId" id="asiakasId" /></td>
-				<td><form:errors path="asiakasId" cssClass="asiakasId" /></td>
+				<td><form:input type="hidden" path="asiakasId" id="asiakasId" /></td>
 			</tr>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
