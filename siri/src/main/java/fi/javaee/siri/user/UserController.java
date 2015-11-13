@@ -98,7 +98,7 @@ public class UserController {
 		@RequestMapping(value = "/remove", method = RequestMethod.POST)
 		public String removeUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
 			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());	
-			up.deleteUser(user.getPassword());
+			up.deleteUser(user.getUsername());
 			return "admin";
 		}
 }
