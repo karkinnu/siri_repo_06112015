@@ -28,5 +28,8 @@
 	<br/>
 	<a href="<c:url value='/'/>">Logout</a>
 	<br/>
+		<br/>
+	<a href="<c:url value='//main' />">Back</a>
+	<br/>
 </body>
 </html>

@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>New customer</title>
+<title>Remove user</title>
 
 <style>
 .error {
@@ -30,6 +30,9 @@
 	</form:form>
 	<br />
 	<br />
-	<a href="<c:url value='//main' />">All customers</a>
+	<a href="<c:url value='//main' />">Back</a>
+	<br />
+	<br />
+	<a href="<c:url value='/' />">Logout</a>
 </body>
 </html>

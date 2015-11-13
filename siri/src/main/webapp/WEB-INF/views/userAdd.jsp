@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>New customer</title>
+<title>Add user</title>
 
 <style>
 .error {
@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td><label for="password">PASSWORD: </label></td>
-				<td><form:input path="password" id="password" /></td>
+				<td><form:input type="password" path="password" id="password" /></td>
 				<td><form:errors path="password" cssClass="assword" /></td>
 			</tr>
 			<tr>
@@ -35,6 +35,9 @@
 	</form:form>
 	<br />
 	<br />
-	<a href="<c:url value='//main' />">All customers</a>
+	<a href="<c:url value='//main' />">Back</a>
+	<br />
+	<br />
+	<a href="<c:url value='/' />">Logout</a>
 </body>
 </html>
