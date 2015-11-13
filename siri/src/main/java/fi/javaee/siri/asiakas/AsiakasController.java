@@ -25,7 +25,6 @@ public class AsiakasController {
 
     @RequestMapping(value="delete", method=RequestMethod.GET)
     public String delete(Model model, Long id) {
-        System.out.println("Delete:" + id);
     	ap.delete(id);
 		List<Asiakas> asiakkaat = ap.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
@@ -34,7 +33,6 @@ public class AsiakasController {
 
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String editGet(Model model, Long id) {
-        System.out.println("Edit get:" + id);
     	Asiakas asiakas = ap.edit(id);
 		model.addAttribute("asiakas", asiakas);
 		return "customer_edit";
@@ -42,7 +40,6 @@ public class AsiakasController {
 
    @RequestMapping(value="edit", method=RequestMethod.POST)
     public String edit(@Valid Asiakas asiakas, ModelMap model) {
-		System.out.println("Edit post:" + asiakas.getNimi());
    		ap.update(asiakas);
     	List<Asiakas> asiakkaat = ap.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);

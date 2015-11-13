@@ -4,6 +4,6 @@
 	<h1>HTTP Status 403 - Access is denied</h1>
 
 
-<a href="<c:url value='/' />">Welcome</a>
+<a href="<c:url value='/' />">Back</a>
 </body>
 </html>
