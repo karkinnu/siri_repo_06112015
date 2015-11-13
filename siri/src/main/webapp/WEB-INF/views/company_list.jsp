@@ -23,6 +23,7 @@
 	<form method="get">
     <table width="100%">
 		<tr>
+		<th style="text-align: left">Id</th>
 		<th style="text-align: left">Name</th>
 		<th style="text-align: left">Phone</th>
 		<th style="text-align: left">Address</th>
@@ -33,6 +34,7 @@
 		</tr>
 		<c:forEach var="company" items="${companies}">
 	    	<tr>
+				<td style="text-align: left">${company.yritysId}</td>
 				<td style="text-align: left">${company.nimi}</td>
 				<td style="text-align: left">${company.puhelin}</td>
  				<td style="text-align: left">${company.osoite}</td>

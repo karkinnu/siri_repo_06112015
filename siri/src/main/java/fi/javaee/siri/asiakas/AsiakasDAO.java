@@ -80,4 +80,19 @@ public class AsiakasDAO implements Serializable {
 			break;
 		}
 	}
+
+	public Asiakas edit(Long id) {
+		Asiakas asiakas = null;
+		System.out.println("Try edit...");
+		@SuppressWarnings("unchecked")
+		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		for (Asiakas a : asiakkaat) {
+			System.out.println("Edit: " + a.getNimi());
+			asiakas = a;
+			break;
+		}
+		
+		return asiakas;
+	}
+
 }

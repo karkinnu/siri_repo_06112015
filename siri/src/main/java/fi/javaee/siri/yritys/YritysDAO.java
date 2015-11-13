@@ -62,11 +62,7 @@ public class YritysDAO implements Serializable {
 		return yritys;
 	}
 	
-	public Yritys update(Yritys original, Yritys yritys) {
-		System.out.println("Update: " + yritys);
-		if (em.contains(original)) {
-			System.out.println("yritys loytyi: " + yritys);
-		}
+	public Yritys update(Yritys yritys) {
 		em.merge(yritys);
 		return yritys;
 	}

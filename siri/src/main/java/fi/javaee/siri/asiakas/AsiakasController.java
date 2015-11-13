@@ -27,16 +27,31 @@ public class AsiakasController {
     public String delete(Model model, Long id) {
         System.out.println("Delete:" + id);
     	ap.delete(id);
-
 		List<Asiakas> asiakkaat = ap.findAll();
-		model.addAttribute("companies", asiakkaat);
+		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";
     }
-	
+
+    @RequestMapping(value="edit", method=RequestMethod.GET)
+    public String editGet(Model model, Long id) {
+        System.out.println("Edit get:" + id);
+    	Asiakas asiakas = ap.edit(id);
+		model.addAttribute("asiakas", asiakas);
+		return "customer_edit";
+    }
+
+   @RequestMapping(value="edit", method=RequestMethod.POST)
+    public String edit(@Valid Asiakas asiakas, ModelMap model) {
+		System.out.println("Edit post:" + asiakas.getNimi());
+   		ap.update(asiakas);
+    	List<Asiakas> asiakkaat = ap.findAll();
+		model.addAttribute("asiakkaat", asiakkaat);
+		return "customer_list";
+    }
+
 	// Lomakkeen luominen
-	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	@RequestMapping(value = "form", method = RequestMethod.GET)
 	public String newForm(Model model) {
-		System.out.println("*****Uusi asiakas *****");
 		Asiakas tk = new Asiakas();
 		model.addAttribute("asiakas", tk);
 		return "customer_form";
@@ -44,28 +59,26 @@ public class AsiakasController {
 
 	// Lomakkeen tietojen ottaminen vastaan
 
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
+	@RequestMapping(value = "form", method = RequestMethod.POST)
 	public String addNew(@Valid Asiakas ak, ModelMap model) {
-		System.out.println("*****Uusi asiakas kantaan *****");
-
 		// tallennetaan lomakkeelta luettu kone
 		Asiakas asiakas = ap.save(ak);
-		model.addAttribute("asiakas", asiakas);
+		//model.addAttribute("asiakas", asiakas);
+		List<Asiakas> asiakkaat = ap.findAll();
+		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";
 	}
 
 	// Kaikki Asiakkaat listattuna
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String getAll(Model model) {
-		System.out.println("*****Listaa asiakkaat *****");
 		List<Asiakas> asiakkaat = ap.findAll();
-		Asiakas as = new Asiakas();
-		as.setNimi("Seija");
-		as.setPuhelin("0405124362");
-		asiakkaat.add(as);	
-		ap.save(as);
+//		Asiakas as = new Asiakas();
+//		as.setNimi("Seija");
+//		as.setPuhelin("0405124362");
+//		asiakkaat.add(as);	
+//		ap.save(as);
 		model.addAttribute("asiakkaat", asiakkaat);
-		System.out.println("*****Asiakas sivulle*****");
 		return "customer_list";
 	}
 	

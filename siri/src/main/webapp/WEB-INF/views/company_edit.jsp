@@ -20,11 +20,16 @@
 </head>
 
 <body>
-	<h2>EDIT COMPANY</h2>
+	<h2>Edit Company Data</h2>
 
 	<form:form method="POST" modelAttribute="company">
 
 		<table>
+			<tr>
+				<td><label for="yritysId">Id: </label></td>
+				<td><form:input type="text" path="yritysId" id="yritysId" /></td>
+				<td><form:errors path="yritysId" cssClass="yritysId" /></td>
+			</tr>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input type="text" path="nimi" id="nimi" /></td>

@@ -42,12 +42,12 @@ public class Asiakas implements Serializable {
 		this.osoite = osoite;
 	}
 
-	public Long getasiakasId() {
+	public Long getAsiakasId() {
 		return asiakasId;
 	}
 
-	public void setasiakasId(Long asiakasId) {
-		this.asiakasId = asiakasId;
+	public void setAsiakasId(Long id) {
+		this.asiakasId = id;
 	}
 
 	public String getNimi() {

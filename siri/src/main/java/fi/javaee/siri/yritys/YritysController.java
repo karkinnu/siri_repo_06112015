@@ -17,8 +17,6 @@ import fi.javaee.siri.asiakas.Asiakas;
 @RequestMapping(value = "/companies/list")
 public class YritysController {
 
-	private Yritys origYritys = null;
-
 	// Injektoidaan standardi JPA:ta käyttävä AsiakasDAO komponentti
 
 	@Inject
@@ -27,9 +25,7 @@ public class YritysController {
 
     @RequestMapping(value="delete", method=RequestMethod.GET)
     public String delete(Model model, Long id) {
-        System.out.println("Delete:" + id);
     	yp.delete(id);
-
 		List<Yritys> yritykset = yp.findAll();
 		model.addAttribute("companies", yritykset);
 		return "company_list";
@@ -37,20 +33,14 @@ public class YritysController {
 
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String editGet(Model model, Long id) {
-        System.out.println("Edit get:" + id);
     	Yritys yritys = yp.edit(id);
-    	origYritys = yritys;
-        System.out.println("orig:" + origYritys);
 		model.addAttribute("company", yritys);
 		return "company_edit";
     }
 
    @RequestMapping(value="edit", method=RequestMethod.POST)
     public String edit(@Valid Yritys yr, ModelMap model) {
-		System.out.println("Edit post:" + yr.getNimi());
-		yr.setYritysId(origYritys.getYritysId());
-   		yp.update(origYritys, yr);
-
+   		yp.update(yr);
     	List<Yritys> yritykset = yp.findAll();
 		model.addAttribute("companies", yritykset);
 		return "company_list";
@@ -59,7 +49,6 @@ public class YritysController {
 	// Lomakkeen luominen
 	@RequestMapping(value = "form", method = RequestMethod.GET)
 	public String newForm(Model model) {
-		System.out.println("Get:" + model.toString());
 		Yritys yritys = new Yritys();
 		model.addAttribute("company", yritys);
 		return "company_form";
@@ -68,10 +57,8 @@ public class YritysController {
 	// Lomakkeen tietojen ottaminen vastaan
 	@RequestMapping(value = "form", method = RequestMethod.POST)
 	public String addNew(@Valid Yritys yr, ModelMap model) {
-		System.out.println("Post:" + yr.getNimi());
 		// tallennetaan lomakkeelta luettu kone
 		Yritys yritys = yp.save(yr);
-
 		List<Yritys> yritykset = yp.findAll();
 		model.addAttribute("companies", yritykset);
 		return "company_list";
