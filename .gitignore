@@ -6,5 +6,6 @@ tmp/
 *.bak
 .settings/
 .project
+.recommenders
 target/
 Servers
