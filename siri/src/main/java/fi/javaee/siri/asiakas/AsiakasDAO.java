@@ -14,7 +14,6 @@ import fi.javaee.siri.yritys.Yritys;
 
 import org.springframework.transaction.annotation.Propagation;
 
-
 /*
  * Spring 4:ssa ei enää suositellä käytettäväksi erillistä XML-tiedostoa eikä
  * JpaTemplate-luokkaa, vaan toteutetaan suoraan JPA:n pohjalta.
@@ -33,14 +32,14 @@ public class AsiakasDAO implements Serializable {
 	
 		
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager entityManager;
 	
 	public EntityManager getEm() {
-		return em;
+		return entityManager;
 	}
 
 	public void setEm(EntityManager em) {
-		this.em = em;
+		this.entityManager = em;
 	}
 
 	public AsiakasDAO() {
@@ -49,50 +48,46 @@ public class AsiakasDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public List<Asiakas> findAll() {
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t").getResultList();
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t").getResultList();
 		return asiakkaat;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Asiakas> findByName(String nimi) {
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.nimi=:nimi")
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.nimi=:nimi")
 				.setParameter("nimi", nimi).getResultList();
 		return asiakkaat;
 	}
 
 	public Asiakas save(Asiakas asiakas) {
-		em.persist(asiakas);
+		entityManager.persist(asiakas);
 		return asiakas;
 	}
 	
 	public Asiakas update(Asiakas asiakas) {
-		em.merge(asiakas);
+		entityManager.merge(asiakas);
 		return asiakas;
 	}
 
 	public void delete(Long id) {
-		System.out.println("Try remove...");
 		@SuppressWarnings("unchecked")
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
 		for (Asiakas asiakas : asiakkaat) {
-			System.out.println("Remove: " + asiakas.getNimi());
-			em.remove(asiakas);
+			entityManager.remove(asiakas);
 			break;
 		}
 	}
 
 	public Asiakas edit(Long id) {
-		Asiakas asiakas = null;
-		System.out.println("Try edit...");
+		Asiakas tempAsiakas = null;
 		@SuppressWarnings("unchecked")
-		List<Asiakas> asiakkaat = (List<Asiakas>) em.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
-		for (Asiakas a : asiakkaat) {
-			System.out.println("Edit: " + a.getNimi());
-			asiakas = a;
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		for (Asiakas asiakas : asiakkaat) {
+			tempAsiakas = asiakas;
 			break;
 		}
 		
-		return asiakas;
+		return tempAsiakas;
 	}
 
 }

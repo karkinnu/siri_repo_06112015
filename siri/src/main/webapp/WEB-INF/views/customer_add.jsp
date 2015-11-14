@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<title>Edit Customer</title>
+<title>New Customer</title>
 
 <style>
 .error {
@@ -15,19 +15,22 @@
 </style>
 
 <script>
+	function autoFill() {
+	    document.getElementById("nimi").value = "Jasmina JavaScript";
+	    document.getElementById("puhelin").value = "0401234567";
+	    document.getElementById("sahkoposti").value = "etunimi.sukumi@sahkoposti.fi";
+	    document.getElementById("maa").value = "Maa";
+	    document.getElementById("osoite").value = "Tikanmaja";
+	}
 </script>
 
 </head>
 
 <body>
-	<h2>Edit Customer Data</h2>
+	<h2>Add new customer</h2>
 
 	<form:form method="POST" modelAttribute="asiakas">
-
 		<table>
-			<tr>
-				<td><form:input type="hidden" path="asiakasId" id="asiakasId" /></td>
-			</tr>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input path="nimi" id="nimi" /></td>
@@ -56,6 +59,7 @@
 		</table>
 		<br/>
 		<input type="submit" value="save" />
+		<input type="button" value="auto fill" onclick="autoFill()"/>
 		<br/>
 		<br/>
 		<a class="button" href="<c:url value='/customers/list/' />">Back</a>

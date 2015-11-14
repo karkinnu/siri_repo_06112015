@@ -12,7 +12,7 @@
 	<h1>Customer Management</h1>
 
    	<div>
-		<a href="form">Add new customer</a>
+		<a href="add">Add new customer</a>
 		<br/>
 		<a href="<c:url value='/main'/>">Back</a>
 	</div>

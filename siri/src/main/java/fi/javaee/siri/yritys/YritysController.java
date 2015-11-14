@@ -11,74 +11,62 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import fi.javaee.siri.asiakas.Asiakas;
-
 @Controller
 @RequestMapping(value = "/companies/list")
 public class YritysController {
-
-	// Injektoidaan standardi JPA:ta käyttävä AsiakasDAO komponentti
 
 	@Inject
 	// @Autowired
 	private YritysDAO yp;
 
+	// poista
     @RequestMapping(value="delete", method=RequestMethod.GET)
-    public String delete(Model model, Long id) {
+    public String deleteGet(Model model, Long id) {
     	yp.delete(id);
 		List<Yritys> yritykset = yp.findAll();
-		model.addAttribute("companies", yritykset);
+		model.addAttribute("yritykset", yritykset);
 		return "company_list";
     }
 
+    // hae tiedot muutosta varten
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String editGet(Model model, Long id) {
     	Yritys yritys = yp.edit(id);
-		model.addAttribute("company", yritys);
+		model.addAttribute("yritys", yritys);
 		return "company_edit";
     }
 
+    // muuta
    @RequestMapping(value="edit", method=RequestMethod.POST)
-    public String edit(@Valid Yritys yr, ModelMap model) {
+    public String editPost(@Valid Yritys yr, ModelMap model) {
    		yp.update(yr);
     	List<Yritys> yritykset = yp.findAll();
-		model.addAttribute("companies", yritykset);
+		model.addAttribute("yritykset", yritykset);
 		return "company_list";
     }
 
-	// Lomakkeen luominen
-	@RequestMapping(value = "form", method = RequestMethod.GET)
-	public String newForm(Model model) {
+	// hae lomake lisaamista varten
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public String addGet(Model model) {
 		Yritys yritys = new Yritys();
-		model.addAttribute("company", yritys);
-		return "company_form";
+		model.addAttribute("yritys", yritys);
+		return "company_add";
 	}
 
-	// Lomakkeen tietojen ottaminen vastaan
-	@RequestMapping(value = "form", method = RequestMethod.POST)
-	public String addNew(@Valid Yritys yr, ModelMap model) {
-		// tallennetaan lomakkeelta luettu kone
+	// lisaa
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String addPost(@Valid Yritys yr, ModelMap model) {
 		Yritys yritys = yp.save(yr);
 		List<Yritys> yritykset = yp.findAll();
-		model.addAttribute("companies", yritykset);
+		model.addAttribute("yritykset", yritykset);
 		return "company_list";
 	}
 
-	// Kaikki Asiakkaat listattuna
+	// listaa kaikki
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String getAll(Model model) {
 		List<Yritys> yritykset = yp.findAll();
-//		Yritys yritys1 = new Yritys();
-//		yritys1.setNimi("Yritys A");
-//		yritys1.setPuhelin("123");
-//		yritykset.add(yritys1);	
-//		yp.save(yritys1);
-//		Yritys yritys2 = new Yritys();
-//		yritys2.setNimi("Yritys B");
-//		yritys2.setPuhelin("456");
-//		yritykset.add(yritys2);	
-//		yp.save(yritys2);
-		model.addAttribute("companies", yritykset);
+		model.addAttribute("yritykset", yritykset);
 		return "company_list";
 	}
 
