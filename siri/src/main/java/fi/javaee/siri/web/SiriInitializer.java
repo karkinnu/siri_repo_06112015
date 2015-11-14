@@ -9,7 +9,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  Yrittää korvata kaikki web.xml:n konfiguraatiot!
   Servlet 3.0 Container aloittamisen aikana tämä ladataan ja alustetaan ja servlet-ympäristö kutsuu sitä.
  */
-public class TietokoneInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class SiriInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

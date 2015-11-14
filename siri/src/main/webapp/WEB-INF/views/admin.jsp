@@ -20,7 +20,7 @@
 
 	<h2>Administrator Tools</h2>
 	<br />
-	<a href="<c:url value='/admin' />">User Management</a>
+	<a href="<c:url value='/users/list' />">User Management</a>
 	<br />
 	<br />
 	<a href="<c:url value='/admin' />">Role Management</a>
@@ -28,9 +28,9 @@
 	<br />
 	Temporary links, will be removed
 	<br/>
-	<a href="<c:url value='/users/add'/>">Add new user</a>
+	<a href="<c:url value='/users/list/add'/>">Add new user</a>
 	<br/>
-	<a href="<c:url value='/users/remove'/>">Remove user</a>
+	<a href="<c:url value='/users/list/remove'/>">Remove user</a>
 	<br/>
 	<br/>
 	<a href="<c:url value='/main' />">Back</a>

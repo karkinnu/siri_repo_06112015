@@ -30,14 +30,14 @@ public class YritysDAO implements Serializable {
 	
 		
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager entityManager;
 	
-	public EntityManager getEm() {
-		return em;
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 
-	public void setEm(EntityManager em) {
-		this.em = em;
+	public void setEntityManager(EntityManager em) {
+		this.entityManager = em;
 	}
 
 	public YritysDAO() {
@@ -46,49 +46,45 @@ public class YritysDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public List<Yritys> findAll() {
-		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Yritys t").getResultList();
+		List<Yritys> asiakkaat = (List<Yritys>) entityManager.createQuery("select t from Yritys t").getResultList();
 		return asiakkaat;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Yritys> findByName(String nimi) {
-		List<Yritys> asiakkaat = (List<Yritys>) em.createQuery("select t from Yritys t where t.nimi=:nimi")
+		List<Yritys> asiakkaat = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.nimi=:nimi")
 				.setParameter("nimi", nimi).getResultList();
 		return asiakkaat;
 	}
 
 	public Yritys save(Yritys yritys) {
-		em.persist(yritys);
+		entityManager.persist(yritys);
 		return yritys;
 	}
 	
 	public Yritys update(Yritys yritys) {
-		em.merge(yritys);
+		entityManager.merge(yritys);
 		return yritys;
 	}
 
 	public void delete(Yritys yritys) {
-		em.remove(yritys);
+		entityManager.remove(yritys);
 	}
 
 	public void delete(Long id) {
-		System.out.println("Try remove...");
 		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) em.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
+		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
 		for (Yritys yritys : yritykset) {
-			System.out.println("Remove: " + yritys.getNimi());
-			em.remove(yritys);
+			entityManager.remove(yritys);
 			break;
 		}
 	}
 
 	public Yritys edit(Long id) {
 		Yritys yritys = null;
-		System.out.println("Try edit...");
 		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) em.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
+		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
 		for (Yritys y : yritykset) {
-			System.out.println("Edit: " + y.getNimi());
 			yritys = y;
 			break;
 		}

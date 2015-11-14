@@ -21,7 +21,7 @@ public class SiriController {
 	@Inject
 	private UserDAO userDAO;
 
-	// tervetuloa (1. sivu)
+	// 1. sivu - tervetuloa
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcomePage(Model model) {
 		return "welcome";
@@ -33,21 +33,21 @@ public class SiriController {
 		return "test";
 	}
 
-	// Login lomakkeen luominen
+	// login - lomakkeen luominen
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginForm(Model model) {
 		System.out.println("delete");
 		userDAO.deleteUser("Dummy");
-		User x = new User("Dummy", "Dummy", true);
+		User user = new User("Dummy", "Dummy", true);
 		System.out.println("save");
-		userDAO.saveUser(x);
+		userDAO.saveUser(user);
 		System.out.println("*****login *****");
-		User u = new User();
-		model.addAttribute("user", u);
+		user = new User();
+		model.addAttribute("user", user);
 		return "login";
 	}
 
-	// Käyttäjän tunnistus
+	// käyttäjän tunnistus
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String checkUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
 		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
@@ -77,6 +77,7 @@ public class SiriController {
 //		return "login";
 //	}
 
+	// pääkäyttäjan sivu
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(Model model) {
 		return "admin";
@@ -86,6 +87,12 @@ public class SiriController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String userPage(Model model) {
 		return "main";
+	}
+
+	// logout
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutForm(Model model) {
+		return "welcome";
 	}
 
 }

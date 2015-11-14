@@ -16,5 +16,7 @@
 	<br/>
 	<br/>
 	<a class=loginButton href="<c:url value='/login' />">Login</a>
+	<br/>
+	<a href="<c:url value='/main' />">Main Page</a>
 </body>
 </html>

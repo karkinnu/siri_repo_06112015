@@ -34,12 +34,12 @@ public class AsiakasDAO implements Serializable {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public EntityManager getEm() {
+	public EntityManager getEntityManager() {
 		return entityManager;
 	}
 
-	public void setEm(EntityManager em) {
-		this.entityManager = em;
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	public AsiakasDAO() {
