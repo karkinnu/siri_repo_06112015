@@ -6,15 +6,15 @@
 <html>
 
 <head>
-<title>Welcome</title>
+<title>Test</title>
 
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
 <body>
 	<img id=logo src="<c:url value="/resources/images/siri.jpeg" />"/>
-	<P class="logoText">Customer Management System</P>
+	<P class="logoText">Test Page</P>
 	<br/>
 	<br/>
-	<a class=loginButton href="<c:url value='/login' />">Login</a>
+	<a class=loginButton href="<c:url value='/' />">Back</a>
 </body>
 </html>
