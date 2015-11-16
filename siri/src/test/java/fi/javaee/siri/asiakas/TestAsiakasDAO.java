@@ -71,6 +71,7 @@ public class TestAsiakasDAO {
     	
     	asiakas.setNimi("Testi Asiakas2");
     	asiakasDAO.update(asiakas);      	    
+<<<<<<< HEAD
         Asiakas changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getNimi(), changedAsiakas.getNimi());
     	
@@ -117,6 +118,54 @@ public class TestAsiakasDAO {
 
 		Asiakas changedAsiakas= asiakasDAO.update(asiakas);      	    
 		changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
+=======
+        Asiakas changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	Assert.assertEquals(asiakas.getNimi(), changedAsiakas.getNimi());
+    	
+    	asiakas.setPuhelin("0405124362");
+    	asiakasDAO.update(asiakas); 
+    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	Assert.assertEquals(asiakas.getPuhelin(),  changedAsiakas.getPuhelin());
+    	
+    	asiakas.setSahkoposti("testi2.asiakas@testi.com");
+    	asiakasDAO.update(asiakas); 
+    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	Assert.assertEquals(asiakas.getSahkoposti(),  changedAsiakas.getSahkoposti());
+    	    	
+    	asiakas.setMaa("Sweden");
+    	asiakasDAO.update(asiakas); 
+    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	Assert.assertEquals(asiakas.getMaa(),  changedAsiakas.getMaa());
+    	
+    	asiakas.setOsoite("Testiosoite 2");
+    	asiakasDAO.update(asiakas); 
+    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	Assert.assertEquals(asiakas.getOsoite(), changedAsiakas.getOsoite());
+
+     }
+ // AsiakasDAO pitää palauttaa null jos poistaminen ei onnistu
+// 
+//	@Test
+//	@Transactional
+//	@Rollback(true)
+//	public void testRemoveNonexistentAsiakas() {
+// 
+//    	Asiakas deletedAsiakas = asiakasDAO.delete(1);       
+//      Assert.assertEquals(null, deletedAsiakas);
+//     
+//	}
+	
+ 
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testEditNonexistentAsiakas() {
+ 
+		Asiakas asiakas = new Asiakas("Testi Asiakas", "+35811223345", "testi.asiakas@testi.com", null, "Finland", "testiosoite");    	
+
+		Asiakas changedAsiakas= asiakasDAO.update(asiakas);      	    
+		changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+>>>>>>> branch 'master' of https://github.com/karkinnu/siri_repo_06112015.git
 		Assert.assertEquals(null, changedAsiakas);
      
 	}
