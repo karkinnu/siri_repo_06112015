@@ -68,6 +68,7 @@ public class YritysDAO implements Serializable {
 		}
 	}
 
+	// TODO edit -> fingById
 	public Yritys edit(Long id) {
 		Yritys yritys = null;
 		@SuppressWarnings("unchecked")
