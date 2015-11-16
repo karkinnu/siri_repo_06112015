@@ -1,5 +1,8 @@
 package fi.javaee.siri.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +32,20 @@ public class TestUserDAO {
     @Rollback(true)
     public void testAddUser()
     {
-    	User u = new User("TestUser", "TestPassword", true);    	
+		UserRole userRole = new UserRole();
+		userRole.setUserName("TestUser");
+		userRole.setRole("role_admin");
+		
+		List<UserRole> userRoleList = new ArrayList<UserRole>();
+		userRoleList.add(userRole);
+		
+		User u = new User();
+		u.setUsername("TestUser");
+		u.setPassword("TestPassword");
+		u.setEnabled(true);
+		u.setUserRoleList(userRoleList);
+    	
+    	//User u = new User("TestUser", "TestPassword", true);    	
         userDAO.saveUser(u);       
         StandardPasswordEncoder encoder = new StandardPasswordEncoder();	
         
@@ -45,7 +61,22 @@ public class TestUserDAO {
     @Rollback(true)
     public void testRemoveUser()
     {
-    	User u = new User("TestUser", "TestPassword", true);    	
+		UserRole userRole = new UserRole();
+		userRole.setUserName("TestUser");
+		userRole.setRole("role_admin");
+		
+		List<UserRole> userRoleList = new ArrayList<UserRole>();
+		userRoleList.add(userRole);
+		
+		User u = new User();
+		u.setUsername("TestUser");
+		u.setPassword("TestPassword");
+		u.setUserRoleList(userRoleList);
+    	
+    	//User u = new User("TestUser", "TestPassword", true);    	
+        userDAO.saveUser(u);   
+    	
+    	//User u = new User("TestUser", "TestPassword", true);   	
         userDAO.saveUser(u);       
         User searchedUser = userDAO.findByUserName(u.getUsername());
         Assert.assertEquals(u.getUsername(), searchedUser.getUsername());
