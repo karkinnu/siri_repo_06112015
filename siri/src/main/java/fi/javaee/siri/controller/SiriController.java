@@ -1,5 +1,8 @@
 package fi.javaee.siri.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.javaee.siri.user.User;
 import fi.javaee.siri.user.UserDAO;
+import fi.javaee.siri.user.UserRole;
 
 @Controller
 @RequestMapping(value = "/")
@@ -38,7 +42,25 @@ public class SiriController {
 	public String loginForm(Model model) {
 		System.out.println("delete");
 		userDAO.deleteUser("Dummy");
-		User user = new User("Dummy", "Dummy", true);
+		
+		UserRole userRole = new UserRole();
+		userRole.setUserName("Dummy");
+		userRole.setRole("role_admin");
+		
+		UserRole userRole2 = new UserRole();
+		userRole2.setUserName("Dummy");
+		userRole2.setRole("role_user");
+		
+		List<UserRole> userRoleList = new ArrayList<UserRole>();
+		userRoleList.add(userRole);
+		userRoleList.add(userRole2);
+		
+		User user = new User();
+		
+		user.setUsername("Dummy");
+		user.setPassword("Dummy");
+		user.setUserRoleList(userRoleList);
+		
 		System.out.println("save");
 		userDAO.saveUser(user);
 		System.out.println("*****login *****");
