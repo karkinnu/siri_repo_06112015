@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationContextLoader;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -30,8 +31,12 @@ public class TestUserDAO {
     {
     	User u = new User("TestUser", "TestPassword", true);    	
         userDAO.saveUser(u);       
+        StandardPasswordEncoder encoder = new StandardPasswordEncoder();	
+        
         User searchedUser = userDAO.findByUserName(u.getUsername());
         Assert.assertEquals(u.getUsername(), searchedUser.getUsername());
+        Assert.assertTrue(encoder.matches("TestPassword", searchedUser.getPassword()));
+        Assert.assertTrue(searchedUser.isEnabled());
     }
 
     
