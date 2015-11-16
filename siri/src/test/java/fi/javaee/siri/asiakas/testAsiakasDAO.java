@@ -26,6 +26,8 @@ public class testAsiakasDAO {
 	@Autowired
     private AsiakasDAO asiakasDAO;
   
+	// TODO asiakasDAO.edit -> asiakasDAO.findById
+	
 	@Test
 	@Transactional
 	@Rollback(true)
@@ -77,7 +79,7 @@ public class testAsiakasDAO {
     	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getPuhelin(),  changedAsiakas.getPuhelin());
     	
-    	asiakas.setPuhelin("testi2.asiakas@testti.com");
+    	asiakas.setSahkoposti("testi2.asiakas@testi.com");
     	asiakasDAO.update(asiakas); 
     	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getSahkoposti(),  changedAsiakas.getSahkoposti());
@@ -98,7 +100,7 @@ public class testAsiakasDAO {
 //	@Test
 //	@Transactional
 //	@Rollback(true)
-//	public void testRemoveNonexixtentAsiakas() {
+//	public void testRemoveNonexistentAsiakas() {
 // 
 //    	Asiakas deletedAsiakas = asiakasDAO.delete(1);       
 //      Assert.assertEquals(null, deletedAsiakas);
@@ -109,11 +111,10 @@ public class testAsiakasDAO {
 	@Test
 	@Transactional
 	@Rollback(true)
-	public void testEditNonexixtentAsiakas() {
+	public void testEditNonexistentAsiakas() {
  
 		Asiakas asiakas = new Asiakas("Testi Asiakas", "+35811223345", "testi.asiakas@testi.com", null, "Finland", "testiosoite");    	
 
-		asiakas.setNimi("Testi Asiakas2");
 		Asiakas changedAsiakas= asiakasDAO.update(asiakas);      	    
 		changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
 		Assert.assertEquals(null, changedAsiakas);

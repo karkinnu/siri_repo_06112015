@@ -35,6 +35,15 @@ public class Yritys implements Serializable {
 		this.nettiSivu = nettisivu;
 		this.ytunnus = ytunnus;
 	}
+	
+	public Yritys(String nimi, String puhelin, String osoite, String nettisivu, String ytunnus) {
+		super();
+		this.nimi = nimi;
+		this.puhelin = puhelin;
+		this.osoite = osoite;
+		this.nettiSivu = nettisivu;
+		this.ytunnus = ytunnus;
+	}
 
 	public Long getYritysId() {
 		return yritysId;

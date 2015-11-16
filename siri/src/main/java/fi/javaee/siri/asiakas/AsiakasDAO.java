@@ -78,6 +78,7 @@ public class AsiakasDAO implements Serializable {
 		}
 	}
 
+	// TODO edit -> fingById
 	public Asiakas edit(Long id) {
 		Asiakas tempAsiakas = null;
 		@SuppressWarnings("unchecked")
