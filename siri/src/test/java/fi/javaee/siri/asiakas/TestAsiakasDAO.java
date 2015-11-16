@@ -21,7 +21,7 @@ import fi.javaee.siri.config.SiriTestConfiguration;
 @ContextConfiguration(classes = {SiriTestConfiguration.class}, loader = SpringApplicationContextLoader.class)
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
-public class testAsiakasDAO {
+public class TestAsiakasDAO {
 
 	@Autowired
     private AsiakasDAO asiakasDAO;
