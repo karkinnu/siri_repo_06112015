@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td><label for="newPassword">New Password: </label></td>
-				<td><form:input type="text" path="newPassword" id="newpassword" /></td>
+				<td><form:input type="password" path="newPassword" id="newpassword" /></td>
 				<td><form:errors path="newPassword" cssClass="newPassword" /></td>
 			</tr>
 			<tr>
