@@ -27,6 +27,7 @@
 		<table>
 			<tr>
 				<td><form:input type="hidden" path="userId" id="userId" /></td>
+				<td><form:input type="hidden" path="password" id="password" /></td>
 			</tr>
 			<tr>
 				<td><label for="username">Name: </label></td>
@@ -35,8 +36,13 @@
 			</tr>
 			<tr>
 				<td><label for="newPassword">New Password: </label></td>
-				<td><form:input path="newPassword" id="newpassword" /></td>
+				<td><form:input type="text" path="newPassword" id="newpassword" /></td>
 				<td><form:errors path="newPassword" cssClass="newPassword" /></td>
+			</tr>
+			<tr>
+				<td><label for="enabled">Enabled: </label></td>
+				<td><form:checkbox path="enabled" id="enabled" /></td>
+				<td><form:errors path="enabled" cssClass="enabled" /></td>
 			</tr>
 		</table>
 		<br/>

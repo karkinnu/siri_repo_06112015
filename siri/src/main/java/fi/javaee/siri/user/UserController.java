@@ -157,8 +157,14 @@ public class UserController {
 		System.out.println("User: " + user.getUsername());
 		System.out.println("Password: " + user.getPassword());
 		System.out.println("New Password: " + user.getNewPassword());
-		user.setPassword(user.getNewPassword());
+		
+		if (!user.getNewPassword().isEmpty()) { 
+			user.setPassword(user.getNewPassword());
+		}
+
 		userDAO.update(user);
+		System.out.println("user update");
+
 		List<User> yritykset = userDAO.findAll();
 		model.addAttribute("kayttajat", yritykset);
 		return "user_list";
