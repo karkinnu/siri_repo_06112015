@@ -41,6 +41,17 @@ public class Asiakas implements Serializable {
 		this.maa = maa;
 		this.osoite = osoite;
 	}
+	
+	public Asiakas( String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
+			String osoite) {
+		super();
+		this.nimi = nimi;
+		this.puhelin = puhelin;
+		this.sahkoposti = sahkoposti;
+//		this.valokuva = valokuva;
+		this.maa = maa;
+		this.osoite = osoite;
+	}
 
 	public Long getAsiakasId() {
 		return asiakasId;
@@ -100,7 +111,7 @@ public class Asiakas implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Asiakas [henkiloId=" + asiakasId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", sahkoposti="
+		return "Asiakas [asiakasId=" + asiakasId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", sahkoposti="
 				+ sahkoposti + ",  maa=" + maa + ", osoite=" + osoite + "]";
 	}
 

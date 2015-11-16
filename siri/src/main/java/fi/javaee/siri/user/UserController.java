@@ -164,7 +164,7 @@ public class UserController {
 	// listaa kaikki
 	// FIXME: asiakas ja yritys puolella on
 	// @RequestMapping(value = "/", method = RequestMethod.GET)
-	// mutta t‰ss‰ ei voi olla value:ta, ei vaan ..tana toimi jos on!
+	// mutta t√§ss√§ ei voi olla value:ta, ei vaan ..tana toimi jos on!
 	@RequestMapping(method = RequestMethod.GET)
 	public String users(Model model) {
 		List<User> kayttajat = userDAO.findAll();
