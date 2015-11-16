@@ -80,6 +80,10 @@ public class UserDAO implements Serializable {
 	}
 
 	public User update(User user) {
+		StandardPasswordEncoder spe = new StandardPasswordEncoder();
+		String salasana = user.getPassword();
+		String kryptattuna = spe.encode(salasana);
+		user.setPassword(kryptattuna);
 		entityManager.merge(user);
 		return user;
 	}
@@ -88,32 +92,28 @@ public class UserDAO implements Serializable {
 		entityManager.remove(user);
 	}
 
-	public void delete(Long id) {
-		System.out.println("Try remove...");
-		@SuppressWarnings("unchecked")
-		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id")
-				.setParameter("id", id).getResultList();
-		System.out.println("for");
-		for (User kayttaja : kayttajat) {
-			System.out.println("Remove: " + kayttaja.getUsername());
-			entityManager.remove(kayttaja);
-			break;
+	public User delete(Long id) {
+		User user = findById(id);
+		
+		if (user != null) {
+			entityManager.remove(user);
 		}
+
+		return user;
 	}
 
-	public User edit(Long id) {
-		User kayttaja = null;
-		System.out.println("Try edit...");
-		@SuppressWarnings("unchecked")
-		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id")
-				.setParameter("id", id).getResultList();
-		for (User u : kayttajat) {
-			System.out.println("Edit: " + u.getUsername());
-			kayttaja = u;
-			break;
+	public User findById(Long id) {
+		User user = null;
+		
+		try {
+			user = (User) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id).getSingleResult();
+		} catch (Exception e) {
+			// http://www.objectdb.com/java/jpa/query/execute
+			// heittaa poikkeuksen NonUniqueResultException tai NoResultException
+		    System.err.println("Caught Exception: " + e.getMessage());
 		}
-
-		return kayttaja;
+		
+		return user;
 	}
 
 }

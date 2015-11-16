@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user")
@@ -17,6 +18,8 @@ public class User implements Serializable {
 	private Long userId;
 	private String username;
 	private String password;
+	@Transient
+	private String newPassword;
 	private boolean enabled;
 	// private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
@@ -56,6 +59,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 
 	public boolean isEnabled() {

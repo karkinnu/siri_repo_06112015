@@ -34,9 +34,9 @@
 				<td><form:errors path="username" cssClass="username" /></td>
 			</tr>
 			<tr>
-				<td><label for="password">Password: </label></td>
-				<td><form:input path="password" id="password" /></td>
-				<td><form:errors path="password" cssClass="password" /></td>
+				<td><label for="newPassword">New Password: </label></td>
+				<td><form:input path="newPassword" id="newpassword" /></td>
+				<td><form:errors path="newPassword" cssClass="newPassword" /></td>
 			</tr>
 		</table>
 		<br/>

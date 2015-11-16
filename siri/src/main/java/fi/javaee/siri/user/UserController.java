@@ -146,15 +146,19 @@ public class UserController {
 	// hae tiedot muutosta varten
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editGet(Model model, Long id) {
-		User kayttaja = userDAO.edit(id);
+		User kayttaja = userDAO.findById(id);
 		model.addAttribute("user", kayttaja);
 		return "user_edit";
 	}
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid User kayttaja, ModelMap model) {
-		userDAO.update(kayttaja);
+	public String editPost(@Valid User user, ModelMap model) {
+		System.out.println("User: " + user.getUsername());
+		System.out.println("Password: " + user.getPassword());
+		System.out.println("New Password: " + user.getNewPassword());
+		user.setPassword(user.getNewPassword());
+		userDAO.update(user);
 		List<User> yritykset = userDAO.findAll();
 		model.addAttribute("kayttajat", yritykset);
 		return "user_list";
@@ -179,7 +183,7 @@ public class UserController {
 
 	// listaa kaikki
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String users(Model model) {
+	public String getAll(Model model) {
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);
 		return "user_list";
