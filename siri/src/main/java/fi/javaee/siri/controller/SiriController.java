@@ -47,43 +47,45 @@ public class SiriController {
 		return "login";
 	}
 
-	// käyttäjän tunnistus
+	// kayttajan tunnistus
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String checkUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
+	public String checkUser(@ModelAttribute(value = "user") @Valid User user, BindingResult result) {
+		System.out.println("Username: " + user.getUsername() + " password: " + user.getPassword());
 		String nextPage = "main";
 		User user2 = userDAO.findByUserName(user.getUsername());
 
-		StandardPasswordEncoder encoder = new StandardPasswordEncoder();				
+		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
 
-		if (user2!=null){
-			if ( encoder.matches(user.getPassword(), user2.getPassword() ) ){  // kirjoitettu ss, taulusta kryptattu ss
+		if (user2 != null) {
+			if (encoder.matches(user.getPassword(), user2.getPassword())) { // kirjoitettu
+																			// ss,
+																			// taulusta
+																			// kryptattu
+																			// ss
 
-			}
-			else{		
-				//model.addAttribute("error", "Invalid password");
+			} else {
+				// model.addAttribute("error", "Invalid password");
 				nextPage = "403";
 			}
-		}
-		else {
-			//model.addAttribute("error", "User not found");
-			nextPage="403";
+		} else {
+			// model.addAttribute("error", "User not found");
+			nextPage = "403";
 		}
 		return nextPage;
 	}
 
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String loginPage(Model model) {
-//		return "login";
-//	}
+	// @RequestMapping(value = "/login", method = RequestMethod.GET)
+	// public String loginPage(Model model) {
+	// return "login";
+	// }
 
-	// pääkäyttäjan sivu
+	// paakayttajan sivu
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(Model model) {
 		return "admin";
 	}
 
-	// pääsivu
+	// paasivu
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String userPage(Model model) {
 		return "main";

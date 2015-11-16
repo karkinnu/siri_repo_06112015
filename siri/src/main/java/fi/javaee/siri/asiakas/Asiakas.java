@@ -12,32 +12,32 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="asiakas")
+@Table(name = "asiakas")
 public class Asiakas implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long asiakasId;
 	private String nimi;
-	private	String puhelin;
+	private String puhelin;
 	private String sahkoposti;
-//	private	Image valokuva;
-	private	String maa;
+	// private Image valokuva;
+	private String maa;
 	private String osoite;
-	
-	public Asiakas (){
-		
+
+	public Asiakas() {
+
 	}
 
-	public Asiakas( Long asiakasId, String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
+	public Asiakas(Long asiakasId, String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
 			String osoite) {
 		super();
 		this.asiakasId = asiakasId;
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.sahkoposti = sahkoposti;
-//		this.valokuva = valokuva;
+		// this.valokuva = valokuva;
 		this.maa = maa;
 		this.osoite = osoite;
 	}
@@ -73,15 +73,16 @@ public class Asiakas implements Serializable {
 	public void setSahkoposti(String sahkoposti) {
 		this.sahkoposti = sahkoposti;
 	}
-//
-//	public Image getValokuva() {
-//		return valokuva;
-//	}
-//
-//	public void setValokuva(Image valokuva) {
-//		this.valokuva = valokuva;
-//	}
-//
+
+	//
+	// public Image getValokuva() {
+	// return valokuva;
+	// }
+	//
+	// public void setValokuva(Image valokuva) {
+	// this.valokuva = valokuva;
+	// }
+	//
 	public String getMaa() {
 		return maa;
 	}
@@ -104,6 +105,6 @@ public class Asiakas implements Serializable {
 				+ sahkoposti + ",  maa=" + maa + ", osoite=" + osoite + "]";
 	}
 
-//	
+	//
 
 }

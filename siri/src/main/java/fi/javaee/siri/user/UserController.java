@@ -19,113 +19,124 @@ import fi.javaee.siri.yritys.Yritys;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 @Controller
-@RequestMapping(value = "users/list")  
+@RequestMapping(value = "/users/list")
 public class UserController {
 	@Inject
 	// @Autowired
 	private UserDAO userDAO;
 
-//	// Login lomakkeen luominen
-//	@RequestMapping(method = RequestMethod.GET)
-//	public String users(Model model) {
-//		return "admin";
-//	}
+	// // Login lomakkeen luominen
+	// @RequestMapping(method = RequestMethod.GET)
+	// public String users(Model model) {
+	// return "admin";
+	// }
 
-//	// Login lomakkeen luominen
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String loginForm(Model model) {
-//		userDAO.deleteUser("Dummy");
-//		User x = new User("Dummy", "Dummy", true);
-//		userDAO.saveUser(x);
-//		System.out.println("*****login *****");
-//		User u = new User();
-//		model.addAttribute("user", u);
-//		return "login";
-//	}
-//
-//	// Käyttäjän tunnistus
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public String checkUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-//		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
-//		String nextPage = "main";
-//		User user2 = userDAO.findByUserName(user.getUsername());
-//
-//		StandardPasswordEncoder encoder = new StandardPasswordEncoder();				
-//
-//		if (user2!=null){
-//			if ( encoder.matches(user.getPassword(), user2.getPassword() ) ){  // kirjoitettu ss, taulusta kryptattu ss
-//
-//			}
-//			else{		
-//				//model.addAttribute("error", "Invalid password");
-//				nextPage = "403";
-//			}
-//		}
-//		else {
-//			//model.addAttribute("error", "User not found");
-//			nextPage="403";
-//		}
-//		return nextPage;
-//	}
+	// // Login lomakkeen luominen
+	// @RequestMapping(value = "/login", method = RequestMethod.GET)
+	// public String loginForm(Model model) {
+	// userDAO.deleteUser("Dummy");
+	// User x = new User("Dummy", "Dummy", true);
+	// userDAO.saveUser(x);
+	// System.out.println("*****login *****");
+	// User u = new User();
+	// model.addAttribute("user", u);
+	// return "login";
+	// }
+	//
+	// // Kayttajan tunnistus
+	// @RequestMapping(value = "/login", method = RequestMethod.POST)
+	// public String checkUser( @ModelAttribute(value="user") @Valid User user,
+	// BindingResult result) {
+	// System.out.println("Username: "+user.getUsername()+ " password:
+	// "+user.getPassword());
+	// String nextPage = "main";
+	// User user2 = userDAO.findByUserName(user.getUsername());
+	//
+	// StandardPasswordEncoder encoder = new StandardPasswordEncoder();
+	//
+	// if (user2!=null){
+	// if ( encoder.matches(user.getPassword(), user2.getPassword() ) ){ //
+	// kirjoitettu ss, taulusta kryptattu ss
+	//
+	// }
+	// else{
+	// //model.addAttribute("error", "Invalid password");
+	// nextPage = "403";
+	// }
+	// }
+	// else {
+	// //model.addAttribute("error", "User not found");
+	// nextPage="403";
+	// }
+	// return nextPage;
+	// }
 
-//	// Logout
-//	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-//	public String logoutForm(Model model) {
-//		System.out.println("*****logout *****");
-//		return "welcome";
-//	}
+	// // Logout
+	// @RequestMapping(value = "/logout", method = RequestMethod.GET)
+	// public String logoutForm(Model model) {
+	// System.out.println("*****logout *****");
+	// return "welcome";
+	// }
 
-//    // hae lomake lisaamista varten
-//	@RequestMapping(value = "add", method = RequestMethod.GET)	
-//	public String addUserForm( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-//		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
-//		return "user_add";
-//	}
-//
-//	// lisaa
-//	@RequestMapping(value = "add", method = RequestMethod.POST)
-//	public String addUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-//		User u = userDAO.findByUserName(user.getUsername());
-//		if(u == null){
-//			System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
-//			userDAO.saveUser(user);
-//		}
-//		return "user_list";
-//
-//	}
-//
-//	// Käyttäjän poisto
-//	@RequestMapping(value = "/remove", method = RequestMethod.GET)
-//	public String removeUserForm( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-//		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());
-//		return "userRemove";
-//	}
-//
-//	// Käyttäjän poisto
-//	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-//	public String removeUser( @ModelAttribute(value="user") @Valid User user, BindingResult result) {
-//		System.out.println("Username: "+user.getUsername()+ " password: "+user.getPassword());	
-//		userDAO.deleteUser(user.getUsername());
-//		return "admin";
-//	}
+	// // hae lomake lisaamista varten
+	// @RequestMapping(value = "add", method = RequestMethod.GET)
+	// public String addUserForm( @ModelAttribute(value="user") @Valid User
+	// user, BindingResult result) {
+	// System.out.println("Username: "+user.getUsername()+ " password:
+	// "+user.getPassword());
+	// return "user_add";
+	// }
+	//
+	// // lisaa
+	// @RequestMapping(value = "add", method = RequestMethod.POST)
+	// public String addUser( @ModelAttribute(value="user") @Valid User user,
+	// BindingResult result) {
+	// User u = userDAO.findByUserName(user.getUsername());
+	// if(u == null){
+	// System.out.println("Username: "+user.getUsername()+ " password:
+	// "+user.getPassword());
+	// userDAO.saveUser(user);
+	// }
+	// return "user_list";
+	//
+	// }
+	//
+	// // Kayttajan poisto
+	// @RequestMapping(value = "/remove", method = RequestMethod.GET)
+	// public String removeUserForm( @ModelAttribute(value="user") @Valid User
+	// user, BindingResult result) {
+	// System.out.println("Username: "+user.getUsername()+ " password:
+	// "+user.getPassword());
+	// return "userRemove";
+	// }
+	//
+	// // Kayttajan poisto
+	// @RequestMapping(value = "/remove", method = RequestMethod.POST)
+	// public String removeUser( @ModelAttribute(value="user") @Valid User user,
+	// BindingResult result) {
+	// System.out.println("Username: "+user.getUsername()+ " password:
+	// "+user.getPassword());
+	// userDAO.deleteUser(user.getUsername());
+	// return "admin";
+	// }
 
 	// listaa kaikki
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String getAll(Model model) {
-//		List<User> kayttajat = userDAO.findAll();
-//		model.addAttribute("kayttajat", kayttajat);
-//		return "user_list";
-//	}
+	// @RequestMapping(value = "/", method = RequestMethod.GET)
+	// public String getAll(Model model) {
+	// List<User> kayttajat = userDAO.findAll();
+	// model.addAttribute("kayttajat", kayttajat);
+	// return "user_list";
+	// }
 
 	// poista
-    @RequestMapping(value="delete", method=RequestMethod.GET)
-    public String deleteGet(Model model, Long id) {
-    	System.out.println("id = " + id);
-    	userDAO.delete(id);
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String deleteGet(Model model, Long id) {
+		System.out.println("id = " + id);
+		userDAO.delete(id);
 		List<User> users = userDAO.findAll();
 		model.addAttribute("kayttajat", users);
 		return "user_list";
-    }
+	}
 
 	// hae lomake lisaamista varten
 	@RequestMapping(value = "add", method = RequestMethod.GET)
@@ -135,22 +146,22 @@ public class UserController {
 		return "user_add";
 	}
 
-    // hae tiedot muutosta varten
-    @RequestMapping(value="edit", method=RequestMethod.GET)
-    public String editGet(Model model, Long id) {
-    	User kayttaja = userDAO.edit(id);
+	// hae tiedot muutosta varten
+	@RequestMapping(value = "edit", method = RequestMethod.GET)
+	public String editGet(Model model, Long id) {
+		User kayttaja = userDAO.edit(id);
 		model.addAttribute("user", kayttaja);
 		return "user_edit";
-    }
+	}
 
-    // muuta
-    @RequestMapping(value="edit", method=RequestMethod.POST)
-    public String editPost(@Valid User kayttaja, ModelMap model) {
-    	userDAO.update(kayttaja);
-    	List<User> yritykset = userDAO.findAll();
+	// muuta
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
+	public String editPost(@Valid User kayttaja, ModelMap model) {
+		userDAO.update(kayttaja);
+		List<User> yritykset = userDAO.findAll();
 		model.addAttribute("kayttajat", yritykset);
 		return "user_list";
-    }
+	}
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
@@ -163,9 +174,9 @@ public class UserController {
 
 	// listaa kaikki
 	// FIXME: asiakas ja yritys puolella on
-	// @RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	// mutta t�ss� ei voi olla value:ta, ei vaan ..tana toimi jos on!
-	@RequestMapping(method = RequestMethod.GET)
+	//@RequestMapping(method = RequestMethod.GET)
 	public String users(Model model) {
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);

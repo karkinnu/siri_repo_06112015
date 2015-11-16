@@ -14,7 +14,7 @@
 
    	<div>
    		<!-- FIXME: asiakas ja yritys puolella href="add", miksi tässä tarvitsee olla "list/add", ..tana! -->
-		<a href="list/add">Add new user</a>
+		<a href="add">Add new user</a>
 		<br/>
 		<a href="<c:url value='/admin'/>">Back</a>
 	</div>
@@ -37,10 +37,10 @@
 				<td style="text-align: left">${kayttaja.password}</td>
 				<td style="text-align: left">${kayttaja.enabled}</td>
             	<td>
-                	<a href="<c:url value="list/edit?id=${kayttaja.userId}" />">Edit</a>
+                	<a href="<c:url value="edit?id=${kayttaja.userId}" />">Edit</a>
             	</td>
             	<td>
-		            <a href="<c:url value="list/delete?id=${kayttaja.userId}" />">Delete</a>
+		            <a href="<c:url value="delete?id=${kayttaja.userId}" />">Delete</a>
             	</td>
             </tr>
 		</c:forEach>

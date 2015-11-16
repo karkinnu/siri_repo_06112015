@@ -11,24 +11,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
-
-/*
- * Spring 4:ssa ei enää suositellä käytettäväksi erillistä XML-tiedostoa eikä
- * JpaTemplate-luokkaa, vaan toteutetaan suoraan JPA:n pohjalta.
- * 
- * EntityManager injektoidaan kuten EJB/JSF:ssä standardilla tavalla käyttäen 
- * @PersistenceContext annotaatiota.
- * 
- * Hyvä tutorial: http://www.baeldung.com/spring-dao-jpa
- */
-
 @Repository("yritysDao")
 @Transactional(propagation = Propagation.REQUIRED)
 public class YritysDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-		
+
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -88,7 +76,7 @@ public class YritysDAO implements Serializable {
 			yritys = y;
 			break;
 		}
-		
+
 		return yritys;
 	}
 }

@@ -14,26 +14,15 @@ import fi.javaee.siri.yritys.Yritys;
 
 import org.springframework.transaction.annotation.Propagation;
 
-/*
- * Spring 4:ssa ei enää suositellä käytettäväksi erillistä XML-tiedostoa eikä
- * JpaTemplate-luokkaa, vaan toteutetaan suoraan JPA:n pohjalta.
- * 
- * EntityManager injektoidaan kuten EJB/JSF:ssä standardilla tavalla käyttäen 
- * @PersistenceContext annotaatiota.
- * 
- * Hyvä tutorial: http://www.baeldung.com/spring-dao-jpa
- */
-
 @Repository("asiakasDao")
 @Transactional(propagation = Propagation.REQUIRED)
 public class AsiakasDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-		
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -54,8 +43,8 @@ public class AsiakasDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public List<Asiakas> findByName(String nimi) {
-		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.nimi=:nimi")
-				.setParameter("nimi", nimi).getResultList();
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager
+				.createQuery("select t from Asiakas t where t.nimi=:nimi").setParameter("nimi", nimi).getResultList();
 		return asiakkaat;
 	}
 
@@ -63,7 +52,7 @@ public class AsiakasDAO implements Serializable {
 		entityManager.persist(asiakas);
 		return asiakas;
 	}
-	
+
 	public Asiakas update(Asiakas asiakas) {
 		entityManager.merge(asiakas);
 		return asiakas;
@@ -71,7 +60,8 @@ public class AsiakasDAO implements Serializable {
 
 	public void delete(Long id) {
 		@SuppressWarnings("unchecked")
-		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager
+				.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
 		for (Asiakas asiakas : asiakkaat) {
 			entityManager.remove(asiakas);
 			break;
@@ -81,12 +71,13 @@ public class AsiakasDAO implements Serializable {
 	public Asiakas edit(Long id) {
 		Asiakas tempAsiakas = null;
 		@SuppressWarnings("unchecked")
-		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
+		List<Asiakas> asiakkaat = (List<Asiakas>) entityManager
+				.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getResultList();
 		for (Asiakas asiakas : asiakkaat) {
 			tempAsiakas = asiakas;
 			break;
 		}
-		
+
 		return tempAsiakas;
 	}
 

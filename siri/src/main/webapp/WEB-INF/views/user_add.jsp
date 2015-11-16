@@ -39,7 +39,7 @@
 		<input type="submit" value="save" />
 		<br/>
 		<br/>
-		<a class="button" href="<c:url value='/users/list' />">Back</a>
+		<a class="button" href="<c:url value='/users/list/' />">Back</a>
 	</form:form>
 </body>
 </html>

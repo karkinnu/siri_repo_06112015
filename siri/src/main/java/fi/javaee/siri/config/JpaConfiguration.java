@@ -1,14 +1,9 @@
 package fi.javaee.siri.config;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-
-
-import org.hibernate.dialect.MySQL5Dialect;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,19 +17,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-
-/* Spring 4 versiossa kaikki konfiguraatiot voidaan JPA:lle tehdä Javalla - koodilla ja
- * annotaatioilla ilman yhtään riviä XML:ää. Tässä esimerkissä on strategiaksi valittu
- * Javan käyttö myös konfiguraatioiden luomiseen, sillä tällä tavalla on helpompi löytää
- * virheitä konfiguraatioista, kuin jos ne olisivat erillisessä XML-tiedostossa!
- * 
- * Tässä luokassa on kaikki konfiguraatiot hibernatesta MySQL:ään
- * tehty käyttäen Javaa.
- * 
- * Alla hyvä tutorial, jota käytetty luokan tekemisessä pohjana: 
- * http://www.baeldung.com/2011/12/13/the-persistence-layer-with-spring-3-1-and-jpa/
- */
 
 @Configuration
 @EnableTransactionManagement
@@ -45,7 +27,8 @@ public class JpaConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(this.getDataSource());
 		// haetaan luokkia ao. paketin alta
-		//em.setPackagesToScan(new String[] { "fi.javaee.siri.controller", "fi.javaee.siri.asiakas", "fi.javaee.siri.yritys" });
+		// em.setPackagesToScan(new String[] { "fi.javaee.siri.controller",
+		// "fi.javaee.siri.asiakas", "fi.javaee.siri.yritys" });
 		em.setPackagesToScan(new String[] { "fi.javaee.siri" });
 
 		// JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -69,17 +52,17 @@ public class JpaConfiguration {
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
-	
+
 	// Tarvitaan PersistenceExceptionTranslationPostProcessor beania varten
 	@Bean
 	public HibernateJpaDialect hibernateJpaDialect() {
-	   return new HibernateJpaDialect();
+		return new HibernateJpaDialect();
 	}
 
 	Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		//properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+		// properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		return properties;
 	}
@@ -93,7 +76,8 @@ public class JpaConfiguration {
 		return hibernateJpaVendorAdapter;
 	}
 
-	// Palauttaa ohjelmallisesti DataSourcen metodissa annetun konfiguraation perusteella
+	// Palauttaa ohjelmallisesti DataSourcen metodissa annetun konfiguraation
+	// perusteella
 	@Bean
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -104,5 +88,5 @@ public class JpaConfiguration {
 
 		return dataSource;
 	}
-	
+
 }

@@ -14,16 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 import fi.javaee.siri.yritys.Yritys;
 
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
- 
-@Repository("userDao") 
+
+@Repository("userDao")
 @Transactional(propagation = Propagation.REQUIRED)
 public class UserDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -35,7 +35,7 @@ public class UserDAO implements Serializable {
 	public UserDAO() {
 		super();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
 		List<User> users = (List<User>) entityManager.createQuery("select t from User t").getResultList();
@@ -44,25 +44,25 @@ public class UserDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public User findByUserName(String username) {
-		
-		List<User> users = new ArrayList<User>();	
+
+		List<User> users = new ArrayList<User>();
 		users = entityManager.createQuery("select t from User t where t.username LIKE :username")
 				.setParameter("username", username).getResultList();
 		if (users.size() > 0) {
-			
+
 			return users.get(0);
 		} else {
 			return null;
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void deleteUser(String username) {
 		System.out.println("UserDAO:deleteUser");
 		int deletedItems = entityManager.createQuery("delete from User t where t.username LIKE :username")
 				.setParameter("username", username).executeUpdate();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public User saveUser(User user) {
 		StandardPasswordEncoder spe = new StandardPasswordEncoder();
@@ -72,8 +72,7 @@ public class UserDAO implements Serializable {
 		entityManager.persist(user);
 		return user;
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public User removeUser(User user) {
 		entityManager.remove(user);
@@ -92,7 +91,8 @@ public class UserDAO implements Serializable {
 	public void delete(Long id) {
 		System.out.println("Try remove...");
 		@SuppressWarnings("unchecked")
-		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id).getResultList();
+		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id")
+				.setParameter("id", id).getResultList();
 		System.out.println("for");
 		for (User kayttaja : kayttajat) {
 			System.out.println("Remove: " + kayttaja.getUsername());
@@ -105,13 +105,14 @@ public class UserDAO implements Serializable {
 		User kayttaja = null;
 		System.out.println("Try edit...");
 		@SuppressWarnings("unchecked")
-		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id).getResultList();
+		List<User> kayttajat = (List<User>) entityManager.createQuery("select t from User t where t.userId=:id")
+				.setParameter("id", id).getResultList();
 		for (User u : kayttajat) {
 			System.out.println("Edit: " + u.getUsername());
 			kayttaja = u;
 			break;
 		}
-		
+
 		return kayttaja;
 	}
 

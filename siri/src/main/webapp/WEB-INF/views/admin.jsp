@@ -20,7 +20,7 @@
 
 	<h2>Administrator Tools</h2>
 	<br />
-	<a href="<c:url value='/users/list' />">User Management</a>
+	<a href="<c:url value='/users/list/' />">User Management</a>
 	<br />
 	<br />
 	<a href="<c:url value='/admin' />">Role Management</a>

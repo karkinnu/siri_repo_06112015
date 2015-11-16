@@ -10,9 +10,10 @@ import fi.javaee.siri.web.SpringServletConfiguration;
 
 @Configuration
 @EnableTransactionManagement
-//@EnableAutoConfiguration
-@ComponentScan(basePackages = { "fi.javaee.siri.user" , "fi.javaee.siri.config" })
+// @EnableAutoConfiguration
+// FIXME: miksi user?
+//@ComponentScan(basePackages = { "fi.javaee.siri.user", "fi.javaee.siri.config" })
+@ComponentScan(basePackages = { "fi.javaee.siri.config" })
 public class SiriTestConfiguration {
-		
-    
+
 }
