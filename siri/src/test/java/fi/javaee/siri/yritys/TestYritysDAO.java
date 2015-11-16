@@ -72,7 +72,7 @@ public class TestYritysDAO {
     	
     	yritys.setNimi("Testi Yritys2");
     	yritysDAO.update(yritys);      	    
-<<<<<<< HEAD
+
         Yritys changedYritys = yritysDAO.findById(yritys.getYritysId());
     	Assert.assertEquals(yritys.getNimi(), changedYritys.getNimi());
     	
@@ -118,53 +118,7 @@ public class TestYritysDAO {
 		Yritys yritys = new Yritys("Testi Yritys", "+35811223345", "testiosoite","www.testi.com", "Y-123456");    	
 		Yritys changedYritys= yritysDAO.update(yritys);      	    
 		changedYritys = yritysDAO.findById(yritys.getYritysId()); 
-=======
-        Yritys changedYritys = yritysDAO.edit(yritys.getYritysId());
-    	Assert.assertEquals(yritys.getNimi(), changedYritys.getNimi());
-    	
-    	yritys.setPuhelin("0405124362");
-    	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
-    	Assert.assertEquals(yritys.getPuhelin(),  changedYritys.getPuhelin());
-    	
-    	yritys.setNettisivu("www.testi2.com");
-    	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
-    	Assert.assertEquals(yritys.getNettisivu(),  changedYritys.getNettisivu());
-    	    	    	
-    	yritys.setOsoite("Testiosoite 2");
-    	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
-    	Assert.assertEquals(yritys.getOsoite(), changedYritys.getOsoite());
-    	
-    	yritys.setYtunnus("Y-9876543");
-    	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId()); 
-    	Assert.assertEquals(yritys.getYtunnus(), changedYritys.getYtunnus());
 
-     }
- // yritysDAOpitää palauttaa null jos poistaminen ei onnistu
-// 
-//	@Test
-//	@Transactional
-//	@Rollback(true)
-//	public void testRemoveNonexistentYritys() {
-// 
-//    	Yritys deletedYritys = YritysDAO.delete(1);       
-//      Assert.assertEquals(null, deletedYritys);
-//     
-//	}
-	
- 
-	@Test
-	@Transactional
-	@Rollback(true)
-	public void testEditNonexistentYritys() {
- 
-		Yritys yritys = new Yritys("Testi Yritys", "+35811223345", "testiosoite","www.testi.com", "Y-123456");    	
-		Yritys changedYritys= yritysDAO.update(yritys);      	    
-		changedYritys = yritysDAO.edit(yritys.getYritysId()); 
->>>>>>> branch 'master' of https://github.com/karkinnu/siri_repo_06112015.git
 		Assert.assertEquals(null, changedYritys);
      
 	}
