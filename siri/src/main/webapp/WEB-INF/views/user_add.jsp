@@ -34,6 +34,11 @@
 				<td><form:input path="password" id="password" /></td>
 				<td><form:errors path="password" cssClass="password" /></td>
 			</tr>
+			<tr>
+				<td><label for="enabled">Enabled: </label></td>
+				<td><form:checkbox path="enabled" id="enabled" /></td>
+				<td><form:errors path="enabled" cssClass="enabled" /></td>
+			</tr>
 		</table>
 		<br/>
 		<input type="submit" value="save" />
