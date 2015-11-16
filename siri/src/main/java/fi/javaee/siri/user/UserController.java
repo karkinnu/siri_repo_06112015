@@ -25,6 +25,11 @@ public class UserController {
 	// @Autowired
 	private UserDAO userDAO;
 
+	//
+	// KAIKKI KOODI KOMMENTEISSA POISTETAAN HETI KUN VOIDAAN
+	//
+
+
 	// // Login lomakkeen luominen
 	// @RequestMapping(method = RequestMethod.GET)
 	// public String users(Model model) {
@@ -138,14 +143,6 @@ public class UserController {
 		return "user_list";
 	}
 
-	// hae lomake lisaamista varten
-	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String addGet(Model model) {
-		User user = new User();
-		model.addAttribute("user", user);
-		return "user_add";
-	}
-
 	// hae tiedot muutosta varten
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editGet(Model model, Long id) {
@@ -163,6 +160,14 @@ public class UserController {
 		return "user_list";
 	}
 
+	// hae lomake lisaamista varten
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public String addGet(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "user_add";
+	}
+
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid User user, ModelMap model) {
@@ -173,10 +178,7 @@ public class UserController {
 	}
 
 	// listaa kaikki
-	// FIXME: asiakas ja yritys puolella on
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	// mutta tässä ei voi olla value:ta, ei vaan ..tana toimi jos on!
-	//@RequestMapping(method = RequestMethod.GET)
 	public String users(Model model) {
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);

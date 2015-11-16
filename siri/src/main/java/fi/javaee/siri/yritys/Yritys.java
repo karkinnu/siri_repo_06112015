@@ -9,21 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="yritys")
+@Table(name = "yritys")
 public class Yritys implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long yritysId;
 	private String nimi;
-	private	String puhelin;
+	private String puhelin;
 	private String osoite;
 	private String nettiSivu;
 	private String ytunnus;
-	
-	public Yritys () {
-		
+
+	public Yritys() {
+
 	}
 
 	public Yritys(Long yritysId, String nimi, String puhelin, String osoite, String nettisivu, String ytunnus) {
@@ -35,7 +35,7 @@ public class Yritys implements Serializable {
 		this.nettiSivu = nettisivu;
 		this.ytunnus = ytunnus;
 	}
-	
+
 	public Yritys(String nimi, String puhelin, String osoite, String nettisivu, String ytunnus) {
 		super();
 		this.nimi = nimi;

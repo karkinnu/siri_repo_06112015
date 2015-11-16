@@ -20,30 +20,30 @@ public class YritysController {
 	private YritysDAO yritysDAO;
 
 	// poista
-    @RequestMapping(value="delete", method=RequestMethod.GET)
-    public String deleteGet(Model model, Long id) {
-    	yritysDAO.delete(id);
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String deleteGet(Model model, Long id) {
+		yritysDAO.delete(id);
 		List<Yritys> yritykset = yritysDAO.findAll();
 		model.addAttribute("yritykset", yritykset);
 		return "company_list";
-    }
+	}
 
-    // hae tiedot muutosta varten
-    @RequestMapping(value="edit", method=RequestMethod.GET)
-    public String editGet(Model model, Long id) {
-    	Yritys yritys = yritysDAO.edit(id);
+	// hae tiedot muutosta varten
+	@RequestMapping(value = "edit", method = RequestMethod.GET)
+	public String editGet(Model model, Long id) {
+		Yritys yritys = yritysDAO.edit(id);
 		model.addAttribute("yritys", yritys);
 		return "company_edit";
-    }
+	}
 
-    // muuta
-    @RequestMapping(value="edit", method=RequestMethod.POST)
-    public String editPost(@Valid Yritys yritys, ModelMap model) {
-   		yritysDAO.update(yritys);
-    	List<Yritys> yritykset = yritysDAO.findAll();
+	// muuta
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
+	public String editPost(@Valid Yritys yritys, ModelMap model) {
+		yritysDAO.update(yritys);
+		List<Yritys> yritykset = yritysDAO.findAll();
 		model.addAttribute("yritykset", yritykset);
 		return "company_list";
-    }
+	}
 
 	// hae lomake lisaamista varten
 	@RequestMapping(value = "add", method = RequestMethod.GET)

@@ -19,7 +19,7 @@ public class YritysDAO implements Serializable {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -49,7 +49,7 @@ public class YritysDAO implements Serializable {
 		entityManager.persist(yritys);
 		return yritys;
 	}
-	
+
 	public Yritys update(Yritys yritys) {
 		entityManager.merge(yritys);
 		return yritys;
@@ -61,7 +61,8 @@ public class YritysDAO implements Serializable {
 
 	public void delete(Long id) {
 		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
+		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id")
+				.setParameter("id", id).getResultList();
 		for (Yritys yritys : yritykset) {
 			entityManager.remove(yritys);
 			break;
@@ -72,7 +73,8 @@ public class YritysDAO implements Serializable {
 	public Yritys edit(Long id) {
 		Yritys yritys = null;
 		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getResultList();
+		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id")
+				.setParameter("id", id).getResultList();
 		for (Yritys y : yritykset) {
 			yritys = y;
 			break;
