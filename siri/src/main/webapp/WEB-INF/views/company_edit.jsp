@@ -22,7 +22,7 @@
 <body>
 	<h2>Edit Company Data</h2>
 
-	<form:form method="POST" modelAttribute="yritys">
+	<form:form method="POST" modelAttribute="company">
 
 		<table>
 			<tr>

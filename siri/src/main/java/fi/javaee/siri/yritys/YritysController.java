@@ -23,16 +23,16 @@ public class YritysController {
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String deleteGet(Model model, Long id) {
 		yritysDAO.delete(id);
-		List<Yritys> yritykset = yritysDAO.findAll();
-		model.addAttribute("yritykset", yritykset);
+		List<Yritys> companies = yritysDAO.findAll();
+		model.addAttribute("companies", companies);
 		return "company_list";
 	}
 
 	// hae tiedot muutosta varten
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editGet(Model model, Long id) {
-		Yritys yritys = yritysDAO.edit(id);
-		model.addAttribute("yritys", yritys);
+		Yritys company = yritysDAO.findById(id);
+		model.addAttribute("company", company);
 		return "company_edit";
 	}
 
@@ -40,16 +40,16 @@ public class YritysController {
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String editPost(@Valid Yritys yritys, ModelMap model) {
 		yritysDAO.update(yritys);
-		List<Yritys> yritykset = yritysDAO.findAll();
-		model.addAttribute("yritykset", yritykset);
+		List<Yritys> companies = yritysDAO.findAll();
+		model.addAttribute("companies", companies);
 		return "company_list";
 	}
 
 	// hae lomake lisaamista varten
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String addGet(Model model) {
-		Yritys yritys = new Yritys();
-		model.addAttribute("yritys", yritys);
+		Yritys company = new Yritys();
+		model.addAttribute("company", company);
 		return "company_add";
 	}
 
@@ -57,16 +57,16 @@ public class YritysController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Yritys yritys, ModelMap model) {
 		Yritys y = yritysDAO.save(yritys);
-		List<Yritys> yritykset = yritysDAO.findAll();
-		model.addAttribute("yritykset", yritykset);
+		List<Yritys> companies = yritysDAO.findAll();
+		model.addAttribute("companies", companies);
 		return "company_list";
 	}
 
 	// listaa kaikki
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getAll(Model model) {
-		List<Yritys> yritykset = yritysDAO.findAll();
-		model.addAttribute("yritykset", yritykset);
+		List<Yritys> companies = yritysDAO.findAll();
+		model.addAttribute("companies", companies);
 		return "company_list";
 	}
 

@@ -59,27 +59,25 @@ public class YritysDAO implements Serializable {
 		entityManager.remove(yritys);
 	}
 
-	public void delete(Long id) {
-		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id")
-				.setParameter("id", id).getResultList();
-		for (Yritys yritys : yritykset) {
+	public Yritys delete(Long id) {
+		Yritys yritys = findById(id);
+		
+		if (yritys != null) {
 			entityManager.remove(yritys);
-			break;
 		}
+
+		return yritys;
 	}
 
-	// TODO edit -> fingById
-	public Yritys edit(Long id) {
+	public Yritys findById(Long id) {
 		Yritys yritys = null;
-		@SuppressWarnings("unchecked")
-		List<Yritys> yritykset = (List<Yritys>) entityManager.createQuery("select t from Yritys t where t.yritysId=:id")
-				.setParameter("id", id).getResultList();
-		for (Yritys y : yritykset) {
-			yritys = y;
-			break;
+		
+		try {
+			yritys = (Yritys) entityManager.createQuery("select t from Yritys t where t.yritysId=:id").setParameter("id", id).getSingleResult();
+		} catch (Exception e) {
+		    System.err.println("Caught Exception: " + e.getMessage());
 		}
-
+		
 		return yritys;
 	}
 }

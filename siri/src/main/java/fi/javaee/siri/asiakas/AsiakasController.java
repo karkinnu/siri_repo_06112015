@@ -33,7 +33,7 @@ public class AsiakasController {
 	// hae tiedot muutosta varten
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editGet(Model model, Long id) {
-		Asiakas asiakas = asiakasDAO.edit(id);
+		Asiakas asiakas = asiakasDAO.findById(id);
 		model.addAttribute("asiakas", asiakas);
 		return "customer_edit";
 	}
@@ -57,10 +57,8 @@ public class AsiakasController {
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@Valid Asiakas ak, ModelMap model) {
-		// tallennetaan lomakkeelta luettu kone
-		Asiakas asiakas = asiakasDAO.save(ak);
-		// model.addAttribute("asiakas", asiakas);
+	public String addPost(@Valid Asiakas asiakas, ModelMap model) {
+		Asiakas a = asiakasDAO.save(asiakas);
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";
@@ -69,11 +67,6 @@ public class AsiakasController {
 	// listaa kaikki
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getAll(Model model) {
-		// Asiakas as = new Asiakas();
-		// as.setNimi("Seija");
-		// as.setPuhelin("0405124362");
-		// asiakkaat.add(as);
-		// ap.save(as);
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";

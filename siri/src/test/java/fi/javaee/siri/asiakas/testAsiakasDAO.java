@@ -71,27 +71,27 @@ public class testAsiakasDAO {
     	
     	asiakas.setNimi("Testi Asiakas2");
     	asiakasDAO.update(asiakas);      	    
-        Asiakas changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+        Asiakas changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getNimi(), changedAsiakas.getNimi());
     	
     	asiakas.setPuhelin("0405124362");
     	asiakasDAO.update(asiakas); 
-    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getPuhelin(),  changedAsiakas.getPuhelin());
     	
     	asiakas.setSahkoposti("testi2.asiakas@testi.com");
     	asiakasDAO.update(asiakas); 
-    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getSahkoposti(),  changedAsiakas.getSahkoposti());
     	    	
     	asiakas.setMaa("Sweden");
     	asiakasDAO.update(asiakas); 
-    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getMaa(),  changedAsiakas.getMaa());
     	
     	asiakas.setOsoite("Testiosoite 2");
     	asiakasDAO.update(asiakas); 
-    	changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+    	changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
     	Assert.assertEquals(asiakas.getOsoite(), changedAsiakas.getOsoite());
 
      }
@@ -116,7 +116,7 @@ public class testAsiakasDAO {
 		Asiakas asiakas = new Asiakas("Testi Asiakas", "+35811223345", "testi.asiakas@testi.com", null, "Finland", "testiosoite");    	
 
 		Asiakas changedAsiakas= asiakasDAO.update(asiakas);      	    
-		changedAsiakas = asiakasDAO.edit(asiakas.getAsiakasId());
+		changedAsiakas = asiakasDAO.findById(asiakas.getAsiakasId());
 		Assert.assertEquals(null, changedAsiakas);
      
 	}

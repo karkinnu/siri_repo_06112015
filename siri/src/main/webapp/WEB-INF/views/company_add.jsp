@@ -29,7 +29,7 @@ function autoFill() {
 <body>
 	<h2>Add New Company</h2>
 
-	<form:form method="POST" modelAttribute="yritys">
+	<form:form method="POST" modelAttribute="company">
 		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>

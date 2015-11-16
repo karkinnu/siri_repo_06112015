@@ -72,27 +72,27 @@ public class testYritysDAO {
     	
     	yritys.setNimi("Testi Yritys2");
     	yritysDAO.update(yritys);      	    
-        Yritys changedYritys = yritysDAO.edit(yritys.getYritysId());
+        Yritys changedYritys = yritysDAO.findById(yritys.getYritysId());
     	Assert.assertEquals(yritys.getNimi(), changedYritys.getNimi());
     	
     	yritys.setPuhelin("0405124362");
     	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
+    	changedYritys = yritysDAO.findById(yritys.getYritysId());
     	Assert.assertEquals(yritys.getPuhelin(),  changedYritys.getPuhelin());
     	
     	yritys.setNettisivu("www.testi2.com");
     	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
+    	changedYritys = yritysDAO.findById(yritys.getYritysId());
     	Assert.assertEquals(yritys.getNettisivu(),  changedYritys.getNettisivu());
     	    	    	
     	yritys.setOsoite("Testiosoite 2");
     	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId());
+    	changedYritys = yritysDAO.findById(yritys.getYritysId());
     	Assert.assertEquals(yritys.getOsoite(), changedYritys.getOsoite());
     	
     	yritys.setYtunnus("Y-9876543");
     	yritysDAO.update(yritys); 
-    	changedYritys = yritysDAO.edit(yritys.getYritysId()); 
+    	changedYritys = yritysDAO.findById(yritys.getYritysId()); 
     	Assert.assertEquals(yritys.getYtunnus(), changedYritys.getYtunnus());
 
      }
@@ -116,7 +116,7 @@ public class testYritysDAO {
  
 		Yritys yritys = new Yritys("Testi Yritys", "+35811223345", "testiosoite","www.testi.com", "Y-123456");    	
 		Yritys changedYritys= yritysDAO.update(yritys);      	    
-		changedYritys = yritysDAO.edit(yritys.getYritysId()); 
+		changedYritys = yritysDAO.findById(yritys.getYritysId()); 
 		Assert.assertEquals(null, changedYritys);
      
 	}

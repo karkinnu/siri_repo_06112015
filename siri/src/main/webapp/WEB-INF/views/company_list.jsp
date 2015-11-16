@@ -31,19 +31,19 @@
 		<th style="text-align: left">Edit</th>
 		<th style="text-align: left">Delete</th>
 		</tr>
-		<c:forEach var="yritys" items="${yritykset}">
+		<c:forEach var="company" items="${companies}">
 	    	<tr>
-				<td style="text-align: left">${yritys.yritysId}</td>
-				<td style="text-align: left">${yritys.nimi}</td>
-				<td style="text-align: left">${yritys.puhelin}</td>
- 				<td style="text-align: left">${yritys.osoite}</td>
- 				<td style="text-align: left">${yritys.nettisivu}</td>
- 				<td style="text-align: left">${yritys.ytunnus}</td>
+				<td style="text-align: left">${company.yritysId}</td>
+				<td style="text-align: left">${company.nimi}</td>
+				<td style="text-align: left">${company.puhelin}</td>
+ 				<td style="text-align: left">${company.osoite}</td>
+ 				<td style="text-align: left">${company.nettisivu}</td>
+ 				<td style="text-align: left">${company.ytunnus}</td>
             	<td>
-                	<a href="<c:url value="edit?id=${yritys.yritysId}" />">Edit</a>
+                	<a href="<c:url value="edit?id=${company.yritysId}" />">Edit</a>
             	</td>
             	<td>
-		            <a href="<c:url value="delete?id=${yritys.yritysId}" />">Delete</a>
+		            <a href="<c:url value="delete?id=${company.yritysId}" />">Delete</a>
             	</td>
             </tr>
 		</c:forEach>
