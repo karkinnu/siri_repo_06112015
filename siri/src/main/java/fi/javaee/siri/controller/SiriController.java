@@ -1,8 +1,5 @@
 package fi.javaee.siri.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.javaee.siri.user.User;
 import fi.javaee.siri.user.UserDAO;
-import fi.javaee.siri.user.UserRole;
 
 @Controller
 @RequestMapping(value = "/")
