@@ -39,6 +39,9 @@
 				<td><form:checkbox path="enabled" id="enabled" /></td>
 				<td><form:errors path="enabled" cssClass="enabled" /></td>
 			</tr>
+			<tr>
+				<td><label for="enabled">Roles: </label></td>
+			</tr>
 		</table>
 		<br/>
 		<input type="submit" value="save" />

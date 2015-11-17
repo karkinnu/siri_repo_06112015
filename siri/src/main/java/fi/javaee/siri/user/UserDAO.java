@@ -69,7 +69,7 @@ public class UserDAO implements Serializable {
 		String kryptattuna = spe.encode(salasana);
 		System.out.println("*****saveUser kryptaa *****");
 		user.setPassword(kryptattuna);
-
+/*
 		if(user.getUserRoleList() != null) {
 			for (UserRole userRole : user.getUserRoleList()) {
 				System.out.println("userrole: " + userRole.getRole() );
@@ -82,7 +82,7 @@ public class UserDAO implements Serializable {
 			userRole2.setRole("role_user");
 			entityManager.persist(userRole2);
 		}
-
+*/
 		entityManager.persist(user);
 		System.out.println("*****saveUser persist(user) *****");
 		return user;

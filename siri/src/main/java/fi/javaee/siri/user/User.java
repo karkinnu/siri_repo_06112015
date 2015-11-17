@@ -24,15 +24,14 @@ public class User implements Serializable {
 	@Transient
 	private String newPassword;
 	private boolean enabled;
+	private boolean role_admin;
+	private boolean role_user;
+	private boolean role_dbadmin;
 	
-	@OneToMany( targetEntity=UserRole.class)
-	private List<UserRole> userRoleList;
+	//@OneToMany( targetEntity=UserRole.class)
+	//private List<UserRole> userRoleList;
 
 	public User() {
-	}
-
-	public String getUsername() {
-		return this.username;
 	}
 
 	public Long getUserId() {
@@ -43,12 +42,16 @@ public class User implements Serializable {
 		this.userId = userId;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public void setPassword(String password) {
@@ -64,17 +67,44 @@ public class User implements Serializable {
 	}
 
 	public boolean isEnabled() {
-		return this.enabled;
+		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public boolean isRole_admin() {
+		return role_admin;
+	}
+
+	public void setRole_admin(boolean role_admin) {
+		this.role_admin = role_admin;
+	}
+
+	public boolean isRole_user() {
+		return role_user;
+	}
+
+	public void setRole_user(boolean role_user) {
+		this.role_user = role_user;
+	}
+
+	public boolean isRole_dbadmin() {
+		return role_dbadmin;
+	}
+
+	public void setRole_dbadmin(boolean role_dbadmin) {
+		this.role_dbadmin = role_dbadmin;
+	}
+/*
 	public List<UserRole> getUserRoleList() {
 		return userRoleList;
 	}
+
 	public void setUserRoleList(List<UserRole> userRoleList) {
 		this.userRoleList = userRoleList;
 	}
-	
+
+*/
 }

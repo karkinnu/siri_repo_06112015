@@ -50,16 +50,16 @@ public class SiriController {
 		UserRole userRole2 = new UserRole();
 		userRole2.setUserName("Dummy");
 		userRole2.setRole("role_user");
-		
+/*		
 		List<UserRole> userRoleList = new ArrayList<UserRole>();
 		userRoleList.add(userRole);
 		userRoleList.add(userRole2);
-		
+	*/	
 		User user = new User();
 		
 		user.setUsername("Dummy");
 		user.setPassword("Dummy");
-		user.setUserRoleList(userRoleList);
+//		user.setUserRoleList(userRoleList);
 		
 		System.out.println("save");
 		userDAO.saveUser(user);

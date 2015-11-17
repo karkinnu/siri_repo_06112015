@@ -1,8 +1,5 @@
 package fi.javaee.siri.user;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,18 +29,22 @@ public class TestUserDAO {
     @Rollback(true)
     public void testAddUser()
     {
+    	/*
 		UserRole userRole = new UserRole();
 		userRole.setUserName("TestUser");
 		userRole.setRole("role_admin");
 		
 		List<UserRole> userRoleList = new ArrayList<UserRole>();
 		userRoleList.add(userRole);
-		
+	*/	
 		User u = new User();
 		u.setUsername("TestUser");
 		u.setPassword("TestPassword");
 		u.setEnabled(true);
-		u.setUserRoleList(userRoleList);
+		//u.setUserRoleList(userRoleList);
+		u.setRole_admin(true);
+		u.setRole_user(true);
+		u.setRole_dbadmin(true);
     	
     	//User u = new User("TestUser", "TestPassword", true);    	
         userDAO.saveUser(u);       
@@ -53,6 +54,9 @@ public class TestUserDAO {
         Assert.assertEquals(u.getUsername(), searchedUser.getUsername());
         Assert.assertTrue(encoder.matches("TestPassword", searchedUser.getPassword()));
         Assert.assertTrue(searchedUser.isEnabled());
+        Assert.assertTrue(searchedUser.isRole_dbadmin());
+        Assert.assertTrue(searchedUser.isRole_user());
+        Assert.assertTrue(searchedUser.isRole_admin());
     }
 
     
@@ -61,17 +65,17 @@ public class TestUserDAO {
     @Rollback(true)
     public void testRemoveUser()
     {
-		UserRole userRole = new UserRole();
+/*		UserRole userRole = new UserRole();
 		userRole.setUserName("TestUser");
 		userRole.setRole("role_admin");
 		
 		List<UserRole> userRoleList = new ArrayList<UserRole>();
 		userRoleList.add(userRole);
-		
+	*/	
 		User u = new User();
 		u.setUsername("TestUser");
 		u.setPassword("TestPassword");
-		u.setUserRoleList(userRoleList);
+		//u.setUserRoleList(userRoleList);
     	
     	//User u = new User("TestUser", "TestPassword", true);    	
         userDAO.saveUser(u);   

@@ -23,9 +23,6 @@
 	<a href="<c:url value='/users/list/' />">User Management</a>
 	<br />
 	<br />
-	<a href="<c:url value='/admin' />">Role Management</a>
-	<br />
-	<br />
 	<a href="<c:url value='/main' />">Back</a>
 	<br/>
 	<br/>

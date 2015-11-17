@@ -27,6 +27,9 @@
 		<th style="text-align: left">Name</th>
 		<th style="text-align: left">Password</th>
 		<th style="text-align: left">Enabled</th>
+		<th style="text-align: left">role_admin</th>
+		<th style="text-align: left">role_user</th>
+		<th style="text-align: left">role_dbadmin</th>
 		<th style="text-align: left">Edit</th>
 		<th style="text-align: left">Delete</th>
 		</tr>
@@ -35,7 +38,10 @@
 				<td style="text-align: left">${kayttaja.userId}</td>
 				<td style="text-align: left">${kayttaja.username}</td>
 				<td style="text-align: left">${kayttaja.password}</td>
-				<td style="text-align: left">${kayttaja.enabled}</td>
+				<td style="text-align: left">${kayttaja.enabled}</td> 
+				<td style="text-align: left">${kayttaja.role_admin}</td>
+				<td style="text-align: left">${kayttaja.role_user}</td>
+				<td style="text-align: left">${kayttaja.role_dbadmin}</td>
             	<td>
                 	<a href="<c:url value="edit?id=${kayttaja.userId}" />">Edit</a>
             	</td>
