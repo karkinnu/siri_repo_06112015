@@ -7,7 +7,7 @@
 
 <head>
 <title>Main</title>
-
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 <style>
 .error {
 	color: #ff0000;
@@ -16,20 +16,22 @@
 
 </head>
 
-<body>
-
+<body background="<c:url value="/resources/images/siri.jpeg" />">
+<div class=main>
+<div class="header">
 	<h2>Tools</h2>
-	<br/>
-	<a href="<c:url value='/customers/list/' />">Customer Management</a>
-	<br/>
-	<br/>
-	<a href="<c:url value='/companies/list/' />">Company Management</a>
-	<br/>
-	<br/>
-	<a href="<c:url value='/admin' />">Administrator Tools</a>
-	<br/>
-	<br/>
-	<br/>
-	<a href="<c:url value='/'/>">Logout</a>
+	</div>
+
+<div class="main1">
+	<a class="main_menu" href="<c:url value='/customers/list/' />">Customer Management</a>
+	<a class="main_menu" href="<c:url value='/companies/list/' />">Company Management</a>
+</div>
+<br/>
+<br/>
+<div class="main2">
+	<a class="main_menu" href="<c:url value='/admin' />">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administrator Tools</a>
+	<a class="main_menu" href="<c:url value='/'/>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
 </body>
 </html>
