@@ -23,14 +23,14 @@
 	</div>
 
 <div class="main1">
-	<a class="main_menu" href="<c:url value='/customers/list/' />">Customer Management</a>
-	<a class="main_menu" href="<c:url value='/companies/list/' />">Company Management</a>
+	<a href="<c:url value='/customers/list/' />"><button class="main_menu" type= button>Customer Management</button></a>
+		<a href="<c:url value='/companies/list/' />"><button class="main_menu" type= button>Company Management</button></a>
 </div>
 <br/>
 <br/>
 <div class="main2">
-	<a class="main_menu" href="<c:url value='/admin' />">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administrator Tools</a>
-	<a class="main_menu" href="<c:url value='/'/>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	<a href="<c:url value='/admin' />"><button class="main_menu" type= button>Administrator Tools</button></a>
+	<a href="<c:url value='/' />"><button class="main_menu" type= button>Logout</button></a>
 </div>
 </div>
 </body>

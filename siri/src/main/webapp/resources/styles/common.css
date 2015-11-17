@@ -29,17 +29,14 @@
 }
 
 a.loginButton {
-	position: fixed;
+	position: relative;
     top: 50%;
-    left: 50%;
+    left: 47%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-	width: 4em;
-	height: 3em; 
-	margin-left: auto;
-    margin-right: auto;
+    transform: translate(-50%, -50%); 
 	background-color: #8ae234;
 	box-shadow: 10px 10px 5px #888888;
+	padding: 1em 1em 1em 1em;
 	border-radius:15px;
 	text-align: center;
 	text-decoration: none;
@@ -79,12 +76,8 @@ div.main {
    	width: 60%;
     top: 15%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, 10%);
     transform: translate(-50%, 10%);
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	background-color: #FCFCFC;
 	border-color: #555555;
 	border-width: 1px;
@@ -92,8 +85,6 @@ div.main {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
-
-
 }
 
 a.main_menu {
@@ -103,7 +94,18 @@ a.main_menu {
     border-radius: 0.3em;
 	text-decoration: none;
     border:3px solid #73AD21;
+       text-align: justify;
     text-align: center;
+}
+
+button.main_menu {
+    background-color: #8ae234;
+    border-radius: 0.3em;
+	text-decoration: none;
+    border:3px solid #73AD21;
+    text-align: center;
+    width:30%;
+    height:110%;
 }
 
 h2 {
