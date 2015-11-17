@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,7 +39,7 @@ public class YritysController {
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid Yritys yritys, ModelMap model) {
+	public String editPost(@Valid Yritys yritys, ModelMap model, BindingResult result) {
 		yritysDAO.update(yritys);
 		List<Yritys> companies = yritysDAO.findAll();
 		model.addAttribute("companies", companies);
