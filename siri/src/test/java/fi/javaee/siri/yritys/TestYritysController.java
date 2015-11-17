@@ -1,4 +1,4 @@
-package fi.javaee.siri.asiakas;
+package fi.javaee.siri.yritys;
 
 import static org.junit.Assert.*;
 
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {SiriTestConfiguration.class}, loader = SpringApplicationContextLoader.class)
-public class TestAsiakasControllerTest {
+public class TestYritysController {
 
 	@Autowired WebApplicationContext wac; 
 	@Autowired MockHttpSession session;
@@ -45,30 +45,30 @@ public class TestAsiakasControllerTest {
 
 	@Test
 	public void TestDeleteView() throws Exception {
-		mockMvc.perform(get("/customers/list/delete").session(session))
+		mockMvc.perform(get("/companies/list/delete").session(session))
 		.andExpect(status().isOk())
-		.andExpect(view().name("customer_list"));
+		.andExpect(view().name("company_list"));
 	}
 
 	@Test
 	public void TestEditView() throws Exception {
-		mockMvc.perform(get("/customers/list/edit").session(session))
+		mockMvc.perform(get("/companies/list/edit").session(session))
 		.andExpect(status().isOk())
-		.andExpect(view().name("customer_edit"));
+		.andExpect(view().name("company_edit"));
 	}
 	
 	@Test
-	public void TestEddView() throws Exception {
-		mockMvc.perform(get("/customers/list/add").session(session))
+	public void TestAddView() throws Exception {
+		mockMvc.perform(get("/companies/list/add").session(session))
 		.andExpect(status().isOk())
-		.andExpect(view().name("customer_add"));
+		.andExpect(view().name("company_add"));
 	}
 
 	@Test
 	public void TestListAllView() throws Exception {
-		mockMvc.perform(get("/customers/list/").session(session))
+		mockMvc.perform(get("/companies/list/").session(session))
 		.andExpect(status().isOk())
-		.andExpect(view().name("customer_list"));
+		.andExpect(view().name("company_list"));
 	}
 
 }
