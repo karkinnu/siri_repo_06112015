@@ -58,6 +58,8 @@ public class AsiakasController {
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Asiakas asiakas, ModelMap model) {
+		byte[] bytes = new byte[2];
+		asiakas.setValokuva(bytes);
 		Asiakas a = asiakasDAO.save(asiakas);
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);

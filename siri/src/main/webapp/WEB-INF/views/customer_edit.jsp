@@ -21,9 +21,10 @@
 
 <body>
 	<h2>Edit Customer Data</h2>
-
-	<form:form method="POST" modelAttribute="asiakas">
-
+	
+	<form:form method="POST" modelAttribute="asiakas" enctype="multipart/form-data" >
+		<img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}"/>
+		<input type="file" name="valokuvafile" id="valokuvafile" value="" />
 		<table>
 			<tr>
 				<td><form:input type="hidden" path="asiakasId" id="asiakasId" /></td>
@@ -52,6 +53,11 @@
 				<td><label for="osoite">Address: </label></td>
 				<td><form:input path="osoite" id="osoite" /></td>
 				<td><form:errors path="osoite" cssClass="osoite" /></td>
+			</tr>
+			<tr>
+				<td><label for="valokuvaurl">Valokuvan url: </label></td>
+				<td><form:input path="valokuvaurl" id="valokuvaurl" /></td>
+				<td><form:errors path="valokuvaurl" cssClass="valokuvaurl" /></td>
 			</tr>
 		</table>
 		<br/>

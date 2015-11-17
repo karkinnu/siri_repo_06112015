@@ -21,6 +21,7 @@
 	    document.getElementById("sahkoposti").value = "etunimi.sukumi@sahkoposti.fi";
 	    document.getElementById("maa").value = "Maa";
 	    document.getElementById("osoite").value = "Tikanmaja";
+	    document.getElementById("valokuvaurl").value = "http://www.mkyong.com/image/mypic.jpg";
 	}
 </script>
 
@@ -55,6 +56,11 @@
 				<td><label for="osoite">Address: </label></td>
 				<td><form:input path="osoite" id="osoite" /></td>
 				<td><form:errors path="osoite" cssClass="osoite" /></td>
+			</tr>
+			<tr>
+				<td><label for="valokuvaurl">Valokuvan url: </label></td>
+				<td><form:input path="valokuvaurl" id="valokuvaurl" /></td>
+				<td><form:errors path="valokuvaurl" cssClass="valokuvaurl" /></td>
 			</tr>
 		</table>
 		<br/>

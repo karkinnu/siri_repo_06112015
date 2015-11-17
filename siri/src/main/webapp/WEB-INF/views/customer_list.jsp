@@ -28,6 +28,7 @@
 		<th style="text-align: left">Address</th>
 		<th style="text-align: left">Email</th>
 		<th style="text-align: left">Country</th>
+		<th style="text-align: left">Picture</th>
 		<th style="text-align: left">Edit</th>
 		<th style="text-align: left">Delete</th>
 		</tr>
@@ -39,6 +40,7 @@
  				<td style="text-align: left">${asiakas.osoite}</td>
  				<td style="text-align: left">${asiakas.sahkoposti}</td>
  				<td style="text-align: left">${asiakas.maa}</td>
+ 				<td><img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}"/></td>
             	<td>
                 	<a href="<c:url value="edit?id=${asiakas.asiakasId}" />">Edit</a>
             	</td>
