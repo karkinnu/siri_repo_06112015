@@ -7,19 +7,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.Constraint;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "yritys")
+//@Constraint(validatedBy = PhoneValidator.class)
 public class Yritys implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long yritysId;
+
+	@Size(min = 0, max = 5)
 	private String nimi;
+	@Size(min = 0, max = 5)
 	private String puhelin;
+	@Size(min = 0, max = 5)
 	private String osoite;
+	@Size(min = 0, max = 5)
 	private String nettiSivu;
+	@Size(min = 0, max = 5)
 	private String ytunnus;
 
 	public Yritys() {
