@@ -26,13 +26,6 @@
 	<a href="<c:url value='/admin' />">Role Management</a>
 	<br />
 	<br />
-	Temporary links, will be removed
-	<br/>
-	<a href="<c:url value='/users/list/add'/>">Add new user</a>
-	<br/>
-	<a href="<c:url value='/users/list/remove'/>">Remove user</a>
-	<br/>
-	<br/>
 	<a href="<c:url value='/main' />">Back</a>
 	<br/>
 	<br/>
