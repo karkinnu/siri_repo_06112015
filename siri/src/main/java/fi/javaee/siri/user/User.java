@@ -27,9 +27,6 @@ public class User implements Serializable {
 	private boolean role_admin;
 	private boolean role_user;
 	private boolean role_dbadmin;
-	
-	//@OneToMany( targetEntity=UserRole.class)
-	//private List<UserRole> userRoleList;
 
 	public User() {
 	}
@@ -97,14 +94,4 @@ public class User implements Serializable {
 	public void setRole_dbadmin(boolean role_dbadmin) {
 		this.role_dbadmin = role_dbadmin;
 	}
-/*
-	public List<UserRole> getUserRoleList() {
-		return userRoleList;
-	}
-
-	public void setUserRoleList(List<UserRole> userRoleList) {
-		this.userRoleList = userRoleList;
-	}
-
-*/
 }

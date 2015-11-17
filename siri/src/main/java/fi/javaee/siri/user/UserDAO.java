@@ -69,20 +69,7 @@ public class UserDAO implements Serializable {
 		String kryptattuna = spe.encode(salasana);
 		System.out.println("*****saveUser kryptaa *****");
 		user.setPassword(kryptattuna);
-/*
-		if(user.getUserRoleList() != null) {
-			for (UserRole userRole : user.getUserRoleList()) {
-				System.out.println("userrole: " + userRole.getRole() );
-				entityManager.persist(userRole);
-			}
-		}
-		else{
-			UserRole userRole2 = new UserRole();
-			userRole2.setUserName(user.getUsername());
-			userRole2.setRole("role_user");
-			entityManager.persist(userRole2);
-		}
-*/
+
 		entityManager.persist(user);
 		System.out.println("*****saveUser persist(user) *****");
 		return user;

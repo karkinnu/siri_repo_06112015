@@ -29,24 +29,14 @@ public class TestUserDAO {
     @Rollback(true)
     public void testAddUser()
     {
-    	/*
-		UserRole userRole = new UserRole();
-		userRole.setUserName("TestUser");
-		userRole.setRole("role_admin");
-		
-		List<UserRole> userRoleList = new ArrayList<UserRole>();
-		userRoleList.add(userRole);
-	*/	
 		User u = new User();
 		u.setUsername("TestUser");
 		u.setPassword("TestPassword");
 		u.setEnabled(true);
-		//u.setUserRoleList(userRoleList);
 		u.setRole_admin(true);
 		u.setRole_user(true);
 		u.setRole_dbadmin(true);
-    	
-    	//User u = new User("TestUser", "TestPassword", true);    	
+    	   	
         userDAO.saveUser(u);       
         StandardPasswordEncoder encoder = new StandardPasswordEncoder();	
         
@@ -64,23 +54,12 @@ public class TestUserDAO {
     @Transactional
     @Rollback(true)
     public void testRemoveUser()
-    {
-/*		UserRole userRole = new UserRole();
-		userRole.setUserName("TestUser");
-		userRole.setRole("role_admin");
-		
-		List<UserRole> userRoleList = new ArrayList<UserRole>();
-		userRoleList.add(userRole);
-	*/	
+    {	
 		User u = new User();
 		u.setUsername("TestUser");
-		u.setPassword("TestPassword");
-		//u.setUserRoleList(userRoleList);
-    	
-    	//User u = new User("TestUser", "TestPassword", true);    	
+		u.setPassword("TestPassword");	
         userDAO.saveUser(u);   
-    	
-    	//User u = new User("TestUser", "TestPassword", true);   	
+    	  	
         userDAO.saveUser(u);       
         User searchedUser = userDAO.findByUserName(u.getUsername());
         Assert.assertEquals(u.getUsername(), searchedUser.getUsername());
