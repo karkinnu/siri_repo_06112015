@@ -43,23 +43,14 @@ public class SiriController {
 		System.out.println("delete");
 		userDAO.deleteUser("Dummy");
 		
-		UserRole userRole = new UserRole();
-		userRole.setUserName("Dummy");
-		userRole.setRole("role_admin");
-		
-		UserRole userRole2 = new UserRole();
-		userRole2.setUserName("Dummy");
-		userRole2.setRole("role_user");
-/*		
-		List<UserRole> userRoleList = new ArrayList<UserRole>();
-		userRoleList.add(userRole);
-		userRoleList.add(userRole2);
-	*/	
 		User user = new User();
 		
 		user.setUsername("Dummy");
 		user.setPassword("Dummy");
-//		user.setUserRoleList(userRoleList);
+		user.setEnabled(true);
+		user.setRole_admin(true);
+		user.setRole_dbadmin(true);
+		user.setRole_user(true);
 		
 		System.out.println("save");
 		userDAO.saveUser(user);
