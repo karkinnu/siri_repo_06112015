@@ -30,7 +30,8 @@
 <body>
 	<h2>Add new customer</h2>
 
-	<form:form method="POST" modelAttribute="asiakas">
+	<form:form method="POST" modelAttribute="asiakas" enctype="multipart/form-data">
+	    File to upload: <input type="file" name="valokuvafile"><br/>
 		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>

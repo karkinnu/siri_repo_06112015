@@ -100,22 +100,22 @@ public class Asiakas implements Serializable {
 	
 	 public void setValokuva(byte [] kuva) {
 ;
-		 byte[] imageInByte=null;
-		 try {
-			 //URL url = new URL("http://www.mkyong.com/image/mypic.jpg");
-			 URL url = new URL(this.valokuvaurl);
-			 BufferedImage image = ImageIO.read(url);
-			 System.out.println("Valokuvan luku onnistui ");	
-	
-			 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			 ImageIO.write(image, "jpg", baos);
-			 baos.flush();
-			 imageInByte = baos.toByteArray();
-      
-		 }catch ( Exception e ) {
-			 System.out.println("Asiakas: Valokuvan talletus kantaan ei onnistunut " + e.getMessage());
-		 }
-		 this.valokuva = imageInByte;
+//		 byte[] imageInByte=null;
+//		 try {
+//			 //URL url = new URL("http://www.mkyong.com/image/mypic.jpg");
+//			 URL url = new URL(this.valokuvaurl);
+//			 BufferedImage image = ImageIO.read(url);
+//			 System.out.println("Valokuvan luku onnistui ");	
+//	
+//			 ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//			 ImageIO.write(image, "jpg", baos);
+//			 baos.flush();
+//			 imageInByte = baos.toByteArray();
+//      
+//		 }catch ( Exception e ) {
+//			 System.out.println("Asiakas: Valokuvan talletus kantaan ei onnistunut " + e.getMessage());
+//		 }
+		 this.valokuva = kuva;
 	 }
 	 
 	

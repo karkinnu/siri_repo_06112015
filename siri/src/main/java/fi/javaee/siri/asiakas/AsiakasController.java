@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import fi.javaee.siri.yritys.Yritys;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(value = "/customers/list")
@@ -40,7 +40,13 @@ public class AsiakasController {
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid Asiakas asiakas, ModelMap model) {
+	public String editPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
+		try{
+			byte [] bytes = file.getBytes();
+			asiakas.setValokuva(bytes);
+		}catch( Exception e){
+			System.out.println("Valokuvan lataus ei onnistunut");
+		}
 		asiakasDAO.update(asiakas);
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
@@ -57,9 +63,13 @@ public class AsiakasController {
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@Valid Asiakas asiakas, ModelMap model) {
-		byte[] bytes = new byte[2];
-		asiakas.setValokuva(bytes);
+	public String addPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
+		try{
+			byte [] bytes = file.getBytes();
+			asiakas.setValokuva(bytes);
+		}catch( Exception e){
+			System.out.println("Valokuvan lataus ei onnistunut");
+		}
 		Asiakas a = asiakasDAO.save(asiakas);
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
