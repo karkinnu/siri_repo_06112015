@@ -24,8 +24,8 @@ public class YritysDAO implements Serializable {
 		return entityManager;
 	}
 
-	public void setEntityManager(EntityManager em) {
-		this.entityManager = em;
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	public YritysDAO() {

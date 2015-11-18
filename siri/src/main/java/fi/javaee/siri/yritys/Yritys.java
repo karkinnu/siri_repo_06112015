@@ -20,15 +20,11 @@ public class Yritys implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long yritysId;
 
-	@Size(min = 1, max = 5)
+	@Size(min = 3, max = 20)
 	private String nimi;
-	@Size(min = 1, max = 5)
 	private String puhelin;
-	@Size(min = 1, max = 5)
 	private String osoite;
-	@Size(min = 1, max = 5)
 	private String nettiSivu;
-	@Size(min = 1, max = 5)
 	private String ytunnus;
 
 	public Yritys() {

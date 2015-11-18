@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
+<%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
@@ -9,7 +10,6 @@
 
 <head>
 <title>New Company</title>
-<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 
 <style>
 .error {
@@ -27,25 +27,13 @@ function autoFill() {
 }
 </script>
 <title><spring:message code="henk.create.title" /></title>
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet">
 
 </head>
 
 <body>
 	<h2>Add New Company</h2>
-    <form:form method="POST" modelAttribute="company" class="form-horizontal">
- 
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="nimi">Name</label>
-                <div class="col-md-7">
-                    <form:input type="text" path="nimi" id="nimi" class="form-control input-sm"/>
-                    <div class="has-error">
-                        <form:errors path="nimi" class="help-inline"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</form:form>
 
 	<form:form method="POST" modelAttribute="company">
 		<fieldset>
@@ -88,6 +76,7 @@ function autoFill() {
 		</table>
 		<br/>
 		<input type="submit" value="save" />
+		<button type="submit"><spring:message code="henk.create.add" /></button>
 		<input type="button" value="auto fill" onclick="autoFill()"/>
 		<br/>
 		<br/>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,7 +57,17 @@ public class YritysController {
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@Valid Yritys yritys, ModelMap model) {
+	public String addPost(@ModelAttribute(value="companies") @Valid Yritys yritys, ModelMap model, BindingResult result) {
+		System.out.println("huhuu");
+		if (result.hasErrors()) {
+			System.out.println("error has been found");
+			return "company_add";
+		} else {
+			System.out.println("no error");
+			//dao.talleta(henkilo);
+			//return "redirect:/henkilot/" + henkilo.getId();
+		}
+
 		Yritys y = yritysDAO.save(yritys);
 		List<Yritys> companies = yritysDAO.findAll();
 		model.addAttribute("companies", companies);
