@@ -32,7 +32,7 @@ public class TestYritysDAO {
 	@Rollback(true)
 	public void testAddYritys() {
     	Yritys yritys = new Yritys("Testi Yritys", "+35811223345", "testiosoite","www.testi.com", "Y-123456");    	
-        yritysDAO.save(yritys);       
+        yritysDAO.save(yritys);
         
         List<Yritys> searchedYritykset = new ArrayList<Yritys>();
         searchedYritykset = yritysDAO.findByName(yritys.getNimi());
