@@ -7,7 +7,7 @@
 
 <head>
 <title>Administrator</title>
-
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 <style>
 .error {
 	color: #ff0000;
@@ -20,12 +20,12 @@
 
 	<h2>Administrator Tools</h2>
 	<br />
-	<a href="<c:url value='/users/list/' />">User Management</a>
+	<a href="<c:url value='/users/list/' />"><button class="siri_menu" type= button>User Management</button></a>
 	<br />
 	<br />
-	<a href="<c:url value='/main' />">Back</a>
+	<a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a>
 	<br/>
 	<br/>
-	<a href="<c:url value='/'/>">Logout</a>
+	<a href="<c:url value='/users/list/' />"><button class="siri_menu" type= button>Logout</button></a>
 </body>
 </html>

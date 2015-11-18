@@ -8,14 +8,19 @@
 <html>
 <head>
 <title>Company</title>
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
 <body>
 	<h1>Company Management</h1>
 
    	<div>
-		<a href="add">Add new company</a>
+		<a href="<c:url value='add' />"><button class="siri_menu" type= button>Add new companyt</button></a>
 		<br/>
-		<a href="<c:url value='/main'/>">Back</a>
+		<br/>
+		<a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a>
+		<br/>
+		<br/>
+		<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
 	</div>
 	<br/>
 
@@ -40,10 +45,10 @@
  				<td style="text-align: left">${company.nettisivu}</td>
  				<td style="text-align: left">${company.ytunnus}</td>
             	<td>
-                	<a href="<c:url value="edit?id=${company.yritysId}" />">Edit</a>
+                	<a href="<c:url value="edit?id=${company.yritysId}" />"><button class="menu" type= button>Edit</button></a>
             	</td>
             	<td>
-		            <a href="<c:url value="delete?id=${company.yritysId}" />">Delete</a>
+		            <a href="<c:url value="delete?id=${company.yritysId}" />"><button class="menu" type= button>Delete</button></a>
             	</td>
             </tr>
 		</c:forEach>
