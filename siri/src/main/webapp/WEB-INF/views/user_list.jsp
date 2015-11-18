@@ -13,7 +13,6 @@
 	<h1>User Management</h1>
 
    	<div>
-   		<!-- FIXME: asiakas ja yritys puolella href="add", miksi tässä tarvitsee olla "list/add", ..tana! -->
 		<a href="add">Add new user</a>
 		<br/>
 		<a href="<c:url value='/admin'/>">Back</a>
@@ -25,11 +24,11 @@
 		<tr>
 		<th style="text-align: left">Id</th>
 		<th style="text-align: left">Name</th>
-		<th style="text-align: left">Password</th>
+		<!-- <th style="text-align: left">Password</th>-->
 		<th style="text-align: left">Enabled</th>
-		<th style="text-align: left">role_admin</th>
-		<th style="text-align: left">role_user</th>
-		<th style="text-align: left">role_dbadmin</th>
+		<th style="text-align: left">Admin</th>
+		<th style="text-align: left">User</th>
+		<th style="text-align: left">DbAdmin</th>
 		<th style="text-align: left">Edit</th>
 		<th style="text-align: left">Delete</th>
 		</tr>
@@ -37,7 +36,7 @@
 	    	<tr>
 				<td style="text-align: left">${kayttaja.userId}</td>
 				<td style="text-align: left">${kayttaja.username}</td>
-				<td style="text-align: left">${kayttaja.password}</td>
+				<!-- <td style="text-align: left">${kayttaja.password}</td>-->
 				<td style="text-align: left">${kayttaja.enabled}</td> 
 				<td style="text-align: left">${kayttaja.role_admin}</td>
 				<td style="text-align: left">${kayttaja.role_user}</td>
