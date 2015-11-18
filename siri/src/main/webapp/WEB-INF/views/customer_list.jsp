@@ -12,14 +12,11 @@
 <body>
 	<h1>Customer Management</h1>
 
-   	<div>
-		<a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a>
-		<br/>
-		<br/>
-		<a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a>
-		<br/>
-		<br/>
-		<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
+   	<div><table>
+		<tr><a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a></tr>
+		<tr><a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a></tr>
+		<tr><a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
+		</table>
 	</div>
 	<br/>
 
