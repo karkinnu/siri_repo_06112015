@@ -1,6 +1,7 @@
 package fi.javaee.siri.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
@@ -58,7 +59,8 @@ public class SiriController {
 
 	// kayttajan tunnistus
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String checkUser(@ModelAttribute(value = "user") @Valid User user, BindingResult result) {
+	public String checkUser(@ModelAttribute(value = "user") @Valid User user, BindingResult result,
+							HttpServletRequest response) {
 		System.out.println("Username: " + user.getUsername() + " password: " + user.getPassword());
 		String nextPage = "main";
 		User user2 = userDAO.findByUserName(user.getUsername());
@@ -71,6 +73,9 @@ public class SiriController {
 																			// taulusta
 																			// kryptattu
 																			// ss
+				response.getSession().setAttribute("user", user2.getUsername());
+				response.getSession().setAttribute("isAdmin", user2.isRole_admin());
+				response.getSession().setAttribute("isUser", user2.isRole_user());
 
 			} else {
 				// model.addAttribute("error", "Invalid password");
@@ -90,19 +95,24 @@ public class SiriController {
 
 	// paakayttajan sivu
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String adminPage(Model model) {
-		return "admin";
+	public String adminPage(Model model,  HttpServletRequest request) {
+		if ((boolean) request.getSession().getAttribute("isAdmin"))
+			return "admin";
+		else
+			return "403";
 	}
 
 	// paasivu
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String userPage(Model model) {
+		
 		return "main";
 	}
 
 	// logout
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logoutForm(Model model) {
+	public String logoutForm(Model model,  HttpServletRequest request) {
+		request.getSession().invalidate();
 		return "welcome";
 	}
 

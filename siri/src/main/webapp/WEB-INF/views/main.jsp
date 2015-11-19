@@ -17,6 +17,7 @@
 </head>
 
 <body background="<c:url value="/resources/images/siri.jpeg" />">
+Logged as user : ${sessionScope.user}
 <div class=main>
 <div class="header">
 	<h2>Tools</h2>
