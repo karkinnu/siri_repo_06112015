@@ -23,7 +23,7 @@
 	<table>
 	<tr><a href="<c:url value='/users/list/' />"><button class="siri_menu" type= button>User Management</button></a></tr>
 	<tr><a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a></tr>
-	<tr><a href="<c:url value='/users/list/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
+	<tr><a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
 	</table>
 </body>
 </html>
