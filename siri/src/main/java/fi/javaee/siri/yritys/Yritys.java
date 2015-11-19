@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import javax.validation.Constraint;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @Table(name = "yritys")
 // @Constraint(validatedBy = PhoneValidator.class)
@@ -20,11 +22,15 @@ public class Yritys implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long yritysId;
 
-	@Size(min = 3, max = 20)
+	@Size(min = 2, max = 20)
 	private String nimi;
+	@Size(min = 2, max = 10)
 	private String puhelin;
+	@Size(min = 2, max = 20)
 	private String osoite;
-	private String nettiSivu;
+	@Email
+	private String nettisivu;
+	@Size(min = 2, max = 20)
 	private String ytunnus;
 
 	public Yritys() {
@@ -37,7 +43,7 @@ public class Yritys implements Serializable {
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.osoite = osoite;
-		this.nettiSivu = nettisivu;
+		this.nettisivu = nettisivu;
 		this.ytunnus = ytunnus;
 	}
 
@@ -46,7 +52,7 @@ public class Yritys implements Serializable {
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.osoite = osoite;
-		this.nettiSivu = nettisivu;
+		this.nettisivu = nettisivu;
 		this.ytunnus = ytunnus;
 	}
 
@@ -83,11 +89,11 @@ public class Yritys implements Serializable {
 	}
 
 	public String getNettisivu() {
-		return nettiSivu;
+		return nettisivu;
 	}
 
 	public void setNettisivu(String nettisivu) {
-		this.nettiSivu = nettisivu;
+		this.nettisivu = nettisivu;
 	}
 
 	public String getYtunnus() {
@@ -98,10 +104,5 @@ public class Yritys implements Serializable {
 		this.ytunnus = ytunnus;
 	}
 
-	@Override
-	public String toString() {
-		return "Yritys [yritysId=" + yritysId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", osoite=" + osoite
-				+ ", nettisivu=" + nettiSivu + ", ytunnus=" + ytunnus + "]";
-	}
 
 }

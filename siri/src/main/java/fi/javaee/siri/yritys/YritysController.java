@@ -40,7 +40,7 @@ public class YritysController {
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid Yritys yritys, ModelMap model, BindingResult result) {
+	public String editPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
 		yritysDAO.update(yritys);
 		List<Yritys> companies = yritysDAO.findAll();
 		model.addAttribute("companies", companies);
@@ -50,18 +50,17 @@ public class YritysController {
 	// hae lomake lisaamista varten
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String addGet(Model model) {
-		Yritys company = new Yritys();
-		model.addAttribute("company", company);
+		Yritys yritys = new Yritys();
+		model.addAttribute("yritys", yritys);
 		return "company_add";
 	}
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@ModelAttribute(value = "companies") @Valid Yritys yritys, ModelMap model,
-			BindingResult result) {
-		System.out.println("huhuu");
+	public String addPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
 			System.out.println("error has been found");
+			model.addAttribute("yritys", yritys);
 			return "company_add";
 		} else {
 			System.out.println("no error");

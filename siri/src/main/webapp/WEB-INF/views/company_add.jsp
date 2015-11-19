@@ -19,7 +19,7 @@
 
 <script>
 function autoFill() {
-    document.getElementById("nimi").value = "Company";
+    document.getElementById("nimi").value = "1";
     document.getElementById("puhelin").value = "0401234567";
     document.getElementById("osoite").value = "Tikanmaja";
     document.getElementById("nettisivu").value = "www.apple.com";
@@ -28,49 +28,40 @@ function autoFill() {
 </script>
 <title><spring:message code="henk.create.title" /></title>
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
-<!-- link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet"-->
+<%-- <link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet"> --%>
 
 </head>
 
 <body>
+	Logged as user : ${sessionScope.user}
 	<h2>Add New Company</h2>
 
-	<form:form method="POST" modelAttribute="company">
-		<!-- fieldset-->
-		<!-- legend><spring:message code="henk.create.legend" /></legend-->
-		<spring:hasBindErrors name="company">
-			<p class="Virheotsikko"><spring:message code="henk.create.errors" />:</p>
-			<div class="Virheblokki"><form:errors path="*"/></div>
-		</spring:hasBindErrors>
+	<form:form method="POST" modelAttribute="yritys">
 		<table>
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input type="text" path="nimi" id="nimi" />
-				<form:errors path="nimi" cssClass="nimi" /></td>
-
-				<!--<form:label	path="nimi"><spring:message code="henk.create.firstname" /></form:label>
-				<form:input path="nimi" cssErrorClass="VirheellinenKentta"/>
-				<form:errors path="nimi" cssClass="Virheteksti"/>-->
+				<td><form:errors path="nimi" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="puhelin">Phone: </label></td>
 				<td><form:input path="puhelin" id="puhelin" /></td>
-				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
+				<td><form:errors path="puhelin" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="osoite">Address: </label></td>
 				<td><form:input path="osoite" id="osoite" /></td>
-				<td><form:errors path="osoite" cssClass="osoite" /></td>
+				<td><form:errors path="osoite" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="nettisivu">Website: </label></td>
 				<td><form:input path="nettisivu" id="nettisivu" /></td>
-				<td><form:errors path="nettisivu" cssClass="nettisivu" /></td>
+				<td><form:errors path="nettisivu" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="ytunnus">VAT number: </label></td>
 				<td><form:input path="ytunnus" id="ytunnus" /></td>
-				<td><form:errors path="ytunnus" cssClass="ytunnus" /></td>
+				<td><form:errors path="ytunnus" cssClass="error" /></td>
 			</tr>
 		</table>
 		<br/>
@@ -79,7 +70,6 @@ function autoFill() {
 		<br/>
 		<br/>
 		<a class="button" href="<c:url value='/companies/list/' />">Back</a>
-	<!-- /fieldset-->
 	</form:form>
 </body>
 </html>
