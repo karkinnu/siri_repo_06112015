@@ -22,6 +22,6 @@ Logged as user : ${sessionScope.user}
 	<br />
 	<a href="<c:url value='/users/list/' />"><button class="siri_menu" type= button>User Management</button></a>
 	<a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a>
-	<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
+	<a href="<c:url value='/logout' />"><button class="siri_menu" type= button>Logout</button></a>
 </body>
 </html>

@@ -16,6 +16,7 @@
    	<div>
 		<a href="<c:url value='add' />"><button class="siri_menu" type= button>Add new user</button></a>
 		<a href="<c:url value='/admin' />"><button class="siri_menu" type= button>Back</button></a>
+		<a href="<c:url value='/logout' />"><button class="siri_menu" type= button>Logout</button></a>	
 	</div>
 	<br/>
 

@@ -17,7 +17,7 @@ Logged as user : ${sessionScope.user}
    	<li class = siri_menuli>
 		<a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a>
 		<a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a>
-		<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
+		<a href="<c:url value='/logout' />"><button class="siri_menu" type= button>Logout</button></a>
 	</li>
 	</ul>
 	

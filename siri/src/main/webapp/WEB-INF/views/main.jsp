@@ -31,7 +31,7 @@ Logged as user : ${sessionScope.user}
 <br/>
 <div class="main2">
 	<a href="<c:url value='/admin' />"><button class="main_menu" type= button>Administrator Tools</button></a>
-	<a href="<c:url value='/' />"><button class="main_menu" type= button>Logout</button></a>
+	<a href="<c:url value='/logout' />"><button class="main_menu" type= button>Logout</button></a>
 </div>
 </div>
 </body>
