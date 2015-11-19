@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
@@ -17,9 +18,13 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
+
+	@Size(min = 2, max = 20)
 	private String username;
+	@Size(min = 2, max = 100)
 	private String password;
 	@Transient
+	@Size(min = 2, max = 20)
 	private String newPassword;
 	private boolean enabled;
 	private boolean role_admin;

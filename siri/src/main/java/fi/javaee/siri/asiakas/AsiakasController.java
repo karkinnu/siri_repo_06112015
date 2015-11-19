@@ -99,9 +99,6 @@ public class AsiakasController {
 			Asiakas a = asiakasDAO.save(asiakas);
 		}
 
-//		model.addAttribute("asiakas", asiakas);
-//		return "customer_add";
-
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";

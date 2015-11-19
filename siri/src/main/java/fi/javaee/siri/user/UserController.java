@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fi.javaee.siri.asiakas.Asiakas;
 import fi.javaee.siri.yritys.Yritys;
 
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
@@ -43,13 +44,20 @@ public class UserController {
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid User user, ModelMap model) {
+	public String editPost(@Valid User user, BindingResult result, ModelMap model) {
 
 		if (!user.getNewPassword().isEmpty()) {
 			user.setPassword(user.getNewPassword());
 		}
 
-		userDAO.update(user);
+		if (result.hasErrors()) {
+			System.out.println("edit: error has been found");
+			model.addAttribute("user", user);
+			return "user_edit";
+		} else {
+			System.out.println("edit: no error");
+			userDAO.update(user);
+		}
 
 		List<User> yritykset = userDAO.findAll();
 		model.addAttribute("kayttajat", yritykset);
@@ -66,8 +74,16 @@ public class UserController {
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@Valid User user, ModelMap model) {
-		User u = userDAO.saveUser(user);
+	public String addPost(@Valid User user, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			System.out.println("add: error has been found");
+			model.addAttribute("user", user);
+			return "user_add";
+		} else {
+			System.out.println("add: no error");
+			User u = userDAO.saveUser(user);
+		}
+
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);
 		return "user_list";
