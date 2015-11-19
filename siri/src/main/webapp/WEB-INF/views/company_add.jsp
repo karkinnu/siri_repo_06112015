@@ -33,7 +33,7 @@ function autoFill() {
 </head>
 
 <body>
-	Logged as user : ${sessionScope.user}
+Logged as user : ${sessionScope.user}
 	<h2>Add New Company</h2>
 
 	<form:form method="POST" modelAttribute="yritys">

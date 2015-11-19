@@ -24,7 +24,7 @@ public class Yritys implements Serializable {
 
 	@Size(min = 2, max = 20)
 	private String nimi;
-	@Size(min = 2, max = 10)
+	@Size(min = 2, max = 20)
 	private String puhelin;
 	@Size(min = 2, max = 20)
 	private String osoite;
