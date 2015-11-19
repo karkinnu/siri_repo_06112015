@@ -24,7 +24,7 @@
 	
 	<form:form method="POST" modelAttribute="asiakas" enctype="multipart/form-data" >
 		<img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}"/>
-		<input type="file" name="valokuvafile" id="valokuvafile" value="" />
+		File to upload: <input type="file" name="valokuvafile"><br/>
 		<table>
 			<tr>
 				<td><form:input type="hidden" path="asiakasId" id="asiakasId" /></td>

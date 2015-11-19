@@ -7,15 +7,16 @@
 <html>
 <head>
 <title>Customer</title>
-
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
 <body>
 	<h1>Customer Management</h1>
 
-   	<div>
-		<a href="add">Add new customer</a>
-		<br/>
-		<a href="<c:url value='/main'/>">Back</a>
+   	<div><table>
+		<tr><a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a></tr>
+		<tr><a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a></tr>
+		<tr><a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
+		</table>
 	</div>
 	<br/>
 
@@ -42,10 +43,10 @@
  				<td style="text-align: left">${asiakas.maa}</td>
  				<td><img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}"/></td>
             	<td>
-                	<a href="<c:url value="edit?id=${asiakas.asiakasId}" />">Edit</a>
+                	<a href="<c:url value="edit?id=${asiakas.asiakasId}" />"><button class="main_edit" type= button>Edit</button></a>
             	</td>
             	<td>
-		            <a href="<c:url value="delete?id=${asiakas.asiakasId}" />">Delete</a>
+		            <a href="<c:url value="delete?id=${asiakas.asiakasId}" />"><button class="main_edit" type= button>Delete</button></a>
             	</td>
             </tr>
 		</c:forEach>
