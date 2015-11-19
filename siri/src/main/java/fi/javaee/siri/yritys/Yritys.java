@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "yritys")
-//@Constraint(validatedBy = PhoneValidator.class)
+// @Constraint(validatedBy = PhoneValidator.class)
 public class Yritys implements Serializable {
 
 	private static final long serialVersionUID = 1L;

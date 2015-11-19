@@ -41,10 +41,10 @@ public class AsiakasController {
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String editPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
-		try{
-			byte [] bytes = file.getBytes();
+		try {
+			byte[] bytes = file.getBytes();
 			asiakas.setValokuva(bytes);
-		}catch( Exception e){
+		} catch (Exception e) {
 			System.out.println("Valokuvan lataus ei onnistunut");
 		}
 		asiakasDAO.update(asiakas);
@@ -64,10 +64,10 @@ public class AsiakasController {
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
-		try{
-			byte [] bytes = file.getBytes();
+		try {
+			byte[] bytes = file.getBytes();
 			asiakas.setValokuva(bytes);
-		}catch( Exception e){
+		} catch (Exception e) {
 			System.out.println("Valokuvan lataus ei onnistunut");
 		}
 		Asiakas a = asiakasDAO.save(asiakas);

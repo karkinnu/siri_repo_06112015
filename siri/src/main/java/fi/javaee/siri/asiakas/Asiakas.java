@@ -49,14 +49,13 @@ public class Asiakas implements Serializable {
 		this.maa = maa;
 		this.osoite = osoite;
 	}
-	
-	public Asiakas( String nimi, String puhelin, String sahkoposti, Image valokuva, String maa,
-			String osoite) {
+
+	public Asiakas(String nimi, String puhelin, String sahkoposti, Image valokuva, String maa, String osoite) {
 		super();
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.sahkoposti = sahkoposti;
-//		this.valokuva = valokuva;
+		// this.valokuva = valokuva;
 		this.maa = maa;
 		this.osoite = osoite;
 	}
@@ -93,32 +92,31 @@ public class Asiakas implements Serializable {
 		this.sahkoposti = sahkoposti;
 	}
 
-	
-	 public byte [] getValokuva() {
-		 return valokuva;
-	 }
-	
-	 public void setValokuva(byte [] kuva) {
-;
-//		 byte[] imageInByte=null;
-//		 try {
-//			 //URL url = new URL("http://www.mkyong.com/image/mypic.jpg");
-//			 URL url = new URL(this.valokuvaurl);
-//			 BufferedImage image = ImageIO.read(url);
-//			 System.out.println("Valokuvan luku onnistui ");	
-//	
-//			 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			 ImageIO.write(image, "jpg", baos);
-//			 baos.flush();
-//			 imageInByte = baos.toByteArray();
-//      
-//		 }catch ( Exception e ) {
-//			 System.out.println("Asiakas: Valokuvan talletus kantaan ei onnistunut " + e.getMessage());
-//		 }
-		 this.valokuva = kuva;
-	 }
-	 
-	
+	public byte[] getValokuva() {
+		return valokuva;
+	}
+
+	public void setValokuva(byte[] kuva) {
+		;
+		// byte[] imageInByte=null;
+		// try {
+		// //URL url = new URL("http://www.mkyong.com/image/mypic.jpg");
+		// URL url = new URL(this.valokuvaurl);
+		// BufferedImage image = ImageIO.read(url);
+		// System.out.println("Valokuvan luku onnistui ");
+		//
+		// ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		// ImageIO.write(image, "jpg", baos);
+		// baos.flush();
+		// imageInByte = baos.toByteArray();
+		//
+		// }catch ( Exception e ) {
+		// System.out.println("Asiakas: Valokuvan talletus kantaan ei onnistunut
+		// " + e.getMessage());
+		// }
+		this.valokuva = kuva;
+	}
+
 	public String getValokuvaurl() {
 		return valokuvaurl;
 	}

@@ -63,25 +63,25 @@ public class SpringServletConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	// <mvc:resources mapping="/resources/**" location="/resources/" />
-	
-	// for file upload 
+
+	// for file upload
 
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver createMultipartResolver() {
-	    CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-	    resolver.setDefaultEncoding("utf-8");
-	    resolver.setMaxUploadSize(20971520);
-	    resolver.setMaxInMemorySize(1048576);
-	    return resolver;
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setDefaultEncoding("utf-8");
+		resolver.setMaxUploadSize(20971520);
+		resolver.setMaxInMemorySize(1048576);
+		return resolver;
 	}
-	
-	@Bean(name="exceptionMappings")
-    public SimpleMappingExceptionResolver SimpleMappingExceptionResolver(){
 
-	    SimpleMappingExceptionResolver exceptionResolver=new SimpleMappingExceptionResolver();
+	@Bean(name = "exceptionMappings")
+	public SimpleMappingExceptionResolver SimpleMappingExceptionResolver() {
 
-	    return exceptionResolver;
-    
+		SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
+
+		return exceptionResolver;
+
 	}
 
 }

@@ -29,7 +29,6 @@ public class UserController {
 	// KAIKKI KOODI KOMMENTEISSA POISTETAAN HETI KUN VOIDAAN
 	//
 
-
 	// // Login lomakkeen luominen
 	// @RequestMapping(method = RequestMethod.GET)
 	// public String users(Model model) {
@@ -157,8 +156,8 @@ public class UserController {
 		System.out.println("User: " + user.getUsername());
 		System.out.println("Password: " + user.getPassword());
 		System.out.println("New Password: " + user.getNewPassword());
-		
-		if (!user.getNewPassword().isEmpty()) { 
+
+		if (!user.getNewPassword().isEmpty()) {
 			user.setPassword(user.getNewPassword());
 		}
 

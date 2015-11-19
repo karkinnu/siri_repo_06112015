@@ -60,7 +60,7 @@ public class AsiakasDAO implements Serializable {
 
 	public Asiakas delete(Long id) {
 		Asiakas asiakas = findById(id);
-		
+
 		if (asiakas != null) {
 			entityManager.remove(asiakas);
 		}
@@ -70,13 +70,14 @@ public class AsiakasDAO implements Serializable {
 
 	public Asiakas findById(Long id) {
 		Asiakas asiakas = null;
-		
+
 		try {
-			asiakas = (Asiakas) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id").setParameter("id", id).getSingleResult();
+			asiakas = (Asiakas) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id")
+					.setParameter("id", id).getSingleResult();
 		} catch (Exception e) {
-		    System.err.println("Caught Exception: " + e.getMessage());
+			System.err.println("Caught Exception: " + e.getMessage());
 		}
-		
+
 		return asiakas;
 	}
 

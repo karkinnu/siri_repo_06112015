@@ -38,16 +38,16 @@ public class SiriController {
 	public String loginForm(Model model) {
 		System.out.println("delete");
 		userDAO.deleteUser("Dummy");
-		
+
 		User user = new User();
-		
+
 		user.setUsername("Dummy");
 		user.setPassword("Dummy");
 		user.setEnabled(true);
 		user.setRole_admin(true);
 		user.setRole_dbadmin(true);
 		user.setRole_user(true);
-		
+
 		System.out.println("save");
 		userDAO.saveUser(user);
 		System.out.println("*****login *****");

@@ -96,7 +96,7 @@ public class UserDAO implements Serializable {
 
 	public User delete(Long id) {
 		User user = findById(id);
-		
+
 		if (user != null) {
 			entityManager.remove(user);
 		}
@@ -106,15 +106,17 @@ public class UserDAO implements Serializable {
 
 	public User findById(Long id) {
 		User user = null;
-		
+
 		try {
-			user = (User) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id).getSingleResult();
+			user = (User) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id)
+					.getSingleResult();
 		} catch (Exception e) {
 			// http://www.objectdb.com/java/jpa/query/execute
-			// heittaa poikkeuksen NonUniqueResultException tai NoResultException
-		    System.err.println("Caught Exception: " + e.getMessage());
+			// heittaa poikkeuksen NonUniqueResultException tai
+			// NoResultException
+			System.err.println("Caught Exception: " + e.getMessage());
 		}
-		
+
 		return user;
 	}
 
