@@ -13,9 +13,9 @@
 	<h1>User Management</h1>
 
    	<div>
-		<a href="add">Add new user</a>
+		<a href="<c:url value='add' />"><button type= button>Add new user</button></a>
 		<br/>
-		<a href="<c:url value='/admin'/>">Back</a>
+		<a href="<c:url value='/admin' />"><button type= button>Back</button></a>
 	</div>
 	<br/>
 
