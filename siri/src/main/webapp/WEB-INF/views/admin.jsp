@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+Logged as user : ${sessionScope.user}
 	<h2>Administrator Tools</h2>
 	<br />
 	<table>
