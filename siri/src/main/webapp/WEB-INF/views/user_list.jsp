@@ -7,15 +7,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 <title>User</title>
 </head>
 <body>
 	<h1>User Management</h1>
 
    	<div>
-		<a href="<c:url value='add' />"><button type= button>Add new user</button></a>
-		<br/>
-		<a href="<c:url value='/admin' />"><button type= button>Back</button></a>
+		<a href="<c:url value='add' />"><button class="siri_menu" type= button>Add new user</button></a>
+		<a href="<c:url value='/admin' />"><button class="siri_menu" type= button>Back</button></a>
 	</div>
 	<br/>
 

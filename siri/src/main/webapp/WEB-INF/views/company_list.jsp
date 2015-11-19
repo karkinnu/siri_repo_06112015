@@ -14,13 +14,10 @@
 Logged as user : ${sessionScope.user}
 	<h1>Company Management</h1>
 
-   	<div>
-   	<table>
-	<tr><a href="<c:url value='add' />"><button class="siri_menu" type= button>Add new company</button></a></tr>
-	<tr><a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a></tr>
-	<tr><a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
-	</table>
-	</div>
+	<a href="<c:url value='add' />"><button class="siri_menu" type= button>Add new company</button></a>
+	<a href="<c:url value='/main' />"><button class="siri_menu" type= button>Back</button></a>
+	<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
+
 	<br/>
 
 	<form method="get">

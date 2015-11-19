@@ -12,13 +12,15 @@
 <body>
 Logged as user : ${sessionScope.user}
 	<h1>Customer Management</h1>
-
-   	<div><table>
-		<tr><a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a></tr>
-		<tr><a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a></tr>
-		<tr><a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a></tr>
-		</table>
-	</div>
+	
+	<ul>
+   	<li class = siri_menuli>
+		<a href="<c:url value='add'/>"><button class="siri_menu" type= button>Add new customer</button></a>
+		<a href="<c:url value='/main'/>"><button class="siri_menu" type= button>Back</button></a>
+		<a href="<c:url value='/' />"><button class="siri_menu" type= button>Logout</button></a>
+	</li>
+	</ul>
+	
 	<br/>
 
 	<form method="get">

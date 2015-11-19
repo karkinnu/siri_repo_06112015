@@ -119,6 +119,16 @@ button.siri_menu {
 
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.siri_menuli {
+    display: inline;
+}
+
 h2 {
 	display: block;
     margin-left: auto;
