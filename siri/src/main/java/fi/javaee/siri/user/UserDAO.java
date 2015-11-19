@@ -56,22 +56,18 @@ public class UserDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public void deleteUser(String username) {
-		System.out.println("UserDAO:deleteUser");
 		int deletedItems = entityManager.createQuery("delete from User t where t.username LIKE :username")
 				.setParameter("username", username).executeUpdate();
 	}
 
 	@SuppressWarnings("unchecked")
 	public User saveUser(User user) {
-		System.out.println("*****saveUser  *****");
 		StandardPasswordEncoder spe = new StandardPasswordEncoder();
 		String salasana = user.getPassword();
 		String kryptattuna = spe.encode(salasana);
-		System.out.println("*****saveUser kryptaa *****");
 		user.setPassword(kryptattuna);
 
 		entityManager.persist(user);
-		System.out.println("*****saveUser persist(user) *****");
 		return user;
 	}
 
