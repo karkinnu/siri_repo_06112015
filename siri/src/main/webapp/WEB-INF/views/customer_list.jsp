@@ -10,6 +10,7 @@
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 </head>
 <body>
+Logged as user : ${sessionScope.user}
 	<h1>Customer Management</h1>
 
    	<div><table>

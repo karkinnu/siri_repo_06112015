@@ -20,6 +20,7 @@
 </head>
 
 <body>
+Logged as user : ${sessionScope.user}
 	<h2>Edit Customer Data</h2>
 	
 	<form:form method="POST" modelAttribute="asiakas" enctype="multipart/form-data" >

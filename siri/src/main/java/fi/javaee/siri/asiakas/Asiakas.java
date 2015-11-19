@@ -29,7 +29,6 @@ public class Asiakas implements Serializable {
 	private String sahkoposti;
 	@Lob
 	private byte[] valokuva;
-	transient MultipartFile valokuvafile;
 	private String maa;
 	private String osoite;
 
