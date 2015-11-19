@@ -41,7 +41,7 @@
  				<td style="text-align: left">${asiakas.osoite}</td>
  				<td style="text-align: left">${asiakas.sahkoposti}</td>
  				<td style="text-align: left">${asiakas.maa}</td>
- 				<td><img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}"/></td>
+ 				<td><img src="/siri/myImage/imageDisplay?id=${asiakas.asiakasId}" width="100" height="100"/></td>
             	<td>
                 	<a href="<c:url value="edit?id=${asiakas.asiakasId}" />"><button class="main_edit" type= button>Edit</button></a>
             	</td>
