@@ -19,7 +19,7 @@
 
 <script>
 function autoFill() {
-    document.getElementById("nimi").value = "1";
+    document.getElementById("nimi").value = "Company";
     document.getElementById("puhelin").value = "0401234567";
     document.getElementById("osoite").value = "Tikanmaja";
     document.getElementById("nettisivu").value = "www.apple.com";
