@@ -28,7 +28,7 @@ function autoFill() {
 </script>
 <title><spring:message code="henk.create.title" /></title>
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet">
+<!-- link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet"-->
 
 </head>
 
@@ -36,22 +36,21 @@ function autoFill() {
 	<h2>Add New Company</h2>
 
 	<form:form method="POST" modelAttribute="company">
-		<fieldset>
-		<legend><spring:message code="henk.create.legend" /></legend>
+		<!-- fieldset-->
+		<!-- legend><spring:message code="henk.create.legend" /></legend-->
 		<spring:hasBindErrors name="company">
 			<p class="Virheotsikko"><spring:message code="henk.create.errors" />:</p>
 			<div class="Virheblokki"><form:errors path="*"/></div>
 		</spring:hasBindErrors>
 		<table>
 			<tr>
-				<!--
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input type="text" path="nimi" id="nimi" />
 				<form:errors path="nimi" cssClass="nimi" /></td>
-				-->
-				<form:label	path="nimi"><spring:message code="henk.create.firstname" /></form:label>
+
+				<!--<form:label	path="nimi"><spring:message code="henk.create.firstname" /></form:label>
 				<form:input path="nimi" cssErrorClass="VirheellinenKentta"/>
-				<form:errors path="nimi" cssClass="Virheteksti"/>
+				<form:errors path="nimi" cssClass="Virheteksti"/>-->
 			</tr>
 			<tr>
 				<td><label for="puhelin">Phone: </label></td>
@@ -76,12 +75,11 @@ function autoFill() {
 		</table>
 		<br/>
 		<input type="submit" value="save" />
-		<button type="submit"><spring:message code="henk.create.add" /></button>
 		<input type="button" value="auto fill" onclick="autoFill()"/>
 		<br/>
 		<br/>
 		<a class="button" href="<c:url value='/companies/list/' />">Back</a>
-	</fieldset>
+	<!-- /fieldset-->
 	</form:form>
 </body>
 </html>
