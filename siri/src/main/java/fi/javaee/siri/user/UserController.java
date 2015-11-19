@@ -5,19 +5,15 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import fi.javaee.siri.asiakas.Asiakas;
-import fi.javaee.siri.yritys.Yritys;
+import org.apache.log4j.Logger;
 
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 @Controller
 @RequestMapping(value = "/users/list")
@@ -25,6 +21,8 @@ public class UserController {
 	@Inject
 	private UserDAO userDAO;
 
+	final static Logger logger = Logger.getLogger(UserController.class);
+	
 	// poista
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String deleteGet(Model model, Long id) {
@@ -94,6 +92,14 @@ public class UserController {
 	public String getAll(Model model) {
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);
+		
+		int parameter = 1;
+		
+		logger.info("This is info : " + parameter);
+		logger.warn("This is warn : " + parameter);
+		logger.error("This is error : " + parameter);
+		logger.fatal("This is fatal : " + parameter);
+		
 		return "user_list";
 	}
 
