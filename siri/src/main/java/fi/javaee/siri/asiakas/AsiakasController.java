@@ -8,10 +8,13 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import fi.javaee.siri.yritys.Yritys;
 
 @Controller
 @RequestMapping(value = "/customers/list")
@@ -40,20 +43,28 @@ public class AsiakasController {
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
-		
+	public String editPost(@Valid Asiakas asiakas, BindingResult result, ModelMap model,
+			@RequestParam("valokuvafile") MultipartFile file) {
+
 		try {
 			byte[] bytes = file.getBytes();
-			if (bytes.length == 0){
-				Asiakas a = asiakasDAO.findById((long)asiakas.getAsiakasId());
+			if (bytes.length == 0) {
+				Asiakas a = asiakasDAO.findById((long) asiakas.getAsiakasId());
 				asiakas.setValokuva(a.getValokuva());
-			}
-			else
+			} else
 				asiakas.setValokuva(bytes);
 		} catch (Exception e) {
 			System.out.println("Valokuvan lataus ei onnistunut");
 		}
-		asiakasDAO.update(asiakas);
+		if (result.hasErrors()) {
+			System.out.println("edit: error has been found");
+			model.addAttribute("asiakas", asiakas);
+			return "customer_edit";
+		} else {
+			System.out.println("edit: no error");
+			asiakasDAO.update(asiakas);
+		}
+
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";
@@ -69,16 +80,28 @@ public class AsiakasController {
 
 	// lisaa
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(@Valid Asiakas asiakas, @RequestParam("valokuvafile") MultipartFile file, ModelMap model) {
+	public String addPost(@Valid Asiakas asiakas, BindingResult result, ModelMap model,
+			@RequestParam("valokuvafile") MultipartFile file) {
 		try {
 			byte[] bytes = file.getBytes();
 			if (bytes.length != 0)
-			asiakas.setValokuva(bytes);
+				asiakas.setValokuva(bytes);
 		} catch (Exception e) {
 			System.out.println("Valokuvan lataus ei onnistunut");
 		}
-		
-		Asiakas a = asiakasDAO.save(asiakas);
+
+		if (result.hasErrors()) {
+			System.out.println("add: error has been found");
+			model.addAttribute("asiakas", asiakas);
+			return "customer_add";
+		} else {
+			System.out.println("add: no error");
+			Asiakas a = asiakasDAO.save(asiakas);
+		}
+
+//		model.addAttribute("asiakas", asiakas);
+//		return "customer_add";
+
 		List<Asiakas> asiakkaat = asiakasDAO.findAll();
 		model.addAttribute("asiakkaat", asiakkaat);
 		return "customer_list";

@@ -33,15 +33,23 @@ public class YritysController {
 	// hae tiedot muutosta varten
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editGet(Model model, Long id) {
-		Yritys company = yritysDAO.findById(id);
-		model.addAttribute("company", company);
+		Yritys yritys = yritysDAO.findById(id);
+		model.addAttribute("yritys", yritys);
 		return "company_edit";
 	}
 
 	// muuta
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String editPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
-		yritysDAO.update(yritys);
+		if (result.hasErrors()) {
+			System.out.println("edit: error has been found");
+			model.addAttribute("yritys", yritys);
+			return "company_edit";
+		} else {
+			System.out.println("edit: no error");
+			yritysDAO.update(yritys);
+		}
+
 		List<Yritys> companies = yritysDAO.findAll();
 		model.addAttribute("companies", companies);
 		return "company_list";
@@ -59,16 +67,14 @@ public class YritysController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			System.out.println("error has been found");
+			System.out.println("add: error has been found");
 			model.addAttribute("yritys", yritys);
 			return "company_add";
 		} else {
-			System.out.println("no error");
-			// dao.talleta(henkilo);
-			// return "redirect:/henkilot/" + henkilo.getId();
+			System.out.println("add: no error");
+			Yritys y = yritysDAO.save(yritys);
 		}
 
-		Yritys y = yritysDAO.save(yritys);
 		List<Yritys> companies = yritysDAO.findAll();
 		model.addAttribute("companies", companies);
 		return "company_list";

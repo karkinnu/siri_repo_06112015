@@ -22,7 +22,7 @@
 <body>
 	<h2>Edit Company Data</h2>
 
-	<form:form method="POST" modelAttribute="company">
+	<form:form method="POST" modelAttribute="yritys">
 
 		<table>
 			<tr>
@@ -31,27 +31,27 @@
 			<tr>
 				<td><label for="nimi">Name: </label></td>
 				<td><form:input type="text" path="nimi" id="nimi" /></td>
-				<td><form:errors path="nimi" cssClass="nimi" /></td>
+				<td><form:errors path="nimi" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="puhelin">Phone: </label></td>
 				<td><form:input path="puhelin" id="puhelin" /></td>
-				<td><form:errors path="puhelin" cssClass="puhelin" /></td>
+				<td><form:errors path="puhelin" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="osoite">Address: </label></td>
 				<td><form:input path="osoite" id="osoite" /></td>
-				<td><form:errors path="osoite" cssClass="osoite" /></td>
+				<td><form:errors path="osoite" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="nettisivu">Website: </label></td>
 				<td><form:input path="nettisivu" id="nettisivu" /></td>
-				<td><form:errors path="nettisivu" cssClass="nettisivu" /></td>
+				<td><form:errors path="nettisivu" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td><label for="ytunnus">VAT number: </label></td>
 				<td><form:input path="ytunnus" id="ytunnus" /></td>
-				<td><form:errors path="ytunnus" cssClass="ytunnus" /></td>
+				<td><form:errors path="ytunnus" cssClass="error" /></td>
 			</tr>
 		</table>
 		<br/>

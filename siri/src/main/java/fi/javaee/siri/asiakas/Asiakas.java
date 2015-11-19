@@ -13,7 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -24,12 +27,19 @@ public class Asiakas implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long asiakasId;
+
+	@Size(min = 2, max = 20)
 	private String nimi;
+	@Size(min = 2, max = 20)
 	private String puhelin;
+	@NotNull
+	@Email
 	private String sahkoposti;
 	@Lob
 	private byte[] valokuva;
+	@Size(min = 2, max = 20)
 	private String maa;
+	@Size(min = 2, max = 20)
 	private String osoite;
 
 	public Asiakas() {
