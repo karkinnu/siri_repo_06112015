@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,8 @@ import org.springframework.transaction.annotation.Propagation;
 public class AsiakasDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	final static Logger logger = Logger.getLogger(AsiakasController.class);
+
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -75,7 +78,8 @@ public class AsiakasDAO implements Serializable {
 			asiakas = (Asiakas) entityManager.createQuery("select t from Asiakas t where t.asiakasId=:id")
 					.setParameter("id", id).getSingleResult();
 		} catch (Exception e) {
-			System.err.println("Caught Exception: " + e.getMessage());
+			logger.error("Error has been found in findById: " +e.getMessage());
+
 		}
 
 		return asiakas;
