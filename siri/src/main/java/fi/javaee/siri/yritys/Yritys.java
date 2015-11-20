@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.Constraint;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -23,7 +24,8 @@ public class Yritys implements Serializable {
 
 	@Size(min = 2, max = 20)
 	private String nimi;
-	@Size(min = 2, max = 20)
+	//@Size(min = 2, max = 20)
+	@Pattern(regexp="^[0-9]+$")
 	private String puhelin;
 	@Size(min = 2, max = 20)
 	private String osoite;
