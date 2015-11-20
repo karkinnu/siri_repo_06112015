@@ -27,14 +27,9 @@
 			<tr> 
 				<td><input type="submit" value="login"  /></td>
 			</tr>
-
 		</table>
 	</form:form>
-	<br/>
-	<a href="<c:url value='/main' />">Main Page</a>
-	<br/>
-	<br/>
-	<a href="<c:url value='/' />">Back</a>
+	<a href="<c:url value='/'/>"><button type= button>Back</button></a>
 </div>
 </body>
 </html>	
