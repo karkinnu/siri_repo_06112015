@@ -42,11 +42,9 @@ public class YritysController {
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String editPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			System.out.println("edit: error has been found");
 			model.addAttribute("yritys", yritys);
 			return "company_edit";
 		} else {
-			System.out.println("edit: no error");
 			yritysDAO.update(yritys);
 		}
 
@@ -67,11 +65,9 @@ public class YritysController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Yritys yritys, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			System.out.println("add: error has been found");
 			model.addAttribute("yritys", yritys);
 			return "company_add";
 		} else {
-			System.out.println("add: no error");
 			Yritys y = yritysDAO.save(yritys);
 		}
 
