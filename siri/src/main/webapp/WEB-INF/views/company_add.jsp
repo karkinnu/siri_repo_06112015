@@ -26,7 +26,6 @@ function autoFill() {
     document.getElementById("ytunnus").value = "Y-12345";
 }
 </script>
-<title><spring:message code="henk.create.title" /></title>
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
 <%-- <link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet"> --%>
 
