@@ -25,7 +25,7 @@
 				<td><form:errors path="password" cssClass="assword" /></td>  
 			</tr>
 			<tr> 
-				<td><input type="submit" value="login"  /></td>
+				<td><input type="submit" value="Login"  /></td>
 			</tr>
 		</table>
 	</form:form>
