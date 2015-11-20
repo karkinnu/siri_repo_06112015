@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.apache.log4j.Logger;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 @Repository("userDao")
@@ -18,6 +18,8 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 public class UserDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	final static Logger logger = Logger.getLogger(UserController.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -107,10 +109,7 @@ public class UserDAO implements Serializable {
 			user = (User) entityManager.createQuery("select t from User t where t.userId=:id").setParameter("id", id)
 					.getSingleResult();
 		} catch (Exception e) {
-			// http://www.objectdb.com/java/jpa/query/execute
-			// heittaa poikkeuksen NonUniqueResultException tai
-			// NoResultException
-			System.err.println("Caught Exception: " + e.getMessage());
+			logger.error("Error has been found in findById");
 		}
 
 		return user;

@@ -53,7 +53,7 @@ public class Asiakas implements Serializable {
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.sahkoposti = sahkoposti;
-		// this.valokuva = valokuva;
+		
 		this.maa = maa;
 		this.osoite = osoite;
 	}
@@ -63,7 +63,6 @@ public class Asiakas implements Serializable {
 		this.nimi = nimi;
 		this.puhelin = puhelin;
 		this.sahkoposti = sahkoposti;
-		// this.valokuva = valokuva;
 		this.maa = maa;
 		this.osoite = osoite;
 	}
@@ -129,7 +128,5 @@ public class Asiakas implements Serializable {
 		return "Asiakas [asiakasId=" + asiakasId + ", nimi=" + nimi + ", puhelin=" + puhelin + ", sahkoposti="
 				+ sahkoposti + ",  maa=" + maa + ", osoite=" + osoite + "]";
 	}
-
-	//
 
 }
