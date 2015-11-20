@@ -83,7 +83,7 @@ public class AsiakasController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid Asiakas asiakas, BindingResult result, ModelMap model,
 			@RequestParam("valokuvafile") MultipartFile file) {
-		logger.info("AsiakasController: delete customer : asiakas id :" + asiakas.getAsiakasId());
+		logger.info("AsiakasController: edit customer : asiakas id :" + asiakas.getAsiakasId());
 
 		try {
 			byte[] bytes = file.getBytes();
