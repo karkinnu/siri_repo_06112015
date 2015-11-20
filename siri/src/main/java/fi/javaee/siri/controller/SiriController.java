@@ -37,7 +37,6 @@ public class SiriController {
 	// login - lomakkeen luominen
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginForm(Model model) {
-		System.out.println("delete");
 		userDAO.deleteUser("Dummy");
 
 		User user = new User();
@@ -49,9 +48,7 @@ public class SiriController {
 		user.setRole_dbadmin(true);
 		user.setRole_user(true);
 
-		System.out.println("save");
 		userDAO.saveUser(user);
-		System.out.println("*****login *****");
 		user = new User();
 		model.addAttribute("user", user);
 		return "login";
@@ -61,7 +58,7 @@ public class SiriController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String checkUser(@ModelAttribute(value = "user") @Valid User user, BindingResult result,
 							HttpServletRequest response) {
-		System.out.println("Username: " + user.getUsername() + " password: " + user.getPassword());
+//		System.out.println("Username: " + user.getUsername() + " password: " + user.getPassword());
 		String nextPage = "main";
 		User user2 = userDAO.findByUserName(user.getUsername());
 
