@@ -49,11 +49,10 @@ public class UserController {
 		}
 
 		if (result.hasErrors()) {
-			System.out.println("edit: error has been found");
+			logger.error("add: error has been found in edit");
 			model.addAttribute("user", user);
 			return "user_edit";
 		} else {
-			System.out.println("edit: no error");
 			userDAO.update(user);
 		}
 
@@ -74,11 +73,10 @@ public class UserController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(@Valid User user, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			System.out.println("add: error has been found");
+			logger.error("add: error has been found");
 			model.addAttribute("user", user);
 			return "user_add";
 		} else {
-			System.out.println("add: no error");
 			User u = userDAO.saveUser(user);
 		}
 
@@ -93,12 +91,9 @@ public class UserController {
 		List<User> kayttajat = userDAO.findAll();
 		model.addAttribute("kayttajat", kayttajat);
 		
-		int parameter = 1;
 		
-		logger.info("This is info : " + parameter);
-		logger.warn("This is warn : " + parameter);
-		logger.error("This is error : " + parameter);
-		logger.fatal("This is fatal : " + parameter);
+		int parameter = 1;		
+		logger.info("This is info. Test that logger is working: " + parameter);
 		
 		return "user_list";
 	}
