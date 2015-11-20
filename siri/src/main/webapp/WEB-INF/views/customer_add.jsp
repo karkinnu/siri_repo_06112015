@@ -14,14 +14,7 @@
 }
 </style>
 
-<script>
-	function autoFill() {
-	    document.getElementById("nimi").value = "Jasmina JavaScript";
-	    document.getElementById("puhelin").value = "0401234567";
-	    document.getElementById("sahkoposti").value = "etunimi.sukumi@sahkoposti.fi";
-	    document.getElementById("maa").value = "Maa";
-	    document.getElementById("osoite").value = "Tikanmaja";	}
-</script>
+<script src="<c:url value="/resources/js/customer.js" />"></script>
 
 </head>
 

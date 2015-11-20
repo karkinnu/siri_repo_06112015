@@ -17,17 +17,9 @@
 }
 </style>
 
-<script>
-function autoFill() {
-    document.getElementById("nimi").value = "Company";
-    document.getElementById("puhelin").value = "0401234567";
-    document.getElementById("osoite").value = "Tikanmaja";
-    document.getElementById("nettisivu").value = "www.apple.com";
-    document.getElementById("ytunnus").value = "Y-12345";
-}
-</script>
+<script src="<c:url value="/resources/js/company.js" />"></script>
+
 <link href="<c:url value="/resources/styles/common.css" />" rel="stylesheet">
-<%-- <link href="<c:url value="/resources/styles/form.css" />" rel="stylesheet"> --%>
 
 </head>
 

@@ -14,7 +14,6 @@ import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name = "yritys")
-// @Constraint(validatedBy = PhoneValidator.class)
 public class Yritys implements Serializable {
 
 	private static final long serialVersionUID = 1L;
