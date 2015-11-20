@@ -24,8 +24,8 @@ public class Yritys implements Serializable {
 
 	@Size(min = 2, max = 20)
 	private String nimi;
-	//@Size(min = 2, max = 20)
-	@Pattern(regexp="^[0-9]+$")
+	@Size(min = 2, max = 20)
+	//@Pattern(regexp="^[0-9]+$")
 	private String puhelin;
 	@Size(min = 2, max = 20)
 	private String osoite;
